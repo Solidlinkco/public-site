@@ -1,0 +1,33 @@
+@import "../../../scss/variables";
+
+.Loader {
+    width: 100%;
+    height: 3px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(#4e40ef, 0.3);
+    overflow: hidden;
+    z-index: 99999;
+
+    &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 400px;
+        height: 3px;
+        background: blue;
+        animation: moveLeft 1.7s ease-out infinite;
+    }
+}
+
+@keyframes moveLeft {
+    from {
+        transform: translateX(-400px);
+    }
+    to {
+        transform: translateX(100vw);
+    }
+}

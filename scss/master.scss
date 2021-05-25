@@ -1,0 +1,35 @@
+/*
+ *  Global styles
+ *  This should only be imported at the page level. Do not import into any component.
+ */
+
+// Import baseline resets
+// @import "resets";
+// @import "variables";
+@import "resets";
+@import "layout-mixins";
+@import "grid";
+@import "typography";
+
+// body {
+// }
+
+body.fixed {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.img-rounded {
+    border-radius: 12px;
+    display: block;
+    width: 100%;
+}
+
+.button--clean {
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+}

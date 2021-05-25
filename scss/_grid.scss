@@ -1,0 +1,220 @@
+@import "./layout-mixins";
+
+.hidden-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.visible-mobile {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.visible-xs {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.hidden-xs {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hidden-sm {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.hidden-from-md {
+  @include tablet {
+    display: none !important;
+  }
+}
+
+.col-2 {
+  width: getwidth(2, 1);
+
+  @include extended-grid();
+}
+
+.col-3 {
+  width: getwidth(3, 2);
+
+  @include extended-grid();
+}
+
+.col-4 {
+  width: getwidth(4, 3);
+
+  @include extended-grid();
+}
+
+.col-5 {
+  width: getwidth(5, 4);
+
+  @include extended-grid();
+}
+
+.col-6 {
+  width: getwidth(6, 5);
+
+  &.text-collapse-inside-inline-tablet {
+    line-height: 22px;
+
+    p {
+      display: inline;
+    }
+
+    @include tablet {
+      margin-top: 12px;
+    }
+
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        width: getinnerwidth(3, 2, 6, 5);
+        max-width: none !important;
+        box-sizing: border-box;
+        padding-right: calc(7vw - 80px);
+      }
+    }
+  }
+
+  .col-3 {
+    width: getinnerwidth(3, 2, 6, 5);
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  @include extended-grid();
+}
+
+.col-7 {
+  width: getwidth(7, 6);
+
+  @include extended-grid();
+}
+
+.col-8 {
+  width: getwidth(8, 7);
+
+  @include extended-grid();
+}
+
+.col-9 {
+  width: getwidth(9, 8);
+
+  .col-3 {
+    width: getinnerwidth(3, 2, 9, 8);
+
+    @include extended-grid();
+
+    .col-3 {
+      width: 100%;
+    }
+  }
+
+  .col-6 {
+    width: getinnerwidth(6, 5, 9, 8);
+
+    .col-3 {
+      width: getinnerwidth(3, 2, 6, 5);
+
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  .col-9 {
+    width: 100%;
+  }
+
+  @include extended-grid();
+}
+
+.col-10 {
+  width: getwidth(10, 9);
+
+  @include extended-grid();
+
+  .col-9 {
+    width: getinnerwidth(9, 8, 10,9);
+  }
+}
+
+.col-12 {
+  position: relative;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  width: calc(100vw - 32px);
+  max-width: 1224px;
+  // background-color: #eee;
+
+  @include tablet {
+    width: calc(100vw - 64px);
+  }
+
+  @include tablet {
+    width: calc(100vw - 88px);
+  }
+
+  @include desktop {
+    width: calc(100vw - 120px);
+  }
+
+  // @include media-breakpoint-up(xl) {
+  //   width: calc(100vw - 120px);
+  // }
+
+  @include extended-grid();
+}
+
+.two-col-title {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    // background: orange;
+    > * {
+      width: 45%;
+    }
+  }
+}
+
+
+.hl {
+  position: relative;
+  width: 100%;
+  height: 1px;
+  background: black;
+  margin: 64px 0;
+
+  @include tablet {
+    margin-top: 120px;
+    margin-bottom: 120px;
+  }
+
+  &.hl--grey {
+    background: $color-grey-border;
+  }
+  &.hl--transparent {
+    background: rgba(255,255,255,0.1);
+  }
+}
+
+.justify-content-center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
