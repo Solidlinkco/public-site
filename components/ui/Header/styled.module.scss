@@ -1,0 +1,43 @@
+.Banner {
+    background-color: #03045e;
+    color: #fff;
+    padding: 8px 0;
+
+    @media screen and (max-width: 992px) {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.BannerWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__Left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__Right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__Bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 22px;
+        transition: all 0.3s ease-out;
+
+        &_svg {
+            margin-top: 3px;
+            margin-right: 8px;
+        }
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+}

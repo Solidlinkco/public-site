@@ -3,7 +3,7 @@ import Head from "next/head";
 import Router from "next/router";
 
 import PageLoader from "../components/ui/PageLoader";
-import "./../scss/master.scss";
+import "../scss/master.scss";
 
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = useState(false);
