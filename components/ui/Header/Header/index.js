@@ -42,7 +42,7 @@ const HeaderBar = () => {
                     <div className={classes.Masthead__Left}>
                         <Link href="/">
                             <a>
-                                <Image src="/assets/img/logo1.png" alt="solid-link co" width={90.3} height={60} />
+                                <Image src="/assets/img/logo1.png" alt="solid-link co" width={80.3} height={50} />
                             </a>
                         </Link>
                     </div>
