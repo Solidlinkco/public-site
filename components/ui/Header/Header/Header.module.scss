@@ -1,0 +1,336 @@
+.SolidLink {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background-color: #fff;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 4px rgba(#1e212b, 0.05);
+
+    &__masthead {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+
+        @media screen and (max-width: 56.25em) {
+            flex-flow: column wrap;
+        }
+    }
+    &__logo {
+        padding: 1rem 0;
+        margin-right: auto;
+        img {
+            width: 100%;
+            transform: translateY(4px);
+        }
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @media screen and (max-width: 56.25em) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        & > :not(:last-child) {
+            margin-right: 3rem;
+        }
+
+        &__Desktop {
+            @media screen and (max-width: 56.25em) {
+                display: none;
+            }
+        }
+
+        & div {
+            position: relative;
+            cursor: pointer;
+            font-weight: 600;
+
+            @media screen and (max-width: 56.25em) {
+                margin-bottom: 2rem;
+            }
+
+            & p {
+                color: #00008beb;
+                margin-bottom: 1rem;
+                transform: translateY(1.5px);
+                span {
+                    svg {
+                        transition: all 0.3s ease-out;
+
+                        transform: translate(4px, 7px);
+                    }
+                }
+            }
+
+            &:hover p {
+                span {
+                    svg {
+                        transform: translate(4px, 7px) rotate(180deg);
+                    }
+                }
+            }
+
+            &:hover ul {
+                opacity: 1;
+                transform: scaleY(1);
+
+                @media screen and (max-width: 56.25em) {
+                    display: block;
+                }
+            }
+        }
+
+        & ul {
+            font-weight: initial;
+            list-style-type: none;
+            width: 190px;
+            position: absolute;
+            background-color: #00008beb;
+            opacity: 0;
+            transform: scaleY(0);
+            transition: all 0.2s ease-out;
+            transform-origin: top;
+            padding: 1.5rem;
+            left: 0;
+            top: 2.7rem;
+            box-shadow: 0.5rem 0.5rem 1.6rem rgba(#1e212b, 0.1);
+
+            border-radius: 6px;
+
+            @media screen and (max-width: 56.25em) {
+                opacity: 1;
+                transform: scaleY(1);
+                display: none;
+                position: relative;
+                left: 0;
+                top: 0;
+                box-shadow: none;
+            }
+
+            & > :not(:last-child) {
+                margin-bottom: 2rem;
+            }
+
+            & li {
+                cursor: pointer;
+                text-align: left;
+
+                & a {
+                    color: #fff;
+                    text-decoration: none;
+
+                    &::after {
+                        content: "";
+                        display: block;
+                        position: relative;
+                        top: 0.5rem;
+                        width: 100%;
+                        opacity: 0;
+                        height: 1px;
+                        background-color: #fff;
+                        transition: all 0.3s ease-out;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                    }
+
+                    &:hover::after {
+                        opacity: 1;
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+
+    &__MobileNav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #00008beb;
+        height: 100vh;
+        width: 100vw;
+        overflow: scroll;
+        padding: 2rem 0;
+        margin: 0 auto;
+
+        & .SemiBox {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            margin-left: 40px;
+            overflow: scroll;
+            padding: 2rem 0;
+            & > :not(:last-child) {
+                margin-bottom: 3.5rem;
+            }
+            & > * {
+                border-bottom: 1px solid #fff;
+                display: block;
+            }
+        }
+
+        @media screen and (min-width: 56.25em) {
+            display: none !important;
+        }
+    }
+}
+
+.Cinematheque__MobileNav ul {
+    transition: all 0.3s ease-out;
+    display: none;
+}
+.Cinematheque__MobileNav input:checked ~ ul {
+    display: inline-block !important;
+}
+
+.activeNavLink {
+    &::after {
+        opacity: 1 !important;
+        transform: scaleX(1) !important;
+        transform-origin: right !important;
+    }
+}
+
+/*hamburger*/
+
+.hamOpen::before,
+.hamOpen::after {
+    background-color: #fff !important;
+}
+.main_navigation {
+    z-index: 1000;
+}
+.main_navigation__checkbox {
+    display: none;
+}
+@media screen and (max-width: 56.25em) {
+    .main_navigation__button {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 1.8rem;
+        padding: 2rem;
+        margin-right: 1rem;
+    }
+}
+@media screen and (max-width: 56.25em) and (max-width: 56.25em) {
+    .main_navigation__button {
+        display: block;
+    }
+}
+@media screen and (max-width: 56.25em) {
+    .main_navigation__hamburger {
+        position: relative;
+    }
+    .main_navigation__hamburger,
+    .main_navigation__hamburger::before,
+    .main_navigation__hamburger::after {
+        width: 2rem;
+        height: 1.6px;
+        background-color: #00008beb;
+        display: block;
+        z-index: 4000;
+    }
+    .main_navigation__hamburger::before,
+    .main_navigation__hamburger::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all 0.2s;
+    }
+    .main_navigation__hamburger::before {
+        top: -0.8rem;
+    }
+    .main_navigation__hamburger::after {
+        top: 0.8rem;
+    }
+    .main_navigation__checkbox:checked + .main_navigation__button .main_navigation__hamburger {
+        background-color: transparent;
+    }
+    .main_navigation__checkbox:checked + .main_navigation__button .main_navigation__hamburger::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+    .main_navigation__checkbox:checked + .main_navigation__button .main_navigation__hamburger::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}
+
+@keyframes footerBack {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes animateNav {
+    0% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+    }
+    80% {
+        transform: translate(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.Navlinks {
+    & a {
+        color: #00008beb;
+        text-decoration: none;
+
+        &::after {
+            content: "";
+            display: block;
+            position: relative;
+            top: 0.5rem;
+            width: 100%;
+            opacity: 0;
+            height: 1px;
+            background-color: #00008beb;
+            transition: all 0.3s ease-out;
+            transform: scaleX(0);
+            transform-origin: left;
+        }
+
+        &:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        @media screen and (max-width: 56.25em) {
+            color: #fff;
+            &::after {
+                background-color: #fff;
+            }
+        }
+    }
+}
