@@ -15,7 +15,9 @@ export async function getStaticProps() {
 export default function Home({ contacts }) {
     return (
         <Layout contacts={contacts}>
-            <h3>And it begins || Solid-link-co</h3>
+            <div style={{ minHeight: "100vh" }}>
+                <h3>And it begins || Solid-link-co</h3>
+            </div>
         </Layout>
     );
 }

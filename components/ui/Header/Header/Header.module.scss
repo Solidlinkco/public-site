@@ -5,6 +5,10 @@
     background-color: #fff;
     font-size: 1.4rem;
     box-shadow: 0 4px 4px rgba(#1e212b, 0.05);
+    top: 43px;
+    @media screen and (max-width: 56.25em) {
+        top: 0;
+    }
 
     &__masthead {
         display: flex;
@@ -56,7 +60,7 @@
             }
 
             & p {
-                color: #00008beb;
+                color: #1a1546;
                 margin-bottom: 1rem;
                 transform: translateY(1.5px);
                 span {
@@ -91,7 +95,7 @@
             list-style-type: none;
             width: 190px;
             position: absolute;
-            background-color: #00008beb;
+            background-color: #1a1546;
             opacity: 0;
             transform: scaleY(0);
             transition: all 0.2s ease-out;
@@ -152,7 +156,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        background-color: #00008beb;
+        background-color: #1a1546;
         height: 100vh;
         width: 100vw;
         overflow: scroll;
@@ -235,7 +239,7 @@
     .main_navigation__hamburger::after {
         width: 2rem;
         height: 1.6px;
-        background-color: #00008beb;
+        background-color: #1a1546;
         display: block;
         z-index: 4000;
     }
@@ -304,7 +308,7 @@
 
 .Navlinks {
     & a {
-        color: #00008beb;
+        color: #1a1546;
         text-decoration: none;
 
         &::after {
@@ -315,7 +319,7 @@
             width: 100%;
             opacity: 0;
             height: 1px;
-            background-color: #00008beb;
+            background-color: #1a1546;
             transition: all 0.3s ease-out;
             transform: scaleX(0);
             transform-origin: left;

@@ -1,7 +1,10 @@
 .Banner {
-    background-color: #00008beb;
+    background-color: #1a1546;
     color: #fff;
     padding: 8px 0;
+    position: fixed;
+    z-index: 1010;
+    width: 100%;
 
     @media screen and (max-width: 56.25em) {
         display: none;
