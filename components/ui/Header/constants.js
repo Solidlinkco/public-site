@@ -18,7 +18,7 @@ const LINK = [
         ],
     },
     {
-        label: "Schools",
+        label: "Partners",
         dropdown: true,
         nav: [
             {
@@ -40,8 +40,8 @@ const LINK = [
                 to: "/bespoke-training",
             },
             {
-                label: "Coporate training",
-                to: "/coporate-training",
+                label: "Corporate training",
+                to: "/corporate-training",
             },
         ],
     },
