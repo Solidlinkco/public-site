@@ -1,9 +1,9 @@
 .Banner {
-    background-color: #03045e;
+    background-color: #00008beb;
     color: #fff;
     padding: 8px 0;
 
-    @media screen and (max-width: 992px) {
+    @media screen and (max-width: 56.25em) {
         display: none;
         visibility: hidden;
     }
