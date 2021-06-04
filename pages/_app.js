@@ -45,6 +45,9 @@ function MyApp({ Component, pageProps }) {
                 <meta property="og:image" content=".png" />
                 <meta property="og:url" content=".com" />
                 <meta name="robots" content="noindex"></meta>
+
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
             </Head>
             {loading && <PageLoader />}
             <Component {...pageProps} />

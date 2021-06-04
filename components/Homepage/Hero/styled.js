@@ -26,7 +26,7 @@ const StyledHeroText = styled.div`
     color: #fff;
     position: absolute;
     top: 50%;
-    right: 40px;
+    right: 80px;
     transform: translateY(-50%);
     padding: 30px;
     display: flex;
@@ -44,6 +44,7 @@ const StyledHeroText = styled.div`
         transform: translateY(0);
         opacity: 1;
         animation-delay: 0.2s;
+        text-align: center;
     }
 
     button {
@@ -60,6 +61,9 @@ const StyledHeroText = styled.div`
         cursor: pointer;
         transition: all 0.3s ease-out;
         font-size: 14px;
+        width: 220px;
+        align-self: center;
+
         &:hover {
             background-color: #383171;
         }

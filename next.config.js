@@ -3,7 +3,7 @@ module.exports = {
         domains: ["media.graphcms.com"],
     },
     env: {
-        // graphcms: process.env.REACT_APP_GRAPH_CMS,
+        calendly: process.env.REACT_APP_CALENDLY_TOKEN,
     },
     target: "serverless",
 };
