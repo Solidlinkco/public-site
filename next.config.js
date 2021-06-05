@@ -3,18 +3,10 @@ module.exports = {
         domains: ["media.graphcms.com"],
     },
     env: {
-        // graphcms: process.env.REACT_APP_GRAPH_CMS,
+        calendlyUrl: process.env.REACT_APP_CALENDLY_URL,
+        calendlyToken: process.env.REACT_APP_CALENDLY_TOKEN,
+        telegramBot: process.env.REACT_APP_TELEGRAM_BOT,
+        telegramChannel: process.env.REACT_APP_CHANNEL,
     },
     target: "serverless",
-    webpack(config) {
-        config.module.rules.push({
-            test: /\.svg$/,
-            issuer: {
-                test: /\.(js|ts)x?$/,
-            },
-            use: ["@svgr/webpack"],
-        });
-
-        return config;
-    },
 };

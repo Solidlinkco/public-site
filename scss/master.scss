@@ -33,3 +33,87 @@ img {
     background: transparent;
     -webkit-appearance: none;
 }
+
+.calendly-overlay {
+    z-index: 999999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    & .calendly-close-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    & .calendly-popup {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .calendly-popup-content {
+            max-width: 500px;
+            max-height: 670px;
+            width: 100%;
+            height: 100%;
+            z-index: 99999999999999;
+            position: relative;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+
+            & .calendly-spinner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 99999999999999999;
+                // visibility: visible !important;
+                height: 100%;
+                width: 100%;
+                & > * {
+                    display: none !important;
+                }
+
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                    top: 45%;
+                    left: 40%;
+                    transform: translate(-45%, -45%);
+                    border-radius: 50%;
+                    background-color: #383171;
+                    transform: scale(1);
+                    transform-origin: center;
+                    opacity: 1;
+                }
+
+                &::after {
+                    border-radius: 50%;
+
+                    animation: bubble 0.5s ease-out infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes bubble {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.7);
+
+        opacity: 0;
+    }
+}

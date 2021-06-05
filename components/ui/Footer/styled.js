@@ -69,7 +69,7 @@ const StyledFooterContent = styled.div`
     }
     ul {
         p {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 24px;
             margin-bottom: 18px;
         }

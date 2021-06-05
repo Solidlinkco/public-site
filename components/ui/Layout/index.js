@@ -3,12 +3,17 @@ import { arrayOf, shape, string } from "prop-types";
 import React from "react";
 import Header from "../Header";
 import Footer from "../Footer";
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+    padding-top: 120px;
+`;
 
 const Layout = ({ children, contacts }) => {
     return (
         <>
             <Header contacts={contacts} />
-            <main>{children}</main>
+            <StyledMain>{children}</StyledMain>
             <Footer contacts={contacts} />
         </>
     );
