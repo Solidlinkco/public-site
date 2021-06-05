@@ -3,59 +3,33 @@ import { shape, string } from "prop-types";
 import { StyledWrapper, StyledHeroText } from "./styled";
 import { openPopupWidget, CalendlyEventListener } from "react-calendly";
 import axios from "axios";
-
-const TEXT = `APPLY TO AN INSTITUTION OF YOUR CHOICE OVERSEAS`;
-
-const config = {
-    headers: { Authorization: `Bearer ${process.env.calendly}` },
-};
-
-const telegram = "https://api.telegram.org/1827560082:AAGb5Ru5guKRsXIQBDB05oca0D3qi8rIMSo/getMe";
-
-var settings = {
-    headers: {
-        "Content-Type": "application/json",
-        "cache-control": "no-cache",
-    },
-    data: JSON.stringify({
-        chat_id: "@fdev-test-channel",
-        text: "testso teso",
-    }),
-};
+import { TEMPLATE, telegram, config, parseData } from "./constant";
 
 const Hero = ({ heroImage }) => {
     const handleConsultation = useCallback(() => {
-        openPopupWidget({ url: "https://calendly.com/farouqbabcock/consultation" });
+        openPopupWidget({ url: process.env.calendlyUrl });
     }, []);
 
-    const sendMessage = () => {
-        axios.post(telegram, settings).then((res) => {
+    const sendMessage = useCallback((dataObj) => {
+        axios.post(telegram(TEMPLATE(dataObj))).then((res) => {
             console.log(res);
         });
-    };
+    }, []);
 
-    const onEventScheduled = useCallback(({ data }) => {
-        const endpoint = data?.payload?.invitee?.uri;
+    const onEventScheduled = useCallback(async ({ data }) => {
+        const _invitee = data?.payload?.invitee?.uri;
+        const _event = data?.payload?.event?.uri;
         if (!data) {
             return;
         }
-        axios
-            .get(endpoint, config)
-            .then(({ data }) => {
-                console.log(data);
-                const dataObj = data?.resource;
-
-                const questionsObj = dataObj?.questions_and_answers;
-                console.log("🚀 ~ file: index.js ~ line 33 ~ .then ~ questionsObj", questionsObj);
-
-                const msgPayload = {
-                    name: dataObj?.name,
-                    email: dataObj?.email,
-                    ...questionsObj,
-                };
-                console.log("🚀 ~ file: index.js ~ line 39 ~ .then ~ msgPayload", msgPayload);
-            })
-            .finally(() => console.log("complegeted call  api"));
+        try {
+            const invitee = await axios.get(_invitee, config);
+            const event = await axios.get(_event, config);
+            const eventData = event?.data;
+            const startDate = new Date(eventData?.resource?.start_time)?.toString();
+            const payload = parseData(invitee?.data, startDate);
+            sendMessage(payload);
+        } catch (e) {}
     }, []);
 
     return (
@@ -65,7 +39,7 @@ const Hero = ({ heroImage }) => {
                     APPLY TO AN <br />
                     INSTITUTION OF YOUR <br /> CHOICE OVERSEAS
                 </h1>
-                <button onClick={sendMessage} type="button">
+                <button onClick={handleConsultation} type="button">
                     Book a consultation
                 </button>
             </StyledHeroText>
