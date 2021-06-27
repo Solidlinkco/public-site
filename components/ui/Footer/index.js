@@ -10,6 +10,7 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 import RoomIcon from "@material-ui/icons/Room";
+import MainCTA from "./MainCTA";
 
 const SOCIAL_ICON_MAP = {
     facebook: FacebookIcon,
@@ -76,87 +77,90 @@ const Footer = ({ contacts }) => {
     const address = useMemo(() => contacts?.find((el) => el?.type === "address"), [contacts]);
 
     return (
-        <StyledWrapper>
-            <div className="col-12">
-                <StyledHeader>
-                    <Link href="/">
-                        <a>
-                            <Image src="/assets/img/logo1.png" alt="solid-link co" width={80.3} height={50} />
-                        </a>
-                    </Link>
-                    <StyledSocial>
-                        {rightMap?.map(({ type, value }) => {
-                            const Icon = SOCIAL_ICON_MAP[type] ?? SOCIAL_ICON_MAP.facebook;
+        <>
+            <MainCTA />
+            <StyledWrapper>
+                <div className="col-12">
+                    <StyledHeader>
+                        <Link href="/">
+                            <a>
+                                <Image src="/assets/img/logo1.png" alt="solid-link co" width={80.3} height={50} />
+                            </a>
+                        </Link>
+                        <StyledSocial>
+                            {rightMap?.map(({ type, value }) => {
+                                const Icon = SOCIAL_ICON_MAP[type] ?? SOCIAL_ICON_MAP.facebook;
 
-                            return (
-                                <div key={value} className={classes.BannerWrapper__Bar}>
-                                    <a href={value} className={classes.BannerWrapper__Bar_svg}>
-                                        <Icon />
-                                    </a>
-                                </div>
-                            );
-                        })}
-                    </StyledSocial>
-                </StyledHeader>
-
-                <StyledFooterContent>
-                    {FOOTER_CONTENT.map(({ title, links }) => (
-                        <ul key="title">
-                            <p>{title}</p>
-                            {links.map(({ to, label }) => (
-                                <li key={label}>
-                                    <Link href={to}>
-                                        <a>{label}</a>
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    ))}
-
-                    <ul>
-                        <p>Get in touch</p>
-                        <li>
-                            <span className="fz-14">
-                                <div className={classes.BannerWrapper__Bar_svg}>
-                                    <RoomIcon />
-                                </div>
-                                {address?.value}
-                            </span>
-                        </li>
-                    </ul>
-                    <ul>
-                        <p className="facade">&nbsp;</p>
-                        {leftMap?.map(({ type, value }) => {
-                            const href = type === "phone" ? `tel:${value}` : `mailto:${value}`;
-                            const Icon = type === "phone" ? PhoneIcon : MailIcon;
-
-                            return (
-                                <li key={value} className={classes.BannerWrapper__Bar}>
-                                    <div className={classes.BannerWrapper__Bar_svg}>
-                                        <Icon />
+                                return (
+                                    <div key={value} className={classes.BannerWrapper__Bar}>
+                                        <a href={value} className={classes.BannerWrapper__Bar_svg}>
+                                            <Icon />
+                                        </a>
                                     </div>
-                                    <a href={href} className="fz-14">
-                                        {value}
-                                    </a>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                </StyledFooterContent>
+                                );
+                            })}
+                        </StyledSocial>
+                    </StyledHeader>
 
-                <StyledFooter>
-                    <div className="right">&copy; {year} Solidlink|Edu Consulting. All Rights Reserved.</div>
-                    <div className="left">
-                        <Link href="/">
-                            <a>PRIVACY POLICY</a>
-                        </Link>
-                        <Link href="/">
-                            <a>TERMS AND CONDITIONS</a>
-                        </Link>
-                    </div>
-                </StyledFooter>
-            </div>
-        </StyledWrapper>
+                    <StyledFooterContent>
+                        {FOOTER_CONTENT.map(({ title, links }) => (
+                            <ul key="title">
+                                <p>{title}</p>
+                                {links.map(({ to, label }) => (
+                                    <li key={label}>
+                                        <Link href={to}>
+                                            <a>{label}</a>
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        ))}
+
+                        <ul>
+                            <p>Get in touch</p>
+                            <li>
+                                <span className="fz-14">
+                                    <div className={classes.BannerWrapper__Bar_svg}>
+                                        <RoomIcon />
+                                    </div>
+                                    {address?.value}
+                                </span>
+                            </li>
+                        </ul>
+                        <ul>
+                            <p className="facade">&nbsp;</p>
+                            {leftMap?.map(({ type, value }) => {
+                                const href = type === "phone" ? `tel:${value}` : `mailto:${value}`;
+                                const Icon = type === "phone" ? PhoneIcon : MailIcon;
+
+                                return (
+                                    <li key={value} className={classes.BannerWrapper__Bar}>
+                                        <div className={classes.BannerWrapper__Bar_svg}>
+                                            <Icon />
+                                        </div>
+                                        <a href={href} className="fz-14">
+                                            {value}
+                                        </a>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    </StyledFooterContent>
+
+                    <StyledFooter>
+                        <div className="right">&copy; {year} Solidlink|Edu Consulting. All Rights Reserved.</div>
+                        <div className="left">
+                            <Link href="/">
+                                <a>PRIVACY POLICY</a>
+                            </Link>
+                            <Link href="/">
+                                <a>TERMS AND CONDITIONS</a>
+                            </Link>
+                        </div>
+                    </StyledFooter>
+                </div>
+            </StyledWrapper>
+        </>
     );
 };
 

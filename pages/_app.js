@@ -4,6 +4,7 @@ import Router from "next/router";
 
 import PageLoader from "../components/ui/PageLoader";
 import "../scss/master.scss";
+import "../scss/slider.css";
 
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = useState(false);

@@ -7,6 +7,8 @@ import styled from "styled-components";
 
 const StyledMain = styled.main`
     padding-top: 120px;
+    max-width: 100vw;
+    overflow: hidden;
 `;
 
 const Layout = ({ children, contacts }) => {
