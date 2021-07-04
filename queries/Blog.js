@@ -1,4 +1,4 @@
-import { gql } from "graphql-request";
+import { gql } from 'graphql-request';
 
 const GET_BLOGS = gql`
     query blogs {
@@ -10,13 +10,15 @@ const GET_BLOGS = gql`
             content {
                 text
             }
+            blogSlug
+            publishedAt
         }
     }
 `;
 
 const GET_BLOG = gql`
-    query blogs($id: ID) {
-        blogs(where: { id: $id }) {
+    query blogs($blogSlug: String) {
+        blog(where: { blogSlug: $blogSlug }) {
             title
             image {
                 url(transformation: { image: { resize: { width: 500 } } })
@@ -24,6 +26,7 @@ const GET_BLOG = gql`
             content {
                 html
             }
+            publishedAt
         }
     }
 `;

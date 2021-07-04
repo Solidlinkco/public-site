@@ -1,15 +1,16 @@
-import { arrayOf, shape, string } from "prop-types";
-import React, { useMemo } from "react";
-import PhoneIcon from "@material-ui/icons/PhoneRounded";
-import classes from "./styled.module.scss";
-import MailIcon from "@material-ui/icons/MailRounded";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import HeaderBar from "./Header";
+import { arrayOf, shape, string } from 'prop-types';
+import React, { useMemo } from 'react';
+import PhoneIcon from '@material-ui/icons/PhoneRounded';
+import classes from './styled.module.scss';
+import MailIcon from '@material-ui/icons/MailRounded';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import HeaderBar from './Header';
+import { v4 } from 'uuid';
 
-const LEFT_MAP = ["phone", "email"];
-const RIGHT_MAP = ["facebook", "twitter", "instagram"];
+const LEFT_MAP = ['phone', 'email'];
+const RIGHT_MAP = ['facebook', 'twitter', 'instagram'];
 
 const SOCIAL_ICON_MAP = {
     facebook: FacebookIcon,
@@ -28,11 +29,11 @@ const Header = ({ contacts }) => {
                     <div className={classes.BannerWrapper}>
                         <div className={classes.BannerWrapper__Left}>
                             {leftMap?.map(({ type, value }) => {
-                                const href = type === "phone" ? `tel:${value}` : `mailto:${value}`;
-                                const Icon = type === "phone" ? PhoneIcon : MailIcon;
+                                const href = type === 'phone' ? `tel:${value}` : `mailto:${value}`;
+                                const Icon = type === 'phone' ? PhoneIcon : MailIcon;
 
                                 return (
-                                    <div key={value} className={classes.BannerWrapper__Bar}>
+                                    <div key={v4()} className={classes.BannerWrapper__Bar}>
                                         <div className={classes.BannerWrapper__Bar_svg}>
                                             <Icon />
                                         </div>
@@ -48,7 +49,7 @@ const Header = ({ contacts }) => {
                                 const Icon = SOCIAL_ICON_MAP[type] ?? SOCIAL_ICON_MAP.facebook;
 
                                 return (
-                                    <div key={value} className={classes.BannerWrapper__Bar}>
+                                    <div key={v4()} className={classes.BannerWrapper__Bar}>
                                         <a href={value} className={classes.BannerWrapper__Bar_svg}>
                                             <Icon />
                                         </a>

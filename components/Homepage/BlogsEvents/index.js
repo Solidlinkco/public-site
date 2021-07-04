@@ -1,19 +1,35 @@
-import React from "react";
-import { StyledWrapper } from "./styled";
-import BlogCard from "../../ui/BlogCard";
-import { H2 } from "../../atoms/H2";
-import StyledButton from "../../atoms/StyledButton";
-import Link from "next/link";
+import React from 'react';
+import { StyledWrapper, StyledEventWrapper } from './styled';
+import BlogCard from '../../ui/BlogCard';
+import EventCard from '../../ui/EventCard';
 
-const BlogsEvent = ({ blog }) => {
+import { H2 } from '../../atoms/H2';
+import StyledButton from '../../atoms/StyledButton';
+import Link from 'next/link';
+
+const BlogsEvent = ({ blog, events }) => {
     return (
         <div className="col-12">
             <StyledWrapper>
                 <div>
-                    <H2 fontWeight="600" margin="0 0 24px 0">
-                        Events
-                    </H2>
-                    <BlogCard data={blog} className="blog-card" replaceN />
+                    <div>
+                        <H2 fontWeight="600" margin="0 0 24px 0">
+                            Events
+                        </H2>
+                        <StyledEventWrapper>
+                            {events?.map(({ title, eventSlug, dateAndTime, description, image }) => (
+                                <EventCard
+                                    key={title}
+                                    title={title}
+                                    image={image}
+                                    description={description}
+                                    dateAndTime={dateAndTime}
+                                    eventSlug={eventSlug}
+                                />
+                            ))}
+                        </StyledEventWrapper>
+                    </div>
+
                     <div className="major-link">
                         <Link href="/blogs">
                             <a>

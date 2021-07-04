@@ -1,4 +1,4 @@
-import { gql } from "graphql-request";
+import { gql } from 'graphql-request';
 
 const GET_HOMEPAGE = gql`
     query homepage {
@@ -31,6 +31,17 @@ const GET_HOMEPAGE = gql`
             }
             content {
                 text
+            }
+            blogSlug
+            publishedAt
+        }
+        events(stage: PUBLISHED, orderBy: dateAndTime_DESC) {
+            title
+            eventSlug
+            dateAndTime
+            description
+            image {
+                url(transformation: { image: { resize: { width: 200 } } })
             }
         }
     }

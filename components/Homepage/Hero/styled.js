@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components";
+import styled, { keyframes, css } from 'styled-components';
 
 const upFrame = keyframes`
     from {
@@ -45,6 +45,10 @@ const StyledHeroText = styled.div`
         opacity: 1;
         animation-delay: 0.2s;
         text-align: center;
+    }
+
+    @media screen and (max-width: 56.25em) {
+        right: 0;
     }
 
     button {

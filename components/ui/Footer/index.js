@@ -1,69 +1,70 @@
-import { arrayOf, shape, string } from "prop-types";
-import React, { useMemo } from "react";
-import { StyledWrapper, StyledHeader, StyledSocial, StyledFooter, StyledFooterContent } from "./styled";
-import Image from "next/image";
-import Link from "next/link";
-import classes from "../Header/styled.module.scss";
-import PhoneIcon from "@material-ui/icons/PhoneRounded";
-import MailIcon from "@material-ui/icons/MailRounded";
-import FacebookIcon from "@material-ui/icons/Facebook";
-import TwitterIcon from "@material-ui/icons/Twitter";
-import InstagramIcon from "@material-ui/icons/Instagram";
-import RoomIcon from "@material-ui/icons/Room";
-import MainCTA from "./MainCTA";
+import { arrayOf, shape, string } from 'prop-types';
+import React, { useMemo } from 'react';
+import { StyledWrapper, StyledHeader, StyledSocial, StyledFooter, StyledFooterContent } from './styled';
+import Image from 'next/image';
+import Link from 'next/link';
+import classes from '../Header/styled.module.scss';
+import PhoneIcon from '@material-ui/icons/PhoneRounded';
+import MailIcon from '@material-ui/icons/MailRounded';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import RoomIcon from '@material-ui/icons/Room';
+import MainCTA from './MainCTA';
+import { v4 } from 'uuid';
 
 const SOCIAL_ICON_MAP = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
     instagram: InstagramIcon,
 };
-const RIGHT_MAP = ["facebook", "twitter", "instagram"];
-const LEFT_MAP = ["phone", "email"];
+const RIGHT_MAP = ['facebook', 'twitter', 'instagram'];
+const LEFT_MAP = ['phone', 'email'];
 const FOOTER_CONTENT = [
     {
-        title: "Solidlink",
+        title: 'Solidlink',
         links: [
             {
-                label: "Services",
-                to: "/services",
+                label: 'Services',
+                to: '/services',
             },
             {
                 label: "Founder's profile",
-                to: "/founders-profile",
+                to: '/founders-profile',
             },
             {
-                label: "Contact",
-                to: "/contact",
+                label: 'Contact',
+                to: '/contact',
             },
             {
-                label: "Blog",
-                to: "/blog",
-            },
-        ],
-    },
-    {
-        title: "Training",
-        links: [
-            {
-                label: "Corporate training",
-                to: "/corporate-training",
-            },
-            {
-                label: "Bespoke training",
-                to: "/bespoke-training",
+                label: 'Blog',
+                to: '/blog',
             },
         ],
     },
     {
-        title: "Partners",
+        title: 'Training',
         links: [
             {
-                label: "Institutions",
-                to: "/institutions",
+                label: 'Corporate training',
+                to: '/corporate-training',
             },
             {
-                label: "Secondary school",
-                to: "/secondary-school",
+                label: 'Bespoke training',
+                to: '/bespoke-training',
+            },
+        ],
+    },
+    {
+        title: 'Partners',
+        links: [
+            {
+                label: 'Institutions',
+                to: '/institutions',
+            },
+            {
+                label: 'Secondary school',
+                to: '/secondary-school',
             },
         ],
     },
@@ -74,7 +75,7 @@ const Footer = ({ contacts }) => {
     const year = date.getFullYear();
     const leftMap = useMemo(() => contacts?.filter((el) => LEFT_MAP.includes(el?.type)) ?? [], [contacts]);
     const rightMap = useMemo(() => contacts?.filter((el) => RIGHT_MAP.includes(el?.type)) ?? [], [contacts]);
-    const address = useMemo(() => contacts?.find((el) => el?.type === "address"), [contacts]);
+    const address = useMemo(() => contacts?.find((el) => el?.type === 'address'), [contacts]);
 
     return (
         <>
@@ -104,7 +105,7 @@ const Footer = ({ contacts }) => {
 
                     <StyledFooterContent>
                         {FOOTER_CONTENT.map(({ title, links }) => (
-                            <ul key="title">
+                            <ul key={v4()}>
                                 <p>{title}</p>
                                 {links.map(({ to, label }) => (
                                     <li key={label}>
@@ -130,11 +131,11 @@ const Footer = ({ contacts }) => {
                         <ul>
                             <p className="facade">&nbsp;</p>
                             {leftMap?.map(({ type, value }) => {
-                                const href = type === "phone" ? `tel:${value}` : `mailto:${value}`;
-                                const Icon = type === "phone" ? PhoneIcon : MailIcon;
+                                const href = type === 'phone' ? `tel:${value}` : `mailto:${value}`;
+                                const Icon = type === 'phone' ? PhoneIcon : MailIcon;
 
                                 return (
-                                    <li key={value} className={classes.BannerWrapper__Bar}>
+                                    <li key={v4()} className={classes.BannerWrapper__Bar}>
                                         <div className={classes.BannerWrapper__Bar_svg}>
                                             <Icon />
                                         </div>

@@ -1,14 +1,18 @@
-import { arrayOf, shape, string } from "prop-types";
+import { arrayOf, shape, string } from 'prop-types';
 
-import React from "react";
-import Header from "../Header";
-import Footer from "../Footer";
-import styled from "styled-components";
+import React from 'react';
+import Header from '../Header';
+import Footer from '../Footer';
+import styled from 'styled-components';
 
 const StyledMain = styled.main`
     padding-top: 120px;
     max-width: 100vw;
     overflow: hidden;
+
+    @media screen and (max-width: 56.25em) {
+        padding-top: 80px;
+    }
 `;
 
 const Layout = ({ children, contacts }) => {
