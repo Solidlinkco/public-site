@@ -6,7 +6,7 @@ const TEMPLATE = ({ name, email, edu, country, phone, cancel, reschedule, startD
 <pre>Name: <code>${name}</code> </pre>
 <pre>Email: <code>${email}</code> </pre>
 ${phone && `<pre>Phone: <a href="tel:${phone}">${phone}</a></pre>`}
-${edu && `<pre>Phone: <code>${edu}</code></pre>`}
+${edu && `<pre>Education: <code>${edu}</code></pre>`}
 ${country && `<pre>Preferred country: <code>${country}</code></pre>`}
 <a href="${cancel}">CANCEL</a>
 <a href="${cancel}">RESCHEDULE</a>

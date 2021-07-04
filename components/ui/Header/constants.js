@@ -1,57 +1,67 @@
 const LINK = [
     {
-        label: "Home",
-        to: "/",
+        label: 'Home',
+        to: '/',
     },
     {
-        label: "About us",
+        label: 'About us',
         dropdown: true,
         nav: [
             {
-                label: "Services",
-                to: "/services",
+                label: 'Services',
+                to: '/services',
             },
             {
                 label: "Founder's Profile",
-                to: "/founders-profile",
+                to: '/founders-profile',
             },
         ],
     },
     {
-        label: "Partners",
+        label: 'Partners',
         dropdown: true,
         nav: [
             {
-                label: "Institutions",
-                to: "/institutions",
+                label: 'Institutions',
+                to: '/institutions',
             },
             {
-                label: "Secondary school",
-                to: "/secondary-school",
+                label: 'Secondary school',
+                to: '/secondary-school',
             },
         ],
     },
     {
-        label: "Training",
+        label: 'Training',
         dropdown: true,
         nav: [
             {
-                label: "Bespoke training",
-                to: "/bespoke-training",
+                label: 'Bespoke training',
+                to: '/bespoke-training',
             },
             {
-                label: "Corporate training",
-                to: "/corporate-training",
+                label: 'Corporate training',
+                to: '/corporate-training',
             },
         ],
     },
     {
-        label: "Contact",
-        to: "/contact-us",
+        label: 'Resources',
+        dropdown: true,
+        nav: [
+            {
+                label: 'Blog',
+                to: '/blog',
+            },
+            {
+                label: 'Events',
+                to: '/events',
+            },
+        ],
     },
     {
-        label: "Blog",
-        to: "/blog",
+        label: 'Contact',
+        to: '/contact-us',
     },
 ];
 

@@ -1,4 +1,4 @@
-@import "../../../scss/variables";
+@import '../../../scss/variables';
 
 .Loader {
     width: 100%;
@@ -6,19 +6,19 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-color: rgba(#4e40ef, 0.3);
+    background-color: rgba(#fff, 1);
     overflow: hidden;
     z-index: 99999;
 
     &::after {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 0;
         left: 0;
         width: 400px;
         height: 3px;
-        background: blue;
+        background: rgba(0, 0, 139, 0.6);
         animation: moveLeft 1.7s ease-out infinite;
     }
 }

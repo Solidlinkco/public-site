@@ -10,6 +10,7 @@
 @import "layout-mixins";
 @import "grid";
 @import "typography";
+@import "node_modules/react-modal-video/scss/modal-video.scss";
 
 // body {
 // }
@@ -116,4 +117,11 @@ img {
 
         opacity: 0;
     }
+}
+
+.my-20 {
+    margin: 20px 0;
+}
+.py20 {
+    padding: 20px 0;
 }
