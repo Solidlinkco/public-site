@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledCard = styled.div`
     min-width: 280px;
@@ -15,10 +15,12 @@ const StyledCard = styled.div`
     overflow: hidden;
     flex-wrap: nowrap;
     margin-right: 40px;
+    background-color: #fff;
 
     .icon {
         position: relative;
         width: 40px;
+        color: #f49d2a;
         svg {
             position: absolute;
             top: 0;

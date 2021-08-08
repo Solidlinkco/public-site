@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { StyledWrapper } from "./styled";
-import { P16B } from "../../atoms/P16B";
-import { Binoculars, Plane, Institutions, Grad } from "../../../assets/icons";
-import CountUp from "react-countup";
-import Hammer from "react-hammerjs";
-import TweenLite from "gsap";
+import React, { useState, useEffect } from 'react';
+import { StyledWrapper } from './styled';
+import { P16B } from '../../atoms/P16B';
+import { Binoculars, Plane, Institutions, Grad } from '../../../assets/icons';
+import CountUp from 'react-countup';
+import Hammer from 'react-hammerjs';
+import TweenLite from 'gsap';
 
 const STATS = [
     {
-        label: "PARTNER AGENTS",
+        label: 'PARTNER AGENTS',
         total: 50,
         icon: Binoculars,
     },
     {
-        label: "STUDENTS SENT ABROAD",
+        label: 'STUDENTS SENT ABROAD',
         total: 2500,
         icon: Plane,
     },
     {
-        label: "PARTNER INSTITUTIONS",
+        label: 'PARTNER INSTITUTIONS',
         total: 112,
         icon: Institutions,
     },
     {
-        label: "ALL GRADUATES",
+        label: 'ALL GRADUATES',
         total: 3000,
         icon: Grad,
     },
@@ -48,8 +48,8 @@ const Stats = () => {
     };
 
     useEffect(() => {
-        const swipeElement = document.getElementsByClassName("stats-wrap")[0];
-        TweenLite.to(swipeElement, { duration: 0.3, ease: " Power4.easeOut", x: -100 * position + "%" });
+        const swipeElement = document.getElementsByClassName('stats-wrap')[0];
+        TweenLite.to(swipeElement, { duration: 0.3, ease: ' Power4.easeOut', x: -100 * position + '%' });
     }, [position]);
 
     return (
@@ -65,7 +65,7 @@ const Stats = () => {
                                 <i>
                                     <CountUp end={total} duration={2.5} />
                                 </i>
-                                <P16B>{label}</P16B>
+                                <P16B color="#400436">{label}</P16B>
                             </div>
                         );
                     })}

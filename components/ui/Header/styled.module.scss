@@ -1,5 +1,5 @@
 .Banner {
-    background-color: #1a1546;
+    background-color: #f49d2a;
     color: #fff;
     padding: 8px 0;
     position: fixed;
@@ -16,6 +16,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #400436;
+    font-size: 28px;
 
     &__Left {
         display: flex;

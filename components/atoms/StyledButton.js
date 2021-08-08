@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
-    background-color: #1a1546;
+    background-color: ${({ bgcolor }) => bgcolor || '#73d97a'};
     border: none;
     padding: 16px 20px;
     outline: none;
@@ -12,7 +12,7 @@ const StyledButton = styled.button`
     opacity: 1;
     cursor: pointer;
     transition: all 0.3s ease-out;
-    font-size: 14px;
+    font-size: 18px;
     width: 220px;
     align-self: center;
 

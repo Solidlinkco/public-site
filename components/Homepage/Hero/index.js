@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
-import { shape, string } from "prop-types";
-import { StyledWrapper, StyledHeroText } from "./styled";
-import { openPopupWidget, CalendlyEventListener } from "react-calendly";
-import axios from "axios";
-import { TEMPLATE, telegram, config, parseData } from "./constant";
+import React, { useCallback } from 'react';
+import { shape, string } from 'prop-types';
+import { StyledWrapper, StyledHeroText, StyledBG } from './styled';
+import { openPopupWidget, CalendlyEventListener } from 'react-calendly';
+import axios from 'axios';
+import { TEMPLATE, telegram, config, parseData } from './constant';
 
 const Hero = ({ heroImage }) => {
     const handleConsultation = useCallback(() => {
@@ -33,19 +33,21 @@ const Hero = ({ heroImage }) => {
     }, []);
 
     return (
-        <StyledWrapper src={heroImage?.url}>
-            <StyledHeroText>
-                <h1>
-                    APPLY TO AN <br />
-                    INSTITUTION OF YOUR <br /> CHOICE OVERSEAS
-                </h1>
-                <button onClick={handleConsultation} type="button">
-                    Book a consultation
-                </button>
-            </StyledHeroText>
+        <StyledBG src={heroImage?.url}>
+            <StyledWrapper>
+                <StyledHeroText>
+                    <h1>
+                        Apply to an <br />
+                        institutions of your <br /> choice overseas
+                    </h1>
+                    <button onClick={handleConsultation} type="button">
+                        Book a consultation
+                    </button>
+                </StyledHeroText>
 
-            <CalendlyEventListener onEventScheduled={onEventScheduled} />
-        </StyledWrapper>
+                <CalendlyEventListener onEventScheduled={onEventScheduled} />
+            </StyledWrapper>
+        </StyledBG>
     );
 };
 Hero.propTypes = {

@@ -1,8 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
     width: 100%;
     overflow: hidden;
+    padding-bottom: 40px;
     & > * {
         position: relative;
         display: flex;

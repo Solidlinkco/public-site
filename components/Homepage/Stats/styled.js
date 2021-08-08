@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: space-between;
     margin: 40px 0 80px 0;
-    color: #1a1546;
+    color: #f49d2a;
 
     & div {
         display: flex;
@@ -22,9 +22,10 @@ export const StyledWrapper = styled.div`
             font-style: unset;
             padding-bottom: 20px;
             position: relative;
+            color: #400436;
 
             &::after {
-                content: "+";
+                content: '+';
                 position: absolute;
                 display: block;
                 right: -18px;

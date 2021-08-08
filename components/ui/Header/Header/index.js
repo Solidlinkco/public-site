@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import classes from "./Header.module.scss";
-import MobileHeader from "./MobileHeader";
-import Link from "next/link";
-import Image from "next/image";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMoreRounded";
-import { LINK } from "../constants";
+import React, { useState } from 'react';
+import classes from './Header.module.scss';
+import MobileHeader from './MobileHeader';
+import Link from 'next/link';
+import Image from 'next/image';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMoreRounded';
+import { LINK } from '../constants';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
@@ -16,12 +16,12 @@ const Header = () => {
                     <div className={classes.SolidLink__logo}>
                         <Link href="/">
                             <a>
-                                <Image src="/assets/img/logo1.png" alt="solid-link co" width={80.3} height={50} />
+                                <Image src="/assets/img/logo-green.png" alt="solid-link co" width={80.3} height={50} />
                             </a>
                         </Link>
                     </div>
 
-                    <nav className={[classes.SolidLink__nav, classes.SolidLink__nav__Desktop].join(" ")}>
+                    <nav className={[classes.SolidLink__nav, classes.SolidLink__nav__Desktop].join(' ')}>
                         {LINK.map(({ label, to, dropdown, nav }) => {
                             if (dropdown) {
                                 return (
