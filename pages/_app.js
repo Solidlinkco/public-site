@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Router from "next/router";
+import React, { useState, useEffect } from 'react';
+import Head from 'next/head';
+import Router from 'next/router';
 
-import PageLoader from "../components/ui/PageLoader";
-import "../scss/master.scss";
-import "../scss/slider.css";
+import PageLoader from '../components/ui/PageLoader';
+import '../scss/master.scss';
+import '../scss/slider.css';
 
 function MyApp({ Component, pageProps }) {
     const [loading, setLoading] = useState(false);
@@ -15,13 +15,13 @@ function MyApp({ Component, pageProps }) {
         const end = () => {
             setLoading(false);
         };
-        Router.events.on("routeChangeStart", start);
-        Router.events.on("routeChangeComplete", end);
-        Router.events.on("routeChangeError", end);
+        Router.events.on('routeChangeStart', start);
+        Router.events.on('routeChangeComplete', end);
+        Router.events.on('routeChangeError', end);
         return () => {
-            Router.events.off("routeChangeStart", start);
-            Router.events.off("routeChangeComplete", end);
-            Router.events.off("routeChangeError", end);
+            Router.events.off('routeChangeStart', start);
+            Router.events.off('routeChangeComplete', end);
+            Router.events.off('routeChangeError', end);
         };
     }, []);
 
@@ -48,7 +48,10 @@ function MyApp({ Component, pageProps }) {
                 <meta name="robots" content="noindex"></meta>
 
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
             {loading && <PageLoader />}
             <Component {...pageProps} />
