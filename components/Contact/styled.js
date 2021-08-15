@@ -34,7 +34,7 @@ const StyledContactCards = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 20px 0;
+    margin: 20px 0 60px 0;
 
     & > :not(:last-child) {
         border-right: 1px solid #e6e9ec;

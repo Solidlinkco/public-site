@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledButton = styled.button`
     background-color: #1a1546;
@@ -15,6 +15,7 @@ const StyledButton = styled.button`
     font-size: 14px;
     width: 220px;
     align-self: center;
+    height: ${({ height }) => height || 'auto'};
 
     &:hover {
         background-color: #383171;

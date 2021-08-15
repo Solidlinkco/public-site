@@ -3,6 +3,9 @@ import { StyledWrapper, StyledContactCards } from './styled';
 import BusinessIcon from '@material-ui/icons/BusinessRounded';
 import PhoneEnabledIcon from '@material-ui/icons/PhoneEnabledRounded';
 import MailOutlineIcon from '@material-ui/icons/MailOutlineRounded';
+import Form from './Form';
+import { ToastContainer } from 'react-toastify';
+
 const ContactUs = ({ contact }) => {
     const address = contact.find((el) => el.type === 'address');
     const phone = contact.filter((el) => el.type === 'phone');
@@ -51,6 +54,17 @@ const ContactUs = ({ contact }) => {
                     )}
                 </StyledContactCards>
             </div>
+            <Form />
+            <ToastContainer
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+            />
         </>
     );
 };
