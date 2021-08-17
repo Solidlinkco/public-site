@@ -2,7 +2,7 @@
     position: fixed;
     width: 100%;
     z-index: 1000;
-    background-color: #fff;
+    background-color: #400436;
     font-size: 1.4rem;
     box-shadow: 0 4px 4px rgba(#1e212b, 0.05);
     top: 43px;
@@ -60,7 +60,7 @@
             }
 
             & p {
-                color: #1a1546;
+                color: #f49d2a;
                 margin-bottom: 1rem;
                 transform: translateY(1.5px);
                 span {
@@ -95,7 +95,7 @@
             list-style-type: none;
             width: 190px;
             position: absolute;
-            background-color: #1a1546;
+            background-color: #f49d2a;
             opacity: 0;
             transform: scaleY(0);
             transition: all 0.2s ease-out;
@@ -126,18 +126,18 @@
                 text-align: left;
 
                 & a {
-                    color: #fff;
+                    color: #400436;
                     text-decoration: none;
 
                     &::after {
-                        content: "";
+                        content: '';
                         display: block;
                         position: relative;
                         top: 0.5rem;
                         width: 100%;
                         opacity: 0;
                         height: 1px;
-                        background-color: #fff;
+                        background-color: #400436;
                         transition: all 0.3s ease-out;
                         transform: scaleX(0);
                         transform-origin: left;
@@ -156,7 +156,7 @@
         position: fixed;
         top: 0;
         left: 0;
-        background-color: #1a1546;
+        background-color: #f49d2a;
         height: 100vh;
         width: 100vw;
         overflow: scroll;
@@ -176,7 +176,7 @@
                 margin-bottom: 3.5rem;
             }
             & > * {
-                border-bottom: 1px solid #fff;
+                border-bottom: 1px solid #f49d2a;
                 display: block;
             }
         }
@@ -239,13 +239,13 @@
     .main_navigation__hamburger::after {
         width: 2rem;
         height: 1.6px;
-        background-color: #1a1546;
+        background-color: #f49d2a;
         display: block;
         z-index: 4000;
     }
     .main_navigation__hamburger::before,
     .main_navigation__hamburger::after {
-        content: "";
+        content: '';
         position: absolute;
         left: 0;
         transition: all 0.2s;
@@ -308,18 +308,18 @@
 
 .Navlinks {
     & a {
-        color: #1a1546;
+        color: #f49d2a;
         text-decoration: none;
 
         &::after {
-            content: "";
+            content: '';
             display: block;
             position: relative;
             top: 0.5rem;
             width: 100%;
             opacity: 0;
             height: 1px;
-            background-color: #1a1546;
+            background-color: #f49d2a;
             transition: all 0.3s ease-out;
             transform: scaleX(0);
             transform-origin: left;
@@ -331,7 +331,7 @@
         }
 
         @media screen and (max-width: 56.25em) {
-            color: #fff;
+            color: #400436;
             &::after {
                 background-color: #fff;
             }

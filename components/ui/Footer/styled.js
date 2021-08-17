@@ -1,11 +1,11 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledWrapper = styled.footer`
     margin-top: auto;
     min-height: 400px;
-    background-color: #fff;
+    background-color: #400436;
     box-shadow: 0 -4px 4px rgba(32, 32, 32, 0.05);
-    background-image: url("/assets/img/footer_bg.png");
+    background-image: url('/assets/img/footer_bg.png');
     background-position: bottom center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -13,24 +13,24 @@ const StyledWrapper = styled.footer`
 const StyledHeader = styled.div`
     display: flex;
     padding: 2.5rem 0;
-    border-bottom: 1px solid rgb(0, 0, 139, 0.2);
+    border-bottom: 1px solid #f49d2a; ;
 `;
 
 const StyledSocial = styled.div`
     display: flex;
     margin-left: auto;
     svg {
-        color: #1a1546;
+        color: #f49d2a;
     }
 `;
 
 const StyledFooter = styled.div`
-    border-top: 1px solid rgb(0, 0, 139, 0.2);
+    border-top: 1px solid #f49d2a;
     display: flex;
     margin-left: auto;
     font-size: 12px;
     padding: 18px;
-    color: #1a1546;
+    color: #f49d2a;
     .left {
         margin-left: auto;
         display: flex;
@@ -59,7 +59,7 @@ const StyledFooterContent = styled.div`
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 2.5rem 0;
-    color: #1a1546;
+    color: #f49d2a;
 
     @media screen and (max-width: 37.5em) {
         flex-direction: column;

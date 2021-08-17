@@ -14,7 +14,9 @@ const Events = ({ title, eventSlug, dateAndTime, description, image }) => {
                 <img src={image?.url} alt={`solid-link-co-${title}`} />
             </div>
             <div className="texts">
-                <P18B textTransform="capitalize">{title}</P18B>
+                <P18B textTransform="capitalize" color="#400436">
+                    {title}
+                </P18B>
                 <P14 fontWeight="600" color="#797979">
                     {date.substring(4)}-{time} WAT
                 </P14>

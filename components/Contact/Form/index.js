@@ -36,6 +36,7 @@ const ContactForm = () => {
                         validationSchema={schema}
                         onSubmit={onSubmit}
                         enableReinitialize
+                        validateOnBlur
                     >
                         <Form>
                             <StyledInputWrapper>

@@ -4,7 +4,6 @@ import { StyledInputBox } from './styled';
 
 const InputField = ({ name, type, label, placeholder }) => {
     const [field, { error }] = useField(name);
-    console.log('🚀 ~ file: InputField.js ~ line 7 ~ InputField ~ error', error);
     return (
         <StyledInputBox>
             <label for={name}>{label}</label>

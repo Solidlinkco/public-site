@@ -37,7 +37,7 @@ const Header = ({ contacts }) => {
                                         <div className={classes.BannerWrapper__Bar_svg}>
                                             <Icon />
                                         </div>
-                                        <a href={href} className="fz-14">
+                                        <a href={href} className="fz-16">
                                             {value}
                                         </a>
                                     </div>

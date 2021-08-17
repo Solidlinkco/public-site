@@ -85,7 +85,7 @@ const Footer = ({ contacts }) => {
                     <StyledHeader>
                         <Link href="/">
                             <a>
-                                <Image src="/assets/img/logo1.png" alt="solid-link co" width={80.3} height={50} />
+                                <Image src="/assets/img/logo-green.png" alt="solid-link co" width={80.3} height={50} />
                             </a>
                         </Link>
                         <StyledSocial>

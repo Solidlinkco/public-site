@@ -15,27 +15,33 @@ const animate = css`
     animation-fill-mode: backwards;
 `;
 
-const StyledWrapper = styled.div`
+const StyledBG = styled.div`
     width: 100%;
     height: 500px;
     background-image: ${({ src }) => `url(${src})`};
     background-size: cover;
+`;
+
+const StyledWrapper = styled.div`
+    width: 100%;
+    height: 100%;
     position: relative;
+    background-color: rgba(64, 4, 54, 0.2);
 `;
 const StyledHeroText = styled.div`
     color: #fff;
     position: absolute;
     top: 50%;
-    right: 80px;
+    right: 190px;
     transform: translateY(-50%);
     padding: 30px;
     display: flex;
     flex-direction: column;
 
     h1 {
-        background-color: rgb(0, 0, 139, 0.4);
+        background-color: #f49d2a;
         padding: 20px;
-        max-width: 500px;
+        max-width: 690px;
         border-radius: 8px;
         font-size: 40px;
         font-weight: bold !important;
@@ -45,6 +51,8 @@ const StyledHeroText = styled.div`
         opacity: 1;
         animation-delay: 0.2s;
         text-align: center;
+        /* text-transform: capitalize; */
+        font-weight: normal !important;
     }
 
     @media screen and (max-width: 56.25em) {
@@ -52,7 +60,7 @@ const StyledHeroText = styled.div`
     }
 
     button {
-        background-color: #1a1546;
+        background-color: #73d97a;
         border: none;
         padding: 16px 20px;
         outline: none;
@@ -64,8 +72,9 @@ const StyledHeroText = styled.div`
         opacity: 1;
         cursor: pointer;
         transition: all 0.3s ease-out;
-        font-size: 14px;
-        width: 220px;
+        font-size: 22px;
+        width: 320px;
+        font-weight: 600;
         align-self: center;
 
         &:hover {
@@ -73,4 +82,5 @@ const StyledHeroText = styled.div`
         }
     }
 `;
-export { StyledWrapper, StyledHeroText };
+
+export { StyledWrapper, StyledHeroText, StyledBG };

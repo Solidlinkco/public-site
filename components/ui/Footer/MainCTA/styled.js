@@ -1,13 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
     padding: 20px 0;
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: #f49d2a;
 
     .cta-wrapper {
         padding: 40px;
         h4 {
+            color: #fff;
         }
 
         p {
@@ -16,6 +17,10 @@ export const StyledWrapper = styled.div`
         }
 
         a {
+            button {
+                font-size: 22px;
+                font-weight: 600;
+            }
         }
     }
 `;

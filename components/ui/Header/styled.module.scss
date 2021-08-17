@@ -1,5 +1,5 @@
 .Banner {
-    background-color: #1a1546;
+    background-color: #f49d2a;
     color: #fff;
     padding: 8px 0;
     position: fixed;
@@ -16,11 +16,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #400436;
+    font-size: 28px;
 
     &__Left {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        & svg {
+            transform: translateY(-3px);
+        }
     }
     &__Right {
         display: flex;
