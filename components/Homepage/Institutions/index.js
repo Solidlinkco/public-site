@@ -1,11 +1,11 @@
-import React, { useMemo, useRef, useEffect } from "react";
-import { arrayOf, shape, string } from "prop-types";
-import { StyledWrapper } from "./styled";
-import LazyLoad from "react-lazyload-next";
-import { H2 } from "../../atoms/H2";
-import StyledButton from "../../atoms/StyledButton";
-import Link from "next/link";
-import { gsap } from "gsap";
+import React, { useMemo, useRef, useEffect } from 'react';
+import { arrayOf, shape, string } from 'prop-types';
+import { StyledWrapper } from './styled';
+import LazyLoad from 'react-lazyload-next';
+import { H2 } from '../../atoms/H2';
+import StyledButton from '../../atoms/StyledButton';
+import Link from 'next/link';
+import { gsap } from 'gsap';
 
 const SLICE = 6;
 const OFFSET = 300;
@@ -18,17 +18,31 @@ const Institutions = ({ images }) => {
     const rightRef = useRef(null);
 
     useEffect(() => {
-        gsap.from(leftRef.current, { x: "80%", duration: 45, ease: "slow(0.7, 0.7,0.7, 0.7, false)", yoyo: true, repeat: -1 });
+        gsap.from(leftRef.current, {
+            x: '80%',
+            duration: 45,
+            ease: 'slow(0.7, 0.7,0.7, 0.7, false)',
+            yoyo: true,
+            repeat: -1,
+        });
     }, [leftRef]);
 
     useEffect(() => {
-        gsap.from(rightRef.current, { x: "-80%", duration: 45, ease: "slow(0.7, 0.7,0.7, 0.7, false)", yoyo: true, repeat: -1 });
+        gsap.from(rightRef.current, {
+            x: '-80%',
+            duration: 45,
+            ease: 'slow(0.7, 0.7,0.7, 0.7, false)',
+            yoyo: true,
+            repeat: -1,
+        });
     }, [rightRef]);
 
     return (
         <>
             <div className="col-12 py20">
-                <H2 fontWeight="600">Our Partners</H2>
+                <H2 fontWeight="600" color="#400436">
+                    Our Partners
+                </H2>
             </div>
             <StyledWrapper>
                 <div ref={leftRef}>

@@ -21,6 +21,13 @@ const StyledCard = styled.div`
     }
     .read-more {
         margin-top: 18px;
+        a {
+            color: #400436;
+            transition: all 0.3s ease-out;
+            &:hover {
+                opacity: 0.7;
+            }
+        }
     }
 `;
 

@@ -18,7 +18,9 @@ const ServiceCard = ({ data, className, replaceN }) => {
                 <img src={data?.image?.url} alt={`solid-link-co-${data?.title}`} />
             </div>
             <div className="texts">
-                <P18B textTransform="capitalize">{data?.title}</P18B>
+                <P18B textTransform="capitalize" color="#400436">
+                    {data?.title}
+                </P18B>
                 <P14 margin="8px 0 16px 0">Date Published: {date}</P14>
 
                 <P16 color="#797979">

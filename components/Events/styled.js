@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
         overflow: hidden;
 
         & > div {
-            background-color: rgba(0, 0, 0, 0.5);
+            background-color: rgba(64, 4, 54, 0.2);
             width: 100%;
             height: 300px;
             display: flex;
@@ -60,14 +60,14 @@ const StyledSearch = styled.input`
     line-height: 24px;
     transition: 0.2s;
     color: black;
-    border: 1px solid rgb(0, 0, 139, 0.2);
+    border: 1px solid rgba(64, 4, 54, 0.2);
     border-radius: 6px;
     &:focus {
-        border-color: #1a1546;
+        border-color: rgba(64, 4, 54, 1);
 
         & ~ svg {
             path {
-                fill: #1a1546;
+                fill: rgba(64, 4, 54, 1);
             }
         }
     }

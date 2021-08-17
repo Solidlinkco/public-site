@@ -39,7 +39,9 @@ const Services = ({ servicesCards }) => {
         <div style={{ backgroundColor: 'rgb(244, 157, 42, .4)' }}>
             <div className="col-12">
                 <StyledWrapper>
-                    <H2 fontWeight="600">Our Services</H2>
+                    <H2 fontWeight="600" color="#400436">
+                        Our Services
+                    </H2>
                     <Hammer onSwipe={handleSwipe}>
                         <StyledCardWrapper className="service-cards-wrap ">
                             {dataArr?.slice(0, 4)?.map(({ id, title, description }) => (

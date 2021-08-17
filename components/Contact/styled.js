@@ -36,8 +36,17 @@ const StyledContactCards = styled.div`
     align-items: flex-start;
     margin: 20px 0 60px 0;
 
+    @media screen and (min-width: 50em) {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0;
+    }
     & > :not(:last-child) {
         border-right: 1px solid #e6e9ec;
+
+        @media screen and (min-width: 50em) {
+            border-right: none;
+        }
     }
 
     & > div {
@@ -50,10 +59,11 @@ const StyledContactCards = styled.div`
 
         svg {
             font-size: 52px;
-
+            color: #f49d2a;
             & + p {
                 margin-top: 6px;
                 margin-bottom: 20px;
+                color: #400436;
             }
         }
     }

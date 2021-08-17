@@ -39,7 +39,7 @@ const ContactUs = ({ contact }) => {
                             <PhoneEnabledIcon />
                             <p class="fz-20 fw-700">Call us</p>
                             {phone?.map((el) => (
-                                <p class="fz-18 fw-700" key={el?.value}>
+                                <p class="fz-18 fw-700" style={{ color: '#400436' }} key={el?.value}>
                                     {el?.value}
                                 </p>
                             ))}

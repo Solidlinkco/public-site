@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
     padding: 80px 0;
@@ -9,17 +9,18 @@ export const StyledWrapper = styled.div`
 
         &::before,
         &::after {
-            content: "";
+            content: '';
             position: relative;
             display: block;
             width: 100%;
             height: 1px;
-            background-color: #1a1546;
+            background-color: #400436;
         }
 
         svg {
             font-size: 30px;
             margin: 0 16px;
+            color: #400436;
         }
     }
 
@@ -27,6 +28,7 @@ export const StyledWrapper = styled.div`
         font-size: 28px;
         text-align: center;
         margin: 16px 0 20px 0;
+        color: #400436;
     }
 `;
 

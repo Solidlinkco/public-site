@@ -1,5 +1,5 @@
-import React from "react";
-import { StyledWrapper } from "./styled";
+import React from 'react';
+import { StyledWrapper } from './styled';
 
 const ReviewCard = ({ reviewContent, authorPicture, author, role }) => {
     return (

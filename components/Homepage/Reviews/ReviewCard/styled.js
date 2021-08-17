@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
     max-width: 300px;
@@ -15,7 +15,7 @@ export const StyledWrapper = styled.div`
         position: relative;
 
         &::before {
-            content: "”";
+            content: '”';
             display: block;
             position: absolute;
             color: rgba(26, 21, 70, 0.4);
@@ -53,6 +53,8 @@ export const StyledWrapper = styled.div`
                 font-weight: 600;
                 font-style: normal;
                 font-size: 14px;
+
+                color: #400436;
             }
         }
     }
