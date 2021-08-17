@@ -15,6 +15,7 @@ const StyledButton = styled.button`
     font-size: 18px;
     width: 220px;
     align-self: center;
+    height: ${({ height }) => height || 'auto'};
 
     &:hover {
         background-color: #383171;

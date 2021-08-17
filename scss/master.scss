@@ -10,6 +10,7 @@
 @import 'layout-mixins';
 @import 'grid';
 @import 'typography';
+@import 'toastify';
 @import 'node_modules/react-modal-video/scss/modal-video.scss';
 
 // body {
@@ -124,4 +125,27 @@ img {
 }
 .py20 {
     padding: 20px 0;
+}
+@keyframes rotate-spinner {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    border-top-color: white;
+    opacity: 1;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    width: 22px;
+    height: 22px;
+    transition: opacity 250ms;
+    animation: rotate-spinner 1s linear;
+    animation-iteration-count: infinite;
 }
