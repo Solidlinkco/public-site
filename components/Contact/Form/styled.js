@@ -6,13 +6,14 @@ const StyledFormWrapper = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
 
-    @media screen and (min-width: 50em) {
+    @media screen and (max-width: 50em) {
         flex-direction: column;
+        padding: 0 16px;
     }
     form {
         flex: 1;
         margin-right: 48px;
-        @media screen and (min-width: 50em) {
+        @media screen and (max-width: 50em) {
             width: 100%;
             margin-right: 0;
             margin-bottom: 60px;
@@ -22,7 +23,7 @@ const StyledFormWrapper = styled.div`
         flex: 1;
         height: 460px;
         margin-top: 24px;
-        @media screen and (min-width: 50em) {
+        @media screen and (max-width: 50em) {
             width: 100%;
             height: 600px;
         }
