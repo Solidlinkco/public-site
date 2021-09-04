@@ -14,7 +14,6 @@ const StyledCard = styled.div`
     flex-direction: column;
     overflow: hidden;
     flex-wrap: nowrap;
-    margin-right: 40px;
     background-color: #fff;
 
     .icon {

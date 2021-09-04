@@ -28,6 +28,22 @@ export const StyledWrapper = styled.div`
     .major-link {
         margin-top: 48px;
     }
+
+    @media screen and (max-width: 62.5em) {
+        flex-direction: column;
+        & > :first-child {
+            padding-right: 0;
+        }
+
+        & > :not(:last-child) {
+            border-right: none;
+        }
+
+        & > :last-child {
+            padding-left: 0;
+            margin-top: 80px;
+        }
+    }
 `;
 
 export const StyledEventWrapper = styled.div`

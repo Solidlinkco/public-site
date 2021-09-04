@@ -1,28 +1,32 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
     padding: 20px 0 100px 0;
     .videos-list {
+        width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: flex-start;
+        flex-flow: row wrap;
 
         & > :not(:last-child) {
-            margin-right: 16px;
+            margin-right: 12px;
         }
     }
 `;
 
 const StyledBackdropWrapper = styled.div`
+    margin-bottom: 32px;
+
     .image-button {
-        width: 300px;
+        width: 296px;
         height: 200px;
         overflow: hidden;
         border-radius: 8px;
         position: relative;
-        margin-bottom: 12px;
-
+        display: block;
         img {
+            display: block;
             width: 300px;
             height: 200px;
             object-fit: cover;
@@ -61,8 +65,9 @@ const StyledBackdropWrapper = styled.div`
 
     .title {
         font-size: 14px;
-        max-width: 300px;
+        max-width: 250px;
         text-align: center;
+        margin: 0 auto;
     }
 `;
 

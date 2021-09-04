@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import React, { useState, useCallback } from "react";
-import ModalVideo from "react-modal-video";
-import { StyledBackdropWrapper } from "./styled";
-import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
+import PropTypes from 'prop-types';
+import React, { useState, useCallback } from 'react';
+import ModalVideo from 'react-modal-video';
+import { StyledBackdropWrapper } from './styled';
+import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 
 const ModalVideoComp = ({ id, title, backdrop }) => {
     const [isOpen, setIsOpen] = useState(false);

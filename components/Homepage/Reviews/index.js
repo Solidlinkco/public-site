@@ -4,23 +4,8 @@ import { StyledWrapper, StyledReviews } from './styled';
 import ReviewCard from './ReviewCard';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIosRounded';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIosRounded';
-import Slider from 'react-slick';
-
-const totalShow = 3;
 
 const Reviews = ({ reviews }) => {
-    const settings = {
-        dots: false,
-        infinite: true,
-        autoplay: reviews?.length > 3 ? true : false,
-        autoplaySpeed: 3000,
-        swipeToSlide: true,
-        speed: 500,
-        slidesToShow: totalShow,
-        slidesToScroll: 2,
-        nextArrow: <NextArrow />,
-        prevArrow: <PrevArrow />,
-    };
     return (
         <StyledWrapper>
             <div className="col-12">
@@ -31,17 +16,15 @@ const Reviews = ({ reviews }) => {
             </div>
             <div className="col-12">
                 <StyledReviews>
-                    <Slider {...settings}>
-                        {reviews?.map(({ reviewContent, authorPicture, author, role }) => (
-                            <ReviewCard
-                                key={author}
-                                author={author}
-                                role={role}
-                                authorPicture={authorPicture}
-                                reviewContent={reviewContent}
-                            />
-                        ))}
-                    </Slider>
+                    {reviews?.slice(0, 3)?.map(({ reviewContent, authorPicture, author, role }) => (
+                        <ReviewCard
+                            key={author}
+                            author={author}
+                            role={role}
+                            authorPicture={authorPicture}
+                            reviewContent={reviewContent}
+                        />
+                    ))}
                 </StyledReviews>
             </div>
         </StyledWrapper>
