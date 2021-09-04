@@ -57,6 +57,12 @@ const StyledHeroText = styled.div`
 
     @media screen and (max-width: 56.25em) {
         right: 0;
+        left: 0;
+        padding: 16px;
+
+        button {
+            width: 100% !important;
+        }
     }
 
     button {

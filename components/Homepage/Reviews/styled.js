@@ -34,12 +34,24 @@ export const StyledWrapper = styled.div`
 
 export const StyledReviews = styled.div`
     margin: 56px 0 36px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
 
-    & .slick-slider {
-        .slick-list {
-            width: 95%;
-            margin: 0 auto;
-            margin-left: 80px;
+    & > :not(:last-child) {
+        margin-right: 16px;
+    }
+
+    @media screen and (max-width: 49.5em) {
+        flex-direction: column;
+        & > * {
+            max-width: unset;
+            min-height: unset;
+            padding: 0 16px;
+        }
+
+        & > :not(:last-child) {
+            margin-bottom: 32px;
         }
     }
 `;
