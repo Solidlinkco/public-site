@@ -4,13 +4,13 @@ const LINK = [
         to: '/',
     },
     {
+        label: 'Services',
+        to: '/services',
+    },
+    {
         label: 'About us',
         dropdown: true,
         nav: [
-            {
-                label: 'Services',
-                to: '/services',
-            },
             {
                 label: "Founder's Profile",
                 to: '/founders-profile',
