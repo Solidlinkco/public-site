@@ -2,13 +2,16 @@ import React from 'react';
 import { StyledCard } from './styled';
 import { P16B } from '../../atoms/P16B';
 import { P14 } from '../../atoms/P14';
-import { Support, VisaApp, PlaneArrival, Grad } from '../../../assets/icons';
+import { Support, VisaApp, PlaneArrival, Grad, Remittance, CareerGuidance, Handshake } from '../../../assets/icons';
 
 const ICON_MAP = {
     'visa support': Support,
     'college application': VisaApp,
     'education counselling': Grad,
     'airport pickups': PlaneArrival,
+    remittances: Remittance,
+    'career guidance': CareerGuidance,
+    'pastoral care': Handshake,
 };
 
 const ServiceCard = ({ className, title, description }) => {
