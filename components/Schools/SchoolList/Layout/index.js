@@ -1,22 +1,23 @@
 import React from 'react';
 import { StyledWrapper } from './styled';
-import ServiceSection from './ServiceSection';
-import Packages from './Packages';
-const Services = ({ servicesCards }) => {
+import { getIconUrl } from '../../../../constants/CountryIso';
+
+const SchoolLayout = ({ title, children, pageAlpha3 }) => {
+    console.log(getIconUrl(pageAlpha3));
+
     return (
-        <StyledWrapper>
+        <StyledWrapper url={getIconUrl(pageAlpha3) ?? ''}>
             <div className="blog-page-banner">
                 <div>
                     <div>
-                        <h1>Services</h1>
+                        <h1>{title}</h1>
                         <p className="fz-14 ">SOLIDLINKCO | EDU CONSULTING</p>
                     </div>
                 </div>
             </div>
-            <ServiceSection servicesCards={servicesCards} />
-            <Packages />
+            {children}
         </StyledWrapper>
     );
 };
 
-export default Services;
+export default SchoolLayout;

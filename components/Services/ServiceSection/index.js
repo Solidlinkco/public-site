@@ -8,7 +8,6 @@ import StyledButton from '../../atoms/StyledButton';
 const CARDS_CLASS = 'service-card';
 
 const ServicesSection = ({ servicesCards }) => {
-    console.log('🚀 ~ file: index.js ~ line 12 ~ ServicesSection ~ servicesCards', servicesCards);
     return (
         <div style={{ backgroundColor: 'rgb(244, 157, 42, .4)' }}>
             <div className="col-12">
