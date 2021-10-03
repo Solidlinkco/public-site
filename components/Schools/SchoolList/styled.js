@@ -21,7 +21,6 @@ const StyledCountriesItem = styled.div`
     background-color: #fff;
     transition: all 0.3s ease-out;
     padding: 16px;
-    margin-bottom: 32px;
 
     img {
         width: 100%;
