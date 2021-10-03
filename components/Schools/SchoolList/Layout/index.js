@@ -3,8 +3,6 @@ import { StyledWrapper } from './styled';
 import { getIconUrl } from '../../../../constants/CountryIso';
 
 const SchoolLayout = ({ title, children, pageAlpha3 }) => {
-    console.log(getIconUrl(pageAlpha3));
-
     return (
         <StyledWrapper url={getIconUrl(pageAlpha3) ?? ''}>
             <div className="blog-page-banner">
