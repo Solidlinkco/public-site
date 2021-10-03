@@ -11,7 +11,7 @@ const SchoolList = ({ schools, title, pageName, pageAlpha3 }) => {
                 <div className="col-12">
                     <StyledWrapper>
                         {/* <StyledCountries> */}
-                        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
+                        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 500: 2, 650: 3, 900: 4 }}>
                             <Masonry gutter="32px">
                                 {schools.map((school) => {
                                     return (
@@ -22,34 +22,6 @@ const SchoolList = ({ schools, title, pageName, pageAlpha3 }) => {
                                         </StyledCountriesItem>
                                     );
                                 })}
-                                {schools.map((school) => {
-                                    return (
-                                        <StyledCountriesItem key={school?.name}>
-                                            <img src={school?.logo?.url ?? ''} alt={school?.name} />
-
-                                            <p>{school?.name}</p>
-                                        </StyledCountriesItem>
-                                    );
-                                })}
-                                {schools.map((school) => {
-                                    return (
-                                        <StyledCountriesItem key={school?.name}>
-                                            <img src={school?.logo?.url ?? ''} alt={school?.name} />
-
-                                            <p>{school?.name}</p>
-                                        </StyledCountriesItem>
-                                    );
-                                })}
-                                {schools.map((school) => {
-                                    return (
-                                        <StyledCountriesItem key={school?.name}>
-                                            <img src={school?.logo?.url ?? ''} alt={school?.name} />
-
-                                            <p>{school?.name}</p>
-                                        </StyledCountriesItem>
-                                    );
-                                })}
-                                {/* </StyledCountries> */}
                             </Masonry>
                         </ResponsiveMasonry>
                     </StyledWrapper>
