@@ -1,0 +1,31 @@
+import React, { useMemo } from 'react';
+import { StyledWrapper, StyledCountries, StyledCountriesItem } from './styled';
+import { H2 } from '../../atoms/H2';
+import { capitalize } from '../../helper';
+import SchoolLayout from './Layout';
+
+const SchoolList = ({ schools, title, pageName, pageAlpha3 }) => {
+    return (
+        <SchoolLayout title={`${title} in ${capitalize(pageName)}`} pageAlpha3={pageAlpha3}>
+            <div style={{ backgroundColor: 'rgb(244, 157, 42, .4)' }}>
+                <div className="col-12">
+                    <StyledWrapper>
+                        <StyledCountries>
+                            {schools.map((school) => {
+                                return (
+                                    <StyledCountriesItem key={school?.name}>
+                                        <img src={school?.logo?.url ?? ''} alt={school?.name} />
+
+                                        <p>{school?.name}</p>
+                                    </StyledCountriesItem>
+                                );
+                            })}
+                        </StyledCountries>
+                    </StyledWrapper>
+                </div>
+            </div>
+        </SchoolLayout>
+    );
+};
+
+export default SchoolList;

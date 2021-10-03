@@ -27,7 +27,7 @@ const LINK = [
             },
             {
                 label: 'Secondary school',
-                to: '/secondary-school',
+                to: '/secondary-schools',
             },
         ],
     },

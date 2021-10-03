@@ -26,7 +26,6 @@ export async function getStaticPaths() {
 
     return {
         paths: blogs.map(({ blogSlug }) => {
-            console.log('🚀 ~ file: [slug].js ~ line 27 ~ paths:blogs.map ~ blogSlug', blogSlug);
             return {
                 params: { slug: blogSlug },
             };

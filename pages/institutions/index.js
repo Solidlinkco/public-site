@@ -1,28 +1,28 @@
 import React from 'react';
-import Services from '../../components/Services';
+import Schools from '../../components/Schools';
 import { graphcms } from '../../config';
 
-import { GET_SERVICES_PAGE, GET_CONTACTS } from '../../queries';
+import { GET_CONTACTS, GET_SCHOOLS } from '../../queries';
 import Layout from '../../components/ui/Layout';
 
 export async function getStaticProps() {
-    const { servicesCards } = await graphcms.request(GET_SERVICES_PAGE);
     const { contacts } = await graphcms.request(GET_CONTACTS);
+    const { schools } = await graphcms.request(GET_SCHOOLS);
 
     return {
         props: {
             contacts,
-            servicesCards,
+            schools,
         },
     };
 }
 
-const ServicesPage = ({ contacts, servicesCards }) => {
+const InstitutionsPage = ({ contacts, schools }) => {
     return (
         <Layout contacts={contacts}>
-            <Services servicesCards={servicesCards} />
+            <Schools title={'Institutions'} schools={schools} />
         </Layout>
     );
 };
 
-export default ServicesPage;
+export default InstitutionsPage;
