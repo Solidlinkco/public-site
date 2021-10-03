@@ -40,7 +40,6 @@ const InstitutionsCountries = ({ schools, contacts, slug }) => {
     const [pageAlpha3, pageName] = getAlpha3(slug);
 
     const parsedSchools = schools?.filter((el) => el?.country === pageAlpha3 && !el?.isSecondarySchool);
-    console.log('🚀 ~ file: [slug].js ~ line 65 ~ InstitutionsCountries ~ parsedSchools', parsedSchools);
 
     return (
         <React.Fragment>

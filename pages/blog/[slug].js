@@ -35,7 +35,6 @@ export async function getStaticPaths() {
 }
 
 const JobDetails = ({ data, contacts }) => {
-    console.log('🚀 ~ file: [slug].js ~ line 37 ~ JobDetails ~ data', data);
     const parsedDate = format(new Date(data.publishedAt), 'dd/MM/yyyy', {
         locale: enGB,
     });
