@@ -25,7 +25,7 @@ const Header = () => {
                         {LINK.map(({ label, to, dropdown, nav }) => {
                             if (dropdown) {
                                 return (
-                                    <div>
+                                    <div key={label}>
                                         <p>
                                             {label}
                                             <span>
@@ -33,10 +33,10 @@ const Header = () => {
                                             </span>
                                         </p>
                                         <ul>
-                                            {nav.map(({ label, to }) => (
-                                                <li>
+                                            {nav.map(({ label: _label, to }) => (
+                                                <li key={_label}>
                                                     <Link href={to}>
-                                                        <a>{label}</a>
+                                                        <a>{_label}</a>
                                                     </Link>
                                                 </li>
                                             ))}
@@ -46,7 +46,7 @@ const Header = () => {
                             }
 
                             return (
-                                <div className={classes.Navlinks}>
+                                <div className={classes.Navlinks} key={label}>
                                     <Link href={to}>
                                         <a>{label}</a>
                                     </Link>
