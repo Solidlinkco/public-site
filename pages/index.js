@@ -1,11 +1,13 @@
 import Homepage from '../components/Homepage';
 import { graphcms } from '../config';
-import { GET_CONTACTS, GET_HOMEPAGE } from '../queries';
+import { GET_CONTACTS, GET_HOMEPAGE, GET_SCHOOLS } from '../queries';
 import axios from 'axios';
 
 export async function getStaticProps() {
     const { contacts } = await graphcms.request(GET_CONTACTS);
     const { homepages, reviews, servicesCards, blogs, events } = await graphcms.request(GET_HOMEPAGE);
+    const { schools } = await graphcms.request(GET_SCHOOLS);
+
     const instaArr = [];
 
     // const insta = await axios.get(`https://graph.instagram.com/me?fields=media&access_token=${process.env.instaToken}`);
@@ -26,11 +28,12 @@ export async function getStaticProps() {
             blog: blogs[1] ?? {},
             instaData: instaArr ?? [],
             events: events ?? [],
+            schools: schools || [],
         },
     };
 }
 
-export default function Home({ contacts, homepages, reviews, servicesCards, instaData = [], blog, events }) {
+export default function Home({ contacts, homepages, reviews, servicesCards, schools, instaData = [], blog, events }) {
     return (
         <Homepage
             contacts={contacts}
@@ -40,6 +43,7 @@ export default function Home({ contacts, homepages, reviews, servicesCards, inst
             instaData={instaData}
             blog={blog}
             events={events}
+            schools={schools}
         />
     );
 }

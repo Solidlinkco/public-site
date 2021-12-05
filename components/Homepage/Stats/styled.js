@@ -23,7 +23,7 @@ export const StyledWrapper = styled.div`
             padding-bottom: 20px;
             position: relative;
             color: #400436;
-
+            font-weight: 600;
             &::after {
                 content: '+';
                 position: absolute;
@@ -31,6 +31,7 @@ export const StyledWrapper = styled.div`
                 right: -18px;
                 top: -12px;
                 font-size: 30px;
+                font-weight: 600;
             }
         }
     }
