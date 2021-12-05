@@ -9,9 +9,13 @@ import format from 'date-fns/format';
 import { enGB } from 'date-fns/locale';
 
 const ServiceCard = ({ data, className, replaceN }) => {
-    const date = format(new Date(data.publishedAt), 'dd/MM/yyyy', {
+    // customContent
+    //         customDate
+
+    const date = format(new Date(data.customDate || data.publishedAt), 'dd/MM/yyyy', {
         locale: enGB,
     });
+
     return (
         <StyledCard className={className}>
             <div className="image">
@@ -24,7 +28,21 @@ const ServiceCard = ({ data, className, replaceN }) => {
                 <P14 margin="8px 0 16px 0">Date Published: {date}</P14>
 
                 <P16 color="#797979">
-                    {replaceN ? data?.content?.text?.replace(/\\n/gi, ' ')?.substring(0, 320)?.trim() + '...' : null}
+                    {replaceN
+                        ? data?.customContent
+                            ? ''
+                            : data?.content?.text
+                                  ?.replace(/\\n/gi, ' ')
+                                  ?.replace('<p class="has-text-align-left">', ' ')
+                                  ?.replace('<p>', ' ')
+                                  ?.replace('<a>', ' ')
+                                  ?.replace('</a>', ' ')
+                                  ?.replace('</strong>', ' ')
+                                  ?.replace('<strong>', ' ')
+
+                                  ?.substring(0, 320)
+                                  ?.trim() + '...'
+                        : null}
                 </P16>
             </div>
             <div className="read-more">

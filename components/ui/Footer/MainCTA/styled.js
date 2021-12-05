@@ -15,12 +15,5 @@ export const StyledWrapper = styled.div`
             margin: 20px auto 40px auto;
             max-width: 680px;
         }
-
-        a {
-            button {
-                font-size: 22px;
-                font-weight: 600;
-            }
-        }
     }
 `;

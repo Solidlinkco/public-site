@@ -42,42 +42,6 @@ const Youtube = ({ id }) => {
                                 />
                             ) : null
                         )}
-                    {data
-                        ?.slice(0, 4)
-                        ?.map(({ id, snippet }) =>
-                            id ? (
-                                <ModalVideo
-                                    key={id?.videoId}
-                                    id={id?.videoId}
-                                    title={snippet?.title}
-                                    backdrop={snippet?.thumbnails?.default?.url}
-                                />
-                            ) : null
-                        )}
-                    {data
-                        ?.slice(0, 4)
-                        ?.map(({ id, snippet }) =>
-                            id ? (
-                                <ModalVideo
-                                    key={id?.videoId}
-                                    id={id?.videoId}
-                                    title={snippet?.title}
-                                    backdrop={snippet?.thumbnails?.default?.url}
-                                />
-                            ) : null
-                        )}
-                    {data
-                        ?.slice(0, 4)
-                        ?.map(({ id, snippet }) =>
-                            id ? (
-                                <ModalVideo
-                                    key={id?.videoId}
-                                    id={id?.videoId}
-                                    title={snippet?.title}
-                                    backdrop={snippet?.thumbnails?.default?.url}
-                                />
-                            ) : null
-                        )}
                 </div>
 
                 <div className="col-12 py20">

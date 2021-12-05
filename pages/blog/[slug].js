@@ -35,7 +35,7 @@ export async function getStaticPaths() {
 }
 
 const JobDetails = ({ data, contacts }) => {
-    const parsedDate = format(new Date(data.publishedAt), 'dd/MM/yyyy', {
+    const parsedDate = format(new Date(data?.customDate || data.publishedAt), 'dd/MM/yyyy', {
         locale: enGB,
     });
 
@@ -51,6 +51,7 @@ const JobDetails = ({ data, contacts }) => {
                     title={data.title}
                     image={data?.image?.url}
                     date={parsedDate}
+                    customContent={data?.customContent}
                 />
             </Layout>
         </React.Fragment>
