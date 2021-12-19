@@ -6,6 +6,7 @@ const GET_SCHOOLS = gql`
             name
             logo {
                 url
+                fileName
             }
             country
             isSecondarySchool

@@ -32,45 +32,41 @@ const StyledHeroText = styled.div`
     color: #fff;
     position: absolute;
     top: 50%;
-    right: 190px;
+    left: 60px;
     transform: translateY(-50%);
     padding: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 
     h1 {
-        background-color: #f49d2a;
-        padding: 20px;
-        max-width: 690px;
+        max-width: 560px;
         border-radius: 8px;
-        font-size: 40px;
-        font-weight: bold !important;
+        font-size: 60px;
+        font-weight: 700 !important;
         line-height: 45px;
         ${animate};
-        transform: translateY(0);
         opacity: 1;
         animation-delay: 0.2s;
-        text-align: center;
+        line-height: 64px;
         /* text-transform: capitalize; */
-        font-weight: normal !important;
+
+        @media screen and (max-width: 56.25em) {
+            font-size: 48px;
+            line-height: 50px;
+        }
     }
 
     @media screen and (max-width: 56.25em) {
-        right: 0;
-        left: 0;
-        padding: 16px;
-
-        button {
-            width: 100% !important;
-        }
+        left: 16px;
     }
 
     button {
         background-color: #73d97a;
         border: none;
-        padding: 16px 20px;
+        padding: 16px 24px;
         outline: none;
-        border-radius: 8px;
+        border-radius: 10px;
         color: #fff;
         ${animate};
         animation-delay: 0.5s;
@@ -78,13 +74,14 @@ const StyledHeroText = styled.div`
         opacity: 1;
         cursor: pointer;
         transition: all 0.3s ease-out;
-        font-size: 22px;
-        width: 320px;
+        font-size: 18px;
+        /* width: 320px; */
         font-weight: 600;
-        align-self: center;
+        align-self: flex-start;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
         &:hover {
-            background-color: #383171;
+            background-color: #56b55b;
         }
     }
 `;

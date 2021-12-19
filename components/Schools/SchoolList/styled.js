@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-    margin-bottom: 54px;
-    padding: 80px 0 40px 0;
+    padding: 80px 0 90px 0;
 `;
 
 const StyledCountries = styled.div`
@@ -10,20 +9,22 @@ const StyledCountries = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-top: 32px;
-
     flex-flow: row wrap;
 `;
 const StyledCountriesItem = styled.div`
     flex: 0 0 256px;
     transition: all 0.3s ease-out;
-    border-radius: 6px;
+    border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     transition: all 0.3s ease-out;
     padding: 16px;
+    height: 100% !important;
 
     img {
         width: 100%;
+        border-radius: 10px;
+        overflow: hidden;
     }
 
     p {

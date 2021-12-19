@@ -7,12 +7,32 @@ import StyledButton from '../../atoms/StyledButton';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 
-const SLICE = 6;
+const SLICE = 12;
 const OFFSET = 300;
 
-const Institutions = ({ images }) => {
-    const left = useMemo(() => images?.slice(0, SLICE), [images]);
-    const right = useMemo(() => images?.slice(SLICE, images?.length), [images]);
+const Institutions = ({ schools }) => {
+    const images = schools;
+
+    const left = useMemo(
+        () =>
+            schools
+                ?.filter((el) => el.isSecondarySchool)
+                .map((school) => school?.logo)
+                .filter(Boolean)
+                .slice(0, SLICE),
+        [schools]
+    );
+    console.log('🚀 ~ file: index.js ~ line 17 ~ Institutions ~ left', left);
+    const right = useMemo(
+        () =>
+            schools
+                ?.filter((el) => !el.isSecondarySchool)
+                .map((school) => school?.logo)
+                .filter(Boolean)
+                .slice(0, SLICE),
+        [schools]
+    );
+    console.log('🚀 ~ file: index.js ~ line 18 ~ Institutions ~ right', right);
 
     const leftRef = useRef(null);
     const rightRef = useRef(null);
@@ -40,21 +60,21 @@ const Institutions = ({ images }) => {
     return (
         <>
             <div className="col-12 py20">
-                <H2 fontWeight="600" color="#400436">
+                <H2 fontWeight="600" color="#400436" margin="0 0 24px 0">
                     Our Partners
                 </H2>
             </div>
             <StyledWrapper>
                 <div ref={leftRef}>
                     {left.map(({ url, fileName }) => (
-                        <div>
+                        <div key={url}>
                             <LazyLoad height={200} once offset={OFFSET}>
                                 <img src={url} alt={fileName} key={fileName} />
                             </LazyLoad>
                         </div>
                     ))}
                     {left.map(({ url, fileName }) => (
-                        <div>
+                        <div key={url}>
                             <LazyLoad height={200} once offset={OFFSET}>
                                 <img src={url} alt={fileName} key={fileName} />
                             </LazyLoad>
@@ -91,7 +111,7 @@ const Institutions = ({ images }) => {
 };
 
 Institutions.propTypes = {
-    images: arrayOf(
+    schools: arrayOf(
         shape({
             fileName: string,
             url: string,

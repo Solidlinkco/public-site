@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-    margin-bottom: 54px;
-    padding: 20px 0 40px 0;
+    padding: 20px 0 90px 0;
 `;
 
 const StyledCountries = styled.div`
@@ -25,7 +24,7 @@ const StyledCountries = styled.div`
 `;
 const StyledCountriesItem = styled.div`
     width: 100%;
-    border-radius: 6px;
+    border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     transition: all 0.3s ease-out;

@@ -7,11 +7,16 @@ export const StyledWrapper = styled.div`
     padding: 100px 0;
 
     & > :first-child {
+        flex: 1;
         padding-right: 48px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: space-between;
+
+        * > div {
+            min-width: unset;
+        }
 
         & > :first-child {
             margin-bottom: 32px;
@@ -19,6 +24,7 @@ export const StyledWrapper = styled.div`
     }
     & > :last-child {
         padding-left: 48px;
+        flex: 1;
     }
 
     & > :not(:last-child) {

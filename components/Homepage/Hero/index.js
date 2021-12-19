@@ -36,10 +36,7 @@ const Hero = ({ heroImage }) => {
         <StyledBG src={heroImage?.url}>
             <StyledWrapper>
                 <StyledHeroText>
-                    <h1>
-                        Apply to an <br />
-                        institutions of your <br /> choice overseas
-                    </h1>
+                    <h1>Apply to an institutions of your choice overseas</h1>
                     <button onClick={handleConsultation} type="button">
                         Book a consultation
                     </button>

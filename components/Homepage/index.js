@@ -10,13 +10,13 @@ import Instagram from './Instagram';
 import Youtube from './Youtube';
 import BlogsEvents from './BlogsEvents';
 
-const Homepage = ({ contacts, homepage, reviews, servicesCards, instaData, blog, events }) => {
+const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events }) => {
     return (
         <Layout contacts={contacts}>
             <Hero heroImage={homepage?.heroImage} />
             <Stats />
             <Services servicesCards={servicesCards} />
-            <Institutions images={homepage?.institutionsblock} />
+            <Institutions schools={schools} />
             <BlogsEvents blog={blog} events={events} />
             <Reviews reviews={reviews} />
             <Youtube />

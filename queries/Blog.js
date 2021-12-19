@@ -12,6 +12,8 @@ const GET_BLOGS = gql`
             }
             blogSlug
             publishedAt
+            customContent
+            customDate
         }
     }
 `;
@@ -27,6 +29,8 @@ const GET_BLOG = gql`
                 html
             }
             publishedAt
+            customContent
+            customDate
         }
     }
 `;
