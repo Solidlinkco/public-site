@@ -31,20 +31,20 @@ const LINK = [
             },
         ],
     },
-    {
-        label: 'Training',
-        dropdown: true,
-        nav: [
-            {
-                label: 'Bespoke training',
-                to: '/bespoke-training',
-            },
-            {
-                label: 'Corporate training',
-                to: '/corporate-training',
-            },
-        ],
-    },
+    // {
+    //     label: 'Training',
+    //     dropdown: true,
+    //     nav: [
+    //         {
+    //             label: 'Bespoke training',
+    //             to: '/bespoke-training',
+    //         },
+    //         {
+    //             label: 'Corporate training',
+    //             to: '/corporate-training',
+    //         },
+    //     ],
+    // },
     {
         label: 'Resources',
         dropdown: true,

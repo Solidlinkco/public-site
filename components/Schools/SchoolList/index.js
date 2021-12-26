@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { StyledWrapper, StyledCountries, StyledCountriesItem } from './styled';
-import { H2 } from '../../atoms/H2';
+import { StyledWrapper, StyledCountriesItem } from './styled';
+
 import { capitalize } from '../../helper';
 import SchoolLayout from './Layout';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
