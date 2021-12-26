@@ -66,8 +66,9 @@ const StyledBackdropWrapper = styled.div`
     .title {
         font-size: 14px;
         max-width: 250px;
+        font-weight: 600;
         text-align: center;
-        margin: 0 auto;
+        margin: 12px auto 0 auto;
     }
 `;
 

@@ -6,15 +6,24 @@ const StyledWrapper = styled.div`
 
 const StyledCountries = styled.div`
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     margin-top: 32px;
     flex-flow: row wrap;
 
     a {
+        display: block;
         flex: 0 0 256px;
         transition: all 0.3s ease-out;
         margin-bottom: 32px;
+
+        &:not(:last-child) {
+            margin-right: 64px;
+        }
+
+        &:nth-child(4) {
+            margin-right: 0;
+        }
 
         &:hover div {
             transform: translateY(-4px);
