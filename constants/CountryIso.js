@@ -608,4 +608,4 @@ export const COUNTRY_LIST = [
 ];
 
 export const getIconUrl = (countryCode) =>
-    `http://purecatamphetamine.github.io/country-flag-icons/3x2/${COUNTRY_MAP[countryCode]}.svg`;
+    `https://purecatamphetamine.github.io/country-flag-icons/3x2/${COUNTRY_MAP[countryCode]}.svg`;

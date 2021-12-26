@@ -1,9 +1,7 @@
 import React, { useMemo } from 'react';
 import { StyledWrapper, StyledCountries, StyledCountriesItem } from './styled';
-import { H2 } from '../../atoms/H2';
 import { getIconUrl, COUNTRY_LIST } from '../../../constants/CountryIso';
 import Link from 'next/link';
-import { join } from 'lodash';
 
 const generateList = (schools, title) => {
     if (title?.toLowerCase() === 'institutions') {
