@@ -12,14 +12,14 @@ const StyledCountries = styled.div`
     flex-flow: row wrap;
 `;
 const StyledCountriesItem = styled.div`
-    flex: 0 0 256px;
+    /* flex: 0 0 256px; */
     transition: all 0.3s ease-out;
     border-radius: 10px;
     overflow: hidden;
     background-color: #fff;
     transition: all 0.3s ease-out;
     padding: 16px;
-    height: 100% !important;
+    /* height: 100% !important; */
 
     img {
         width: 100%;
