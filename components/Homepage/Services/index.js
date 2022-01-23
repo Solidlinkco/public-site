@@ -15,7 +15,7 @@ const Services = ({ servicesCards }) => {
         <div style={{ backgroundColor: 'rgb(244, 157, 42, .4)' }}>
             <div className="col-12">
                 <StyledWrapper>
-                    <H2 fontWeight="600" color="#400436">
+                    <H2 fontWeight="600" color="#400436" className="center">
                         Our Services
                     </H2>
 
@@ -31,11 +31,19 @@ const Services = ({ servicesCards }) => {
                     </StyledCardWrapper>
 
                     <div className="col-12">
-                        <Link href="/services">
-                            <a>
-                                <StyledButton>View all services</StyledButton>
-                            </a>
-                        </Link>
+                        <div
+                            style={{
+                                width: '100%',
+                                display: 'flex',
+                                justifyContent: 'center',
+                            }}
+                        >
+                            <Link href="/services">
+                                <a>
+                                    <StyledButton>View all services</StyledButton>
+                                </a>
+                            </Link>
+                        </div>
                     </div>
                 </StyledWrapper>
             </div>

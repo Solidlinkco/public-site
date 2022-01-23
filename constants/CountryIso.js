@@ -609,3 +609,7 @@ export const COUNTRY_LIST = [
 
 export const getIconUrl = (countryCode) =>
     `https://purecatamphetamine.github.io/country-flag-icons/3x2/${COUNTRY_MAP[countryCode]}.svg`;
+
+export const getCountryName = (countryCode) => {
+    return COUNTRY_LIST.find((country) => country['alpha-3'] === countryCode)?.name;
+};

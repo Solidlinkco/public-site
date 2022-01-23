@@ -1,12 +1,25 @@
 import Homepage from '../components/Homepage';
 import { graphcms } from '../config';
 import { GET_CONTACTS, GET_HOMEPAGE, GET_SCHOOLS } from '../queries';
-import axios from 'axios';
 
 export async function getStaticProps() {
     const { contacts } = await graphcms.request(GET_CONTACTS);
     const { homepages, reviews, servicesCards, blogs, events } = await graphcms.request(GET_HOMEPAGE);
     const { schools } = await graphcms.request(GET_SCHOOLS);
+
+    let youtube = [];
+
+    await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.youtubeChannelID}&maxResults=4&type=video&key=${process.env.youTubeAPIKey}`,
+        {
+            method: 'GET',
+        }
+    )
+        .then((result) => result.json())
+        .then((res) => {
+            youtube = res?.items || [];
+            console.log('🚀 ~ file: index.js ~ line 23 ~ .then ~ youtube', res, res.errors);
+        });
 
     const instaArr = [];
 
@@ -29,11 +42,22 @@ export async function getStaticProps() {
             instaData: instaArr ?? [],
             events: events ?? [],
             schools: schools || [],
+            youtube,
         },
     };
 }
 
-export default function Home({ contacts, homepages, reviews, servicesCards, schools, instaData = [], blog, events }) {
+export default function Home({
+    contacts,
+    homepages,
+    reviews,
+    servicesCards,
+    schools,
+    instaData = [],
+    blog,
+    events,
+    youtube,
+}) {
     return (
         <Homepage
             contacts={contacts}
@@ -44,6 +68,7 @@ export default function Home({ contacts, homepages, reviews, servicesCards, scho
             blog={blog}
             events={events}
             schools={schools}
+            youtube={youtube}
         />
     );
 }

@@ -1,10 +1,10 @@
-@import "./layout-mixins";
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;&display=swap");
+@import './layout-mixins';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;&display=swap');
 
 body {
     font-size: 16px;
     line-height: 150%;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     color: #202020;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
@@ -363,4 +363,7 @@ a {
 
 .arrow-wrapper {
     white-space: nowrap;
+}
+.center {
+    text-align: center;
 }

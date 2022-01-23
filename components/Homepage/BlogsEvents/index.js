@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const BlogsEvent = ({ blog, events }) => {
     return (
-        <div style={{ backgroundColor: 'rgba(244, 157, 42, 0.4)', marginTop: '80px' }}>
+        <div style={{ backgroundColor: 'rgba(244, 157, 42, 0.4)' }}>
             <div className="col-12">
                 <StyledWrapper>
                     <div>
