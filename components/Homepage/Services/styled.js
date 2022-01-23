@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
-    margin-bottom: 54px;
     padding: 80px 0;
 `;
 const StyledCardWrapper = styled.div`

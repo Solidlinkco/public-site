@@ -26,23 +26,37 @@ const StyledWrapper = styled.div`
     width: 100%;
     height: 100%;
     position: relative;
-    background-color: rgba(64, 4, 54, 0.2);
+    background-color: rgba(64, 4, 54, 0.3);
 `;
 const StyledHeroText = styled.div`
     color: #fff;
     position: absolute;
     top: 50%;
-    left: 60px;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
     padding: 30px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+
+    max-width: 560px;
+
+    @media screen and (max-width: 600px) {
+        max-width: unset;
+    }
+
+    p {
+        font-weight: 700;
+        font-size: 20px;
+        margin-bottom: 28px;
+    }
 
     h1 {
-        max-width: 560px;
         border-radius: 8px;
-        font-size: 60px;
+        font-size: 64px;
         font-weight: 700 !important;
         line-height: 45px;
         ${animate};
@@ -55,10 +69,6 @@ const StyledHeroText = styled.div`
             font-size: 48px;
             line-height: 50px;
         }
-    }
-
-    @media screen and (max-width: 56.25em) {
-        left: 16px;
     }
 
     button {
@@ -79,6 +89,8 @@ const StyledHeroText = styled.div`
         font-weight: 600;
         align-self: flex-start;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+        margin: 0 auto;
+        min-width: 200px;
 
         &:hover {
             background-color: #56b55b;

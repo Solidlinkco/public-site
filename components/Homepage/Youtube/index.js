@@ -1,36 +1,41 @@
-import React, { useState, useEffect } from 'react';
-import { StyledWrapper } from './styled';
+import React from 'react';
+import { StyledYoutubeWrapper, StyledVideoList } from './styled';
 
 import StyledButton from '../../atoms/StyledButton';
 
-import axios from 'axios';
 import ModalVideo from './ModalVideo';
 import isEmpty from 'lodash/isEmpty';
 
-const YOUTUBE_CHANNEL_LINK = '/';
+const YOUTUBE_CHANNEL_LINK = 'https://www.youtube.com/channel/UCwtQzFIU3yg_6_tu-ehMziQ/featured';
+const MAIN_VIDEO_ID = '13MgKmaBZJ8';
 
-const Youtube = ({ id }) => {
-    const [data, setData] = useState([]);
+const Youtube = ({ data }) => {
+    const sortedData = data?.sort((a, b) => new Date(b.snippet?.publishTime) - new Date(a.snippet?.publishTime));
 
-    useEffect(() => {
-        axios
-            .get(
-                `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.youtubeChannelID}&maxResults=4&type=video&key=${process.env.youTubeAPIKey}`
-            )
-            .then((res) => {
-                setData(res?.data?.items);
-            });
-    }, [id]);
+    const mainVideo = data?.find((item) => item.id?.videoId === MAIN_VIDEO_ID);
 
     if (isEmpty(data)) {
         return null;
     }
 
     return (
-        <StyledWrapper>
-            <div className="col-12">
-                <div className="videos-list">
-                    {data
+        <StyledYoutubeWrapper>
+            <div>
+                {mainVideo && (
+                    <ModalVideo
+                        isLarge
+                        key={mainVideo.id?.videoId}
+                        id={mainVideo.id?.videoId}
+                        title={mainVideo.snippet?.title}
+                        backdrop={mainVideo.snippet?.thumbnails?.high?.url}
+                    />
+                )}
+            </div>
+
+            {/* <div> */}
+            <StyledVideoList>
+                {sortedData &&
+                    sortedData
                         ?.slice(0, 4)
                         ?.map(({ id, snippet }) =>
                             id ? (
@@ -38,19 +43,20 @@ const Youtube = ({ id }) => {
                                     key={id?.videoId}
                                     id={id?.videoId}
                                     title={snippet?.title}
-                                    backdrop={snippet?.thumbnails?.default?.url}
+                                    backdrop={snippet?.thumbnails?.high?.url}
+                                    date={snippet?.publishTime}
                                 />
                             ) : null
                         )}
-                </div>
+            </StyledVideoList>
 
-                <div className="col-12 py20">
+            {/* <div className="col-12 py20">
                     <a href={YOUTUBE_CHANNEL_LINK}>
                         <StyledButton>View all</StyledButton>
                     </a>
-                </div>
-            </div>
-        </StyledWrapper>
+                </div> */}
+            {/* </div> */}
+        </StyledYoutubeWrapper>
     );
 };
 

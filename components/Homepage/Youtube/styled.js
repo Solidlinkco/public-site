@@ -1,35 +1,72 @@
 import styled from 'styled-components';
 
-const StyledWrapper = styled.div`
-    padding: 20px 0 100px 0;
-    .videos-list {
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        flex-flow: row wrap;
+const StyledYoutubeWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    background-color: rgba(64, 4, 54, 0) !important;
+    padding: 40px 0;
 
-        & > :not(:last-child) {
-            margin-right: 12px;
+    & > div {
+        display: block;
+        width: 100%;
+        flex: 1;
+        padding: 16px;
+
+        height: 415px;
+        overflow-y: auto;
+        @media screen and (max-width: 31.25em) {
+            overflow-y: visible;
         }
+    }
+
+    @media screen and (max-width: 56.25em) {
+        flex-direction: column;
+    }
+`;
+
+const StyledVideoList = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column wrap;
+
+    & > :not(:last-child) {
+        margin-right: 12px;
     }
 `;
 
 const StyledBackdropWrapper = styled.div`
-    margin-bottom: 32px;
+    margin-bottom: ${({ $isLarge }) => ($isLarge ? '0' : '32px')};
+
+    display: flex;
+    align-items: center;
+    &:last-child {
+        margin-bottom: 0;
+    }
+    @media screen and (max-width: 31.25em) {
+        align-items: flex-start;
+        flex-direction: column;
+    }
 
     .image-button {
-        width: 296px;
-        height: 200px;
+        width: ${({ $isLarge }) => ($isLarge ? '100%' : '240px')};
+        height: ${({ $isLarge }) => ($isLarge ? `380px` : '120px')};
         overflow: hidden;
         border-radius: 8px;
         position: relative;
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0;
+
+        @media screen and (max-width: 31.25em) {
+            width: 100% !important;
+            height: auto;
+        }
+
         img {
             display: block;
-            width: 300px;
-            height: 200px;
-            object-fit: cover;
+            width: 100%;
         }
 
         button {
@@ -46,7 +83,7 @@ const StyledBackdropWrapper = styled.div`
 
             div {
                 svg {
-                    font-size: 43px;
+                    font-size: ${({ $isLarge }) => ($isLarge ? '76px' : '43px')};
                     color: #fff;
                     transform: scale(1);
                     transition: all 0.35s;
@@ -64,12 +101,26 @@ const StyledBackdropWrapper = styled.div`
     }
 
     .title {
-        font-size: 14px;
-        max-width: 250px;
-        font-weight: 600;
-        text-align: center;
-        margin: 12px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        p {
+            color: rgba(64, 4, 54, 1);
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-block;
+            margin-left: 18px;
+        }
+
+        & .title_date {
+            color: rgba(64, 4, 54, 0.5);
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 4px;
+            @media screen and (max-width: 31.25em) {
+                margin-top: 2px;
+            }
+        }
     }
 `;
 
-export { StyledWrapper, StyledBackdropWrapper };
+export { StyledYoutubeWrapper, StyledBackdropWrapper, StyledVideoList };

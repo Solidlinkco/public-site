@@ -4,22 +4,31 @@ import { arrayOf, shape, string } from 'prop-types';
 import Hero from './Hero';
 import Institutions from './Institutions';
 import Stats from './Stats';
-import Reviews from './Reviews';
+// import Reviews from './Reviews';
 import Services from './Services';
 import Instagram from './Instagram';
 import Youtube from './Youtube';
 import BlogsEvents from './BlogsEvents';
-
-const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events }) => {
+import Countries from './Countries';
+import Testimonials from './Testimonial';
+import { MOCK_YOUTUBE } from './constant';
+const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events, youtube }) => {
     return (
         <Layout contacts={contacts}>
             <Hero heroImage={homepage?.heroImage} />
+
+            <Testimonials data={youtube || MOCK_YOUTUBE} videoId="xobXh-iC-K0" reverse />
             <Stats />
-            <Services servicesCards={servicesCards} />
+            <Testimonials data={youtube || MOCK_YOUTUBE} videoId="isC6XFg-ck0" />
+
             <Institutions schools={schools} />
+            <Countries schools={schools} />
+            <Services servicesCards={servicesCards} />
+
+            {/* <Reviews reviews={reviews} /> */}
+
+            <Youtube data={youtube} />
             <BlogsEvents blog={blog} events={events} />
-            <Reviews reviews={reviews} />
-            <Youtube />
             {/* <Instagram data={instaData} /> */}
         </Layout>
     );

@@ -36,9 +36,10 @@ const Hero = ({ heroImage }) => {
         <StyledBG src={heroImage?.url}>
             <StyledWrapper>
                 <StyledHeroText>
-                    <h1>Apply to an institutions of your choice overseas</h1>
+                    <h1>Want to study abroad?</h1>
+                    <p>Admission, Visa Processing and all you'll ever need, we help you get it right, No Excuses</p>
                     <button onClick={handleConsultation} type="button">
-                        Book a consultation
+                        Get started
                     </button>
                 </StyledHeroText>
 

@@ -59,8 +59,8 @@ const Institutions = ({ schools }) => {
 
     return (
         <>
-            <div className="col-12 py20">
-                <H2 fontWeight="600" color="#400436" margin="0 0 24px 0">
+            <div className="col-12 py20 center">
+                <H2 fontWeight="700" color="#400436" margin="0 0 24px 0">
                     Our Partners
                 </H2>
             </div>
@@ -99,13 +99,13 @@ const Institutions = ({ schools }) => {
                     ))}
                 </div>
             </StyledWrapper>
-            <div className="col-12 py20">
+            {/* <div className="col-12 py20">
                 <Link href="/">
                     <a>
                         <StyledButton>View all institutions</StyledButton>
                     </a>
                 </Link>
-            </div>
+            </div> */}
         </>
     );
 };

@@ -3,13 +3,17 @@ import React, { useState, useCallback } from 'react';
 import ModalVideo from 'react-modal-video';
 import { StyledBackdropWrapper } from './styled';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
+import format from 'date-fns/format';
+import { enGB } from 'date-fns/locale';
 
-const ModalVideoComp = ({ id, title, backdrop }) => {
+const ModalVideoComp = ({ id, title, backdrop, isLarge, date }) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = useCallback(() => setIsOpen((prevState) => !prevState), []);
-
+    const parsedDate = format(new Date(date || null), 'dd MMM, yyyy', {
+        locale: enGB,
+    });
     return (
-        <StyledBackdropWrapper>
+        <StyledBackdropWrapper $isLarge={isLarge}>
             <div className="image-button">
                 <img src={backdrop} alt={`solid-link-co-${title}`} />
                 <button onClick={toggleOpen}>
@@ -18,8 +22,13 @@ const ModalVideoComp = ({ id, title, backdrop }) => {
                     </div>
                 </button>
             </div>
-            <p className="title">{title}</p>
-            <ModalVideo channel="youtube" isOpen={isOpen} videoId={id} onClose={toggleOpen} />
+            {!isLarge && (
+                <div className="title">
+                    <p>{title}</p>
+                    <p className="title_date">Published on: {parsedDate}</p>
+                </div>
+            )}
+            {process.browser && <ModalVideo channel="youtube" isOpen={isOpen} videoId={id} onClose={toggleOpen} />}
         </StyledBackdropWrapper>
     );
 };
