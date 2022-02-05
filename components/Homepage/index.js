@@ -19,7 +19,6 @@ const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, e
 
             <Testimonials data={youtube || MOCK_YOUTUBE} videoId="xobXh-iC-K0" reverse />
             <Stats />
-            <Testimonials data={youtube || MOCK_YOUTUBE} videoId="isC6XFg-ck0" />
 
             <Institutions schools={schools} />
             <Countries schools={schools} />

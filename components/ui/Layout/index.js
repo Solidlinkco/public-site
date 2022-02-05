@@ -4,6 +4,7 @@ import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
 import styled from 'styled-components';
+import WhatsApp from './WhatsApp';
 
 const StyledMain = styled.main`
     padding-top: 120px;
@@ -20,6 +21,7 @@ const Layout = ({ children, contacts }) => {
         <>
             <Header contacts={contacts} />
             <StyledMain>{children}</StyledMain>
+            <WhatsApp />
             <Footer contacts={contacts} />
         </>
     );

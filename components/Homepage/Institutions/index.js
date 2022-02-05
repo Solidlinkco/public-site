@@ -3,8 +3,7 @@ import { arrayOf, shape, string } from 'prop-types';
 import { StyledWrapper } from './styled';
 import LazyLoad from 'react-lazyload-next';
 import { H2 } from '../../atoms/H2';
-import StyledButton from '../../atoms/StyledButton';
-import Link from 'next/link';
+
 import { gsap } from 'gsap';
 
 const SLICE = 12;
@@ -32,7 +31,6 @@ const Institutions = ({ schools }) => {
                 .slice(0, SLICE),
         [schools]
     );
-    console.log('🚀 ~ file: index.js ~ line 18 ~ Institutions ~ right', right);
 
     const leftRef = useRef(null);
     const rightRef = useRef(null);

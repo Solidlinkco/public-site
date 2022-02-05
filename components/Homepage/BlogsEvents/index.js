@@ -41,7 +41,7 @@ const BlogsEvent = ({ blog, events }) => {
                     </div>
                     <div>
                         <H2 fontWeight="600" margin="0 0 24px 0" color="#400436">
-                            Blogs
+                            Articles
                         </H2>
                         <BlogCard data={blog} className="blog-card" replaceN />
                         <div className="major-link">

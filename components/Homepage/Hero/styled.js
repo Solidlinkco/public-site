@@ -98,4 +98,11 @@ const StyledHeroText = styled.div`
     }
 `;
 
-export { StyledWrapper, StyledHeroText, StyledBG };
+const StyledButtons = styled.div`
+    display: flex;
+    & > :first-child {
+        margin-right: 16px;
+    }
+`;
+
+export { StyledWrapper, StyledHeroText, StyledBG, StyledButtons };

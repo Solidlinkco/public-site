@@ -6,16 +6,19 @@ import MailIcon from '@material-ui/icons/MailRounded';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
+import LinkedIn from '@material-ui/icons/LinkedIn';
+
 import HeaderBar from './Header';
 import { v4 } from 'uuid';
 
 const LEFT_MAP = ['phone', 'email'];
-const RIGHT_MAP = ['facebook', 'twitter', 'instagram'];
+const RIGHT_MAP = ['facebook', 'twitter', 'linkedin'];
 
 const SOCIAL_ICON_MAP = {
     facebook: FacebookIcon,
     twitter: TwitterIcon,
     instagram: InstagramIcon,
+    linkedin: LinkedIn,
 };
 
 const Header = ({ contacts }) => {
@@ -50,7 +53,12 @@ const Header = ({ contacts }) => {
 
                                 return (
                                     <div key={v4()} className={classes.BannerWrapper__Bar}>
-                                        <a href={value} className={classes.BannerWrapper__Bar_svg}>
+                                        <a
+                                            href={value}
+                                            className={classes.BannerWrapper__Bar_svg}
+                                            target="_blank"
+                                            rel="noreferrer noopener"
+                                        >
                                             <Icon />
                                         </a>
                                     </div>
@@ -75,3 +83,4 @@ Header.propTypes = {
 };
 
 export default Header;
+export { SOCIAL_ICON_MAP, LEFT_MAP, RIGHT_MAP };

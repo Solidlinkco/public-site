@@ -1,7 +1,7 @@
 import React from 'react';
 import StyledButton from '../../../atoms/StyledButton';
-import Link from 'next/link';
-import { StyledWrapper } from './styled';
+import { StyledWrapper, StyledButtons } from './styled';
+import { LINKS } from '../../../../constants/links';
 
 const MainCTA = () => {
     return (
@@ -14,11 +14,14 @@ const MainCTA = () => {
                         application process. Do not be left behind.
                     </p>
 
-                    <Link href="/contact">
-                        <a>
-                            <StyledButton bgcolor="#400436"> Contact us</StyledButton>
+                    <StyledButtons>
+                        <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
+                            <StyledButton bgcolor="#400436">Contact us</StyledButton>
                         </a>
-                    </Link>
+                        <a href={LINKS.brochureUrl} target="_blank" rel="noreferrer noopener">
+                            <StyledButton bgcolor="#400436">Download Brochure</StyledButton>
+                        </a>
+                    </StyledButtons>
                 </div>
             </div>
         </StyledWrapper>
