@@ -4,13 +4,16 @@ import { StyledWrapper, StyledCountriesItem } from './styled';
 import { capitalize } from '../../helper';
 import SchoolLayout from './Layout';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import MultiSelect from '../MultiSelect';
+
 const SchoolList = ({ schools, title, pageName, pageAlpha3 }) => {
     return (
-        <SchoolLayout title={`${title} in ${capitalize(pageName)}`} pageAlpha3={pageAlpha3}>
+        <SchoolLayout>
             <div style={{ backgroundColor: 'rgb(244, 157, 42, .4)' }}>
                 <div className="col-12">
                     <StyledWrapper>
                         {/* <StyledCountries> */}
+                        <MultiSelect schools={schools} title={title} />
                         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 500: 2, 650: 3, 900: 4 }}>
                             <Masonry gutter="32px">
                                 {schools.map((school) => {

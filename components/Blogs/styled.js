@@ -46,7 +46,7 @@ const StyledBlogsWrapper = styled.div`
 `;
 const StyledSearchWrapper = styled.div`
     position: relative;
-    margin: 40px 0 20px 0;
+    margin: ${({ $margin }) => $margin || '40px 0 20px 0'};
 
     svg {
         position: absolute;

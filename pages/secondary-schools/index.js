@@ -9,15 +9,17 @@ export async function getStaticProps() {
     const { contacts } = await graphcms.request(GET_CONTACTS);
     const { schools } = await graphcms.request(GET_SCHOOLS);
 
+    const secondarySchools = schools.filter((school) => school.isSecondarySchool);
+
     return {
         props: {
             contacts,
-            schools,
+            schools: secondarySchools,
         },
     };
 }
 
-const InstitutionsPage = ({ contacts, schools }) => {
+const SecondarySchoolPage = ({ contacts, schools }) => {
     return (
         <Layout contacts={contacts}>
             <Schools title={'Secondary schools'} schools={schools} />
@@ -25,4 +27,4 @@ const InstitutionsPage = ({ contacts, schools }) => {
     );
 };
 
-export default InstitutionsPage;
+export default SecondarySchoolPage;

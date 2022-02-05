@@ -2,7 +2,7 @@ import React from 'react';
 import { useSearchInput } from '../../hooks/useSearchInput';
 import { StyledSearch, StyledSearchWrapper } from './styled';
 
-const Search = () => {
+const Search = ({ margin }) => {
     const [search, setSearch] = useSearchInput();
 
     const handleSearchFilter = ({ target: { value } }) => {
@@ -10,7 +10,7 @@ const Search = () => {
     };
 
     return (
-        <StyledSearchWrapper>
+        <StyledSearchWrapper $margin={margin}>
             <StyledSearch type="text" placeholder="Search" onChange={handleSearchFilter} value={search} />
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
