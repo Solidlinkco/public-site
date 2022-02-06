@@ -23,6 +23,7 @@ const GET_HOMEPAGE = gql`
             title
             description
             order
+            ctaUrl
         }
         blogs(stage: PUBLISHED, orderBy: publishedAt_DESC) {
             title

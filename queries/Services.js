@@ -7,6 +7,7 @@ const GET_SERVICES_PAGE = gql`
             title
             description
             order
+            ctaUrl
         }
     }
 `;
