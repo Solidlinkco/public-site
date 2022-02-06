@@ -10,7 +10,7 @@ const Testimonials = ({ data, videoId, reverse }) => {
     }
 
     return (
-        <div class="col-12 collapse-mobile">
+        <div className="col-12 collapse-mobile">
             <StyledWrapper $reverse={reverse}>
                 <div>
                     {mainVideo && (

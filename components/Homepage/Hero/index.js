@@ -4,8 +4,8 @@ import { StyledWrapper, StyledHeroText, StyledBG, StyledButtons } from './styled
 import { openPopupWidget, CalendlyEventListener } from 'react-calendly';
 import axios from 'axios';
 import { TEMPLATE, telegram, config, parseData } from './constant';
-import { LINKS } from '../../../constants/links';
 import noop from 'lodash/noop';
+import { LINKS } from '../../../constants/links';
 
 const Hero = ({ heroImage }) => {
     const handleConsultation = useCallback(() => {

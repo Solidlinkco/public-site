@@ -10,6 +10,7 @@ const YOUTUBE_CHANNEL_LINK = 'https://www.youtube.com/channel/UCwtQzFIU3yg_6_tu-
 const MAIN_VIDEO_ID = 'mlhaGHbBlSo';
 
 const Youtube = ({ data }) => {
+    console.log('🚀 ~ file: index.js ~ line 13 ~ Youtube ~ data', data);
     const sortedData = data?.sort((a, b) => new Date(b.snippet?.publishTime) - new Date(a.snippet?.publishTime));
 
     const mainVideo = data?.find((item) => item.snippet?.resourceId?.videoId === MAIN_VIDEO_ID);
@@ -30,8 +31,8 @@ const Youtube = ({ data }) => {
                     {mainVideo && (
                         <ModalVideo
                             isLarge
-                            key={mainVideo.id?.videoId}
-                            id={mainVideo.id?.videoId}
+                            key={mainVideo.id}
+                            id={mainVideo.id}
                             title={mainVideo.snippet?.title}
                             backdrop={mainVideo.snippet?.thumbnails?.high?.url}
                         />
@@ -46,8 +47,8 @@ const Youtube = ({ data }) => {
                             ?.map(({ id, snippet }) =>
                                 id ? (
                                     <ModalVideo
-                                        key={id?.videoId}
-                                        id={id?.videoId}
+                                        key={id}
+                                        id={id}
                                         title={snippet?.title}
                                         backdrop={snippet?.thumbnails?.high?.url}
                                         date={snippet?.publishTime}

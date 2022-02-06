@@ -3,6 +3,7 @@ import { arrayOf, shape, string } from 'prop-types';
 import { StyledWrapper } from './styled';
 import LazyLoad from 'react-lazyload-next';
 import { H2 } from '../../atoms/H2';
+import { v4 } from 'uuid';
 
 import { gsap } from 'gsap';
 
@@ -64,14 +65,14 @@ const Institutions = ({ schools }) => {
             <StyledWrapper>
                 <div ref={leftRef}>
                     {left.map(({ url, fileName }) => (
-                        <div key={url}>
+                        <div key={v4()}>
                             <LazyLoad height={200} once offset={OFFSET}>
                                 <img src={url} alt={fileName} key={fileName} />
                             </LazyLoad>
                         </div>
                     ))}
                     {left.map(({ url, fileName }) => (
-                        <div key={url}>
+                        <div key={v4()}>
                             <LazyLoad height={200} once offset={OFFSET}>
                                 <img src={url} alt={fileName} key={fileName} />
                             </LazyLoad>
@@ -81,14 +82,14 @@ const Institutions = ({ schools }) => {
 
                 <div ref={rightRef}>
                     {right.map(({ url, fileName }) => (
-                        <div>
+                        <div key={v4()}>
                             <LazyLoad height={200} once offset={OFFSET}>
                                 <img src={url} alt={fileName} key={fileName} />
                             </LazyLoad>
                         </div>
                     ))}
                     {right.map(({ url, fileName }) => (
-                        <div>
+                        <div key={v4()}>
                             <LazyLoad height={200} once offset={OFFSET}>
                                 <img src={url} alt={fileName} key={fileName} />
                             </LazyLoad>

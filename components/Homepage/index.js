@@ -12,12 +12,12 @@ import BlogsEvents from './BlogsEvents';
 import Countries from './Countries';
 import Testimonials from './Testimonial';
 import { MOCK_YOUTUBE } from './constant';
-const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events, youtube }) => {
+const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events, youtube, testimonials }) => {
     return (
         <Layout contacts={contacts}>
             <Hero heroImage={homepage?.heroImage} />
 
-            <Testimonials data={youtube || MOCK_YOUTUBE} videoId="xobXh-iC-K0" reverse />
+            <Testimonials data={testimonials} videoId="xobXh-iC-K0" reverse />
             <Stats />
 
             <Institutions schools={schools} />

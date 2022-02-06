@@ -5,11 +5,22 @@ import { GET_CONTACTS, GET_HOMEPAGE, GET_SCHOOLS } from '../queries';
 export async function getStaticProps() {
     const { contacts } = await graphcms.request(GET_CONTACTS);
     const { homepages, reviews, servicesCards, blogs, events } = await graphcms.request(GET_HOMEPAGE);
+
     const { schools } = await graphcms.request(GET_SCHOOLS);
 
     let youtube = [];
-    // https://www.googleapis.com/youtube/v3/playlistItems
-    //youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&playlistId=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv&key=[YOUR_API_KEY] HTTP/1.1
+    let testimonials = [];
+
+    await fetch(
+        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.youtubeChannelID}&maxResults=4&type=video&key=${process.env.youTubeAPIKey}`,
+        {
+            method: 'GET',
+        }
+    )
+        .then((result) => result.json())
+        .then((res) => {
+            testimonials = res?.items || [];
+        });
 
     await fetch(
         `  https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&playlistId=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv&key=${process.env.youTubeAPIKey}`,
@@ -44,6 +55,7 @@ export async function getStaticProps() {
             events: events?.slice(0, 2) ?? [],
             schools: schools || [],
             youtube,
+            testimonials,
         },
     };
 }
@@ -58,6 +70,7 @@ export default function Home({
     blog,
     events,
     youtube,
+    testimonials,
 }) {
     return (
         <Homepage
@@ -69,6 +82,7 @@ export default function Home({
             blog={blog}
             events={events}
             schools={schools}
+            testimonials={testimonials}
             youtube={youtube}
         />
     );
