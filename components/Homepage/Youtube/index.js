@@ -7,7 +7,7 @@ import ModalVideo from './ModalVideo';
 import isEmpty from 'lodash/isEmpty';
 import { H2 } from '../../atoms/H2';
 const YOUTUBE_CHANNEL_LINK = 'https://www.youtube.com/playlist?list=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv';
-const MAIN_VIDEO_ID = '13MgKmaBZJ8';
+const MAIN_VIDEO_ID = 'mlhaGHbBlSo';
 
 const Youtube = ({ data }) => {
     const sortedData = data?.sort((a, b) => new Date(b.snippet?.publishTime) - new Date(a.snippet?.publishTime));

@@ -18,7 +18,6 @@ export async function getStaticProps() {
         .then((result) => result.json())
         .then((res) => {
             youtube = res?.items || [];
-            console.log('🚀 ~ file: index.js ~ line 23 ~ .then ~ youtube', res, res.errors);
         });
 
     const instaArr = [];
@@ -38,9 +37,9 @@ export async function getStaticProps() {
             homepages,
             reviews,
             servicesCards,
-            blog: blogs[1] ?? {},
+            blog: blogs?.slice(0, 2) ?? {},
             instaData: instaArr ?? [],
-            events: events ?? [],
+            events: events?.slice(0, 2) ?? [],
             schools: schools || [],
             youtube,
         },

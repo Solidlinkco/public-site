@@ -21,7 +21,6 @@ const Institutions = ({ schools }) => {
                 .slice(0, SLICE),
         [schools]
     );
-    console.log('🚀 ~ file: index.js ~ line 17 ~ Institutions ~ left', left);
     const right = useMemo(
         () =>
             schools

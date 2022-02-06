@@ -13,8 +13,6 @@ const Countries = ({ schools }) => {
         url: getIconUrl(country),
         name: getCountryName(country),
     }));
-    console.log('🚀 ~ file: index.js ~ line 10 ~ countriesWithUrl ~ countriesWithUrl', countriesWithUrl);
-
     useEffect(() => {
         gsap.from(leftRef.current, {
             x: '80%',

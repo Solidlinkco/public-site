@@ -27,6 +27,7 @@ const StyledCard = styled.div`
     .image {
         display: block;
         margin-right: 16px;
+        flex-shrink: 0;
         img {
             width: 220px;
             height: calc(226px - 24px);

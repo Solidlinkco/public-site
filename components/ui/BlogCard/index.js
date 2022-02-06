@@ -29,20 +29,18 @@ const ServiceCard = ({ data, className, replaceN }) => {
 
                 <P16 color="#797979">
                     {replaceN
-                        ? data?.customContent
-                            ? ''
-                            : data?.content?.text
-                                  ?.replace(/\\n/gi, ' ')
-                                  ?.replace('<p class="has-text-align-left">', ' ')
-                                  ?.replace('<p>', ' ')
-                                  ?.replace('<a>', ' ')
-                                  ?.replace('</a>', ' ')
-                                  ?.replace('</strong>', ' ')
-                                  ?.replace('<strong>', ' ')
+                        ? ''
+                        : data?.content?.text
+                              ?.replace(/\\n/gi, ' ')
+                              ?.replace('<p class="has-text-align-left">', ' ')
+                              ?.replace('<p>', ' ')
+                              ?.replace('<a>', ' ')
+                              ?.replace('</a>', ' ')
+                              ?.replace('</strong>', ' ')
+                              ?.replace('<strong>', ' ')
 
-                                  ?.substring(0, 320)
-                                  ?.trim() + '...'
-                        : null}
+                              ?.substring(0, 320)
+                              ?.trim() + '...'}
                 </P16>
             </div>
             <div className="read-more">

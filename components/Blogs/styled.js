@@ -34,14 +34,8 @@ const StyledBlogsWrapper = styled.div`
     justify-content: space-between;
     align-items: flex-start;
 
-    & .blg-page-card {
-        max-width: 460px;
-        margin-right: 0 !important;
-        margin-bottom: 80px !important;
-
-        &:nth-child(2n + 1) {
-            margin-right: 40px !important;
-        }
+    & > :not(:last-child) {
+        margin-bottom: 40px;
     }
 `;
 const StyledSearchWrapper = styled.div`
