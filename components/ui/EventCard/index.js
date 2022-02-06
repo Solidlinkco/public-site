@@ -4,10 +4,13 @@ import { P18B } from '../../atoms/P18B';
 import { P14 } from '../../atoms/P14';
 import { convertWAT } from '../../helper';
 
-const Events = ({ title, eventSlug, dateAndTime, description, image }) => {
-    const date = convertWAT(dateAndTime).toDateString();
-    const time = convertWAT(dateAndTime).toTimeString().substring(0, 5);
+const Events = ({ title, eventSlug, dateAndTime, description, image, customDate }) => {
+    const date = !customDate && convertWAT(dateAndTime).toDateString();
+    const time = !customDate && convertWAT(dateAndTime).toTimeString().substring(0, 5);
     // const day = date.getMonth();
+
+    const _date = customDate || `${date.substring(4)}-${time} WAT`;
+
     return (
         <StyledCard>
             <div className="image">
@@ -17,8 +20,8 @@ const Events = ({ title, eventSlug, dateAndTime, description, image }) => {
                 <P18B textTransform="capitalize" color="#400436">
                     {title}
                 </P18B>
-                <P14 fontWeight="600" color="#797979">
-                    {date.substring(4)}-{time} WAT
+                <P14 margin="6px 0 6px 0" fontWeight="600" color="#797979">
+                    {_date}
                 </P14>
                 <P14 margin="0 0 10px 0" color="#797979">
                     {description}

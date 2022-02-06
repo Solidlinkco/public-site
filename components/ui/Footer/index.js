@@ -12,14 +12,8 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import RoomIcon from '@material-ui/icons/Room';
 import MainCTA from './MainCTA';
 import { v4 } from 'uuid';
+import { SOCIAL_ICON_MAP, LEFT_MAP, RIGHT_MAP } from '../Header';
 
-const SOCIAL_ICON_MAP = {
-    facebook: FacebookIcon,
-    twitter: TwitterIcon,
-    instagram: InstagramIcon,
-};
-const RIGHT_MAP = ['facebook', 'twitter', 'instagram'];
-const LEFT_MAP = ['phone', 'email'];
 const FOOTER_CONTENT = [
     {
         title: 'Solidlink',
@@ -94,7 +88,12 @@ const Footer = ({ contacts }) => {
 
                                 return (
                                     <div key={value} className={classes.BannerWrapper__Bar}>
-                                        <a href={value} className={classes.BannerWrapper__Bar_svg}>
+                                        <a
+                                            href={value}
+                                            className={classes.BannerWrapper__Bar_svg}
+                                            target="_blank"
+                                            rel="noreferrer noopener"
+                                        >
                                             <Icon />
                                         </a>
                                     </div>

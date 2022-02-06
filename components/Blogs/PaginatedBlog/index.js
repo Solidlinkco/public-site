@@ -6,8 +6,25 @@ import PageButtons from './PageButtons';
 import BlogCard from '../../ui/BlogCard';
 import classes from './styled.module.scss';
 import { v4 } from 'uuid';
+import EventCard from '../../ui/EventCard';
+import format from 'date-fns/format';
+import { enGB } from 'date-fns/locale';
 
 const BLOG_PER_PAGE = 20;
+
+const getDescription = (description) =>
+    description
+        ?.replace(/\\n/gi, ' ')
+        ?.replace(/<p class="has-text-align-left">/g, ' ')
+        ?.replace(/<p>/g, ' ')
+        ?.replace(/<a>/g, ' ')
+        ?.replace('</a>', ' ')
+        ?.replace('</strong>', ' ')
+        ?.replace(/<strong>/g, ' ')
+        ?.replace('<a href="https://www.goabroad.com/study-abroad">"', ' ')
+
+        ?.substring(0, 320)
+        ?.trim() + '...';
 
 const PaginatedBlog = ({ blogs }) => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -23,9 +40,22 @@ const PaginatedBlog = ({ blogs }) => {
     return (
         <div className={classes.StyledWrapper}>
             <StyledBlogsWrapper>
-                {blogList.map((data) => (
-                    <BlogCard className="blg-page-card" data={data} key={v4()} replaceN />
-                ))}
+                {blogList.map((data) => {
+                    const date = format(new Date(data.customDate || data.publishedAt), 'dd/MM/yyyy', {
+                        locale: enGB,
+                    });
+
+                    return (
+                        <EventCard
+                            customDate={date}
+                            className="blg-page-card"
+                            title={data.title}
+                            image={data?.image}
+                            key={v4()}
+                            description={getDescription(data.content || data.customContent)}
+                        />
+                    );
+                })}
             </StyledBlogsWrapper>
             {totalPages > 1 && (
                 <PageButtons totalPages={totalPages} setCurrentPage={setCurrentPage} currentPage={currentPage} />

@@ -14,7 +14,7 @@ const ICON_MAP = {
     'pastoral care': Handshake,
 };
 
-const ServiceCard = ({ className, title, description }) => {
+const ServiceCard = ({ className, title, description, ctaUrl }) => {
     const Icon = ICON_MAP[title?.toLowerCase()] ?? ICON_MAP['visa support'];
     return (
         <StyledCard className={className}>
@@ -25,9 +25,14 @@ const ServiceCard = ({ className, title, description }) => {
                 <P16B color="#400436" textTransform="capitalize" margin="0 0 16px 0">
                     {title?.toLowerCase()}
                 </P16B>
-                <P14 lineHeight="1.45" color="#797979">
+                <P14 lineHeight="1.3" color="#797979">
                     {description}
                 </P14>
+            </div>
+            <div className="cta">
+                <a href={ctaUrl} target="_blank" rel="noreferrer noopener">
+                    Learn more &#xbb;
+                </a>
             </div>
         </StyledCard>
     );

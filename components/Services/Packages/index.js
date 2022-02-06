@@ -1,7 +1,8 @@
 import React from 'react';
 import { StyledTable } from './styled';
 import { H2 } from '../../atoms/H2';
-
+import StyledButton from '../../atoms/StyledButton';
+import { LINKS } from '../../../constants/links';
 import { PACKAGES } from './constant';
 
 const Packages = () => {
@@ -40,6 +41,13 @@ const Packages = () => {
                     ))}
                 </StyledTable>
             </div>
+            <div className="justify-content-center ">
+                <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
+                    <StyledButton>Get started</StyledButton>
+                </a>
+            </div>
+            <div className="py-20">&nbsp;</div>
+            <div className="py-20">&nbsp;</div>
         </div>
     );
 };

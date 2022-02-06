@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
 import { shape, string } from 'prop-types';
-import { StyledWrapper, StyledHeroText, StyledBG } from './styled';
+import { StyledWrapper, StyledHeroText, StyledBG, StyledButtons } from './styled';
 import { openPopupWidget, CalendlyEventListener } from 'react-calendly';
 import axios from 'axios';
 import { TEMPLATE, telegram, config, parseData } from './constant';
+import { LINKS } from '../../../constants/links';
+import noop from 'lodash/noop';
 
 const Hero = ({ heroImage }) => {
     const handleConsultation = useCallback(() => {
@@ -38,9 +40,18 @@ const Hero = ({ heroImage }) => {
                 <StyledHeroText>
                     <h1>Want to study abroad?</h1>
                     <p>Admission, Visa Processing and all you'll ever need, we help you get it right, No Excuses</p>
-                    <button onClick={handleConsultation} type="button">
-                        Get started
-                    </button>
+                    <StyledButtons>
+                        <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
+                            <button onClick={noop} type="button">
+                                Get started
+                            </button>
+                        </a>
+                        <a href={LINKS.brochureUrl} target="_blank" rel="noreferrer noopener">
+                            <button onClick={noop} type="button">
+                                Download Brochure
+                            </button>
+                        </a>
+                    </StyledButtons>
                 </StyledHeroText>
 
                 <CalendlyEventListener onEventScheduled={onEventScheduled} />

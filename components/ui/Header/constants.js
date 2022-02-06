@@ -50,8 +50,8 @@ const LINK = [
         dropdown: true,
         nav: [
             {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Articles',
+                to: '/articles',
             },
             {
                 label: 'Events',

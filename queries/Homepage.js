@@ -23,6 +23,7 @@ const GET_HOMEPAGE = gql`
             title
             description
             order
+            ctaUrl
         }
         blogs(stage: PUBLISHED, orderBy: publishedAt_DESC) {
             title
@@ -34,6 +35,7 @@ const GET_HOMEPAGE = gql`
             }
             blogSlug
             publishedAt
+            customContent
         }
         events(stage: PUBLISHED, orderBy: dateAndTime_DESC) {
             title

@@ -8,9 +8,11 @@ export async function getStaticProps() {
     const { schools } = await graphcms.request(GET_SCHOOLS);
 
     let youtube = [];
+    // https://www.googleapis.com/youtube/v3/playlistItems
+    //youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&playlistId=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv&key=[YOUR_API_KEY] HTTP/1.1
 
     await fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.youtubeChannelID}&maxResults=4&type=video&key=${process.env.youTubeAPIKey}`,
+        `  https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&playlistId=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv&key=${process.env.youTubeAPIKey}`,
         {
             method: 'GET',
         }
@@ -18,7 +20,6 @@ export async function getStaticProps() {
         .then((result) => result.json())
         .then((res) => {
             youtube = res?.items || [];
-            console.log('🚀 ~ file: index.js ~ line 23 ~ .then ~ youtube', res, res.errors);
         });
 
     const instaArr = [];
@@ -38,9 +39,9 @@ export async function getStaticProps() {
             homepages,
             reviews,
             servicesCards,
-            blog: blogs[1] ?? {},
+            blog: blogs?.slice(0, 2) ?? {},
             instaData: instaArr ?? [],
-            events: events ?? [],
+            events: events?.slice(0, 2) ?? [],
             schools: schools || [],
             youtube,
         },

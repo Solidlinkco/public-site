@@ -29,6 +29,15 @@ const StyledCard = styled.div`
     .texts {
         margin-top: 75px;
     }
+
+    .cta {
+        margin-top: auto;
+
+        a {
+            color: #400436;
+            cursor: pointer;
+        }
+    }
 `;
 
 export { StyledCard };

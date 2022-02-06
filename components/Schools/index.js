@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledWrapper } from './styled';
 
-import CountryList from './CountryList';
+import SchoolList from './SchoolList';
 
 const Schools = ({ title, schools }) => {
     return (
@@ -14,7 +14,7 @@ const Schools = ({ title, schools }) => {
                     </div>
                 </div>
             </div>
-            <CountryList schools={schools} title={title} />
+            <SchoolList schools={schools} title={title} />
         </StyledWrapper>
     );
 };
