@@ -8,9 +8,11 @@ export async function getStaticProps() {
     const { schools } = await graphcms.request(GET_SCHOOLS);
 
     let youtube = [];
+    // https://www.googleapis.com/youtube/v3/playlistItems
+    //youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&playlistId=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv&key=[YOUR_API_KEY] HTTP/1.1
 
     await fetch(
-        `https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=${process.env.youtubeChannelID}&maxResults=4&type=video&key=${process.env.youTubeAPIKey}`,
+        `  https://youtube.googleapis.com/youtube/v3/playlistItems?part=snippet&part=contentDetails&playlistId=PLaFB9hD00bIvdWngibIs7fC8iVprR5QLv&key=${process.env.youTubeAPIKey}`,
         {
             method: 'GET',
         }
