@@ -14,10 +14,6 @@ export const StyledWrapper = styled.div`
         justify-content: space-between;
         align-items: space-between;
 
-        * > div {
-            min-width: unset;
-        }
-
         & > :first-child {
             margin-bottom: 32px;
         }
@@ -25,17 +21,24 @@ export const StyledWrapper = styled.div`
     & > :last-child {
         padding-left: 48px;
         flex: 1;
+
+        @media screen and (max-width: 1315px) {
+            padding-left: 0;
+        }
     }
 
     & > :not(:last-child) {
         border-right: 1px solid #efefef;
+        @media screen and (max-width: 1315px) {
+            border-right: none;
+        }
     }
 
     .major-link {
         margin-top: 48px;
     }
 
-    @media screen and (max-width: 62.5em) {
+    @media screen and (max-width: 1315px) {
         flex-direction: column;
         & > :first-child {
             padding-right: 0;

@@ -36,6 +36,7 @@ const GET_HOMEPAGE = gql`
             blogSlug
             publishedAt
             customContent
+            customDate
         }
         events(stage: PUBLISHED, orderBy: dateAndTime_DESC) {
             title

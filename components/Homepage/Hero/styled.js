@@ -100,9 +100,20 @@ const StyledHeroText = styled.div`
 
 const StyledButtons = styled.div`
     display: flex;
+
+    @media screen and (max-width: 511px) {
+        flex-direction: column;
+    }
+    
     & > :first-child {
         margin-right: 16px;
+        @media screen and (max-width: 511px) {
+            margin-right: 0;
+            margin-bottom: 20px;
+
     }
+
+    
 `;
 
 export { StyledWrapper, StyledHeroText, StyledBG, StyledButtons };
