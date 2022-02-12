@@ -60,7 +60,7 @@ const BlogsEvent = ({ blog, events }) => {
                             Articles
                         </H2>
                         <StyledEventWrapper>
-                            {blog.map((data) => {
+                            {blog?.map((data) => {
                                 const date = format(new Date(data.customDate || data.publishedAt), 'dd/MM/yyyy', {
                                     locale: enGB,
                                 });
