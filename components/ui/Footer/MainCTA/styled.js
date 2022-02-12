@@ -23,5 +23,14 @@ export const StyledButtons = styled.div`
     justify-content: center;
     & > :first-child {
         margin-right: 16px;
+
+        @media screen and (max-width: 56.25em) {
+            margin-right: 0;
+            margin-bottom: 16px;
+        }
+    }
+
+    @media screen and (max-width: 56.25em) {
+        flex-direction: column;
     }
 `;
