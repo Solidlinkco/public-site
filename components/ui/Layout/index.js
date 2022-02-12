@@ -12,7 +12,7 @@ const StyledMain = styled.main`
     overflow: hidden;
 
     @media screen and (max-width: 56.25em) {
-        padding-top: 80px;
+        padding-top: 77px;
     }
 `;
 
