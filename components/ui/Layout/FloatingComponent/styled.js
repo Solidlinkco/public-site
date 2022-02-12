@@ -9,14 +9,15 @@ export const StyledWhatsApp = styled.a`
     margin: 0;
     border-radius: 8px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    div {
+        position: relative;
+        transform: translate(1px, -3px);
+    }
 
     position: fixed;
     z-index: 999999999;
-    top: calc(100vh - 70px);
-    right: 20px;
+    bottom: calc(env(safe-area-inset-bottom) + 10px);
+    right: 10px;
 
     cursor: pointer;
 `;

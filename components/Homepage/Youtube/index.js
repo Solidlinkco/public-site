@@ -10,8 +10,9 @@ const YOUTUBE_CHANNEL_LINK = 'https://www.youtube.com/channel/UCwtQzFIU3yg_6_tu-
 const MAIN_VIDEO_ID = 'mlhaGHbBlSo';
 
 const Youtube = ({ data }) => {
-    console.log('🚀 ~ file: index.js ~ line 13 ~ Youtube ~ data', data);
-    const sortedData = data?.sort((a, b) => new Date(b.snippet?.publishTime) - new Date(a.snippet?.publishTime));
+    const sortedData = data
+        ?.sort((a, b) => new Date(b.snippet?.publishTime) - new Date(a.snippet?.publishTime))
+        ?.filter((el) => el?.snippet?.resourceId?.videoId !== MAIN_VIDEO_ID);
 
     const mainVideo = data?.find((item) => item.snippet?.resourceId?.videoId === MAIN_VIDEO_ID);
 
