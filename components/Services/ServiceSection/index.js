@@ -30,7 +30,7 @@ const ServicesSection = ({ servicesCards }) => {
                     </StyledCardWrapper>
 
                     <div className="justify-content-center ">
-                        <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
+                        <a href={LINKS.getStartedUrlServicesPage} target="_blank" rel="noreferrer noopener">
                             <StyledButton>Get started</StyledButton>
                         </a>
                     </div>

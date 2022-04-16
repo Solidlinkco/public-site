@@ -15,11 +15,15 @@ const MainCTA = () => {
                     </p>
 
                     <StyledButtons>
-                        <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
-                            <StyledButton bgcolor="#400436">Contact us</StyledButton>
+                        <a href={LINKS.contactUsFooterUrl} target="_blank" rel="noreferrer noopener">
+                            <StyledButton as="span" bgcolor="#400436">
+                                Contact us
+                            </StyledButton>
                         </a>
                         <a href={LINKS.brochureUrl} target="_blank" rel="noreferrer noopener">
-                            <StyledButton bgcolor="#400436">Download Brochure</StyledButton>
+                            <StyledButton as="span" bgcolor="#400436">
+                                Download Brochure
+                            </StyledButton>
                         </a>
                     </StyledButtons>
                 </div>

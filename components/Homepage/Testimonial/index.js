@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledWrapper, StyledBlob, Button } from './styled';
 import ModalVideo from '../Youtube/ModalVideo';
+import { LINKS } from '../../../constants/links';
 
 const Testimonials = ({ data, videoId, reverse }) => {
     const mainVideo = data?.find((item) => item.id?.videoId === videoId);
@@ -31,7 +32,9 @@ const Testimonials = ({ data, videoId, reverse }) => {
                         </p>
                         <p>Sentence of emphasis</p>
                     </StyledBlob>
-                    <Button>Get a free consultation</Button>
+                    <a href={LINKS.getFreeConsultationUrl} target="_blank" rel="noreferrer noopener">
+                        <Button as="span">Get a free consultation</Button>
+                    </a>
                 </div>
             </StyledWrapper>
         </div>

@@ -1,3 +1,5 @@
+import { LINKS } from '../../../constants/links';
+
 const LINK = [
     {
         label: 'Home',
@@ -12,8 +14,12 @@ const LINK = [
         dropdown: true,
         nav: [
             {
-                label: "Founder's Profile",
-                to: '/founders-profile',
+                label: 'Our story',
+                to: '/our-story',
+            },
+            {
+                label: 'Our team',
+                to: '/our-team',
             },
         ],
     },
@@ -56,6 +62,11 @@ const LINK = [
             {
                 label: 'Events',
                 to: '/events',
+            },
+            {
+                label: 'Download brochure',
+                to: LINKS.brochureUrl,
+                external: true,
             },
         ],
     },
