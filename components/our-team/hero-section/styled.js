@@ -50,7 +50,7 @@ const StyledHeroText = styled.div`
 
     p {
         font-weight: 700;
-        font-size: 20px;
+        font-size: 26px;
         margin-bottom: 28px;
     }
 
@@ -70,50 +70,6 @@ const StyledHeroText = styled.div`
             line-height: 50px;
         }
     }
-
-    span {
-        background-color: #73d97a;
-        border: none;
-        padding: 16px 24px;
-        outline: none;
-        border-radius: 10px;
-        color: #fff;
-        ${animate};
-        animation-delay: 0.5s;
-        transform: translateY(0);
-        opacity: 1;
-        cursor: pointer;
-        transition: all 0.3s ease-out;
-        font-size: 18px;
-        /* width: 320px; */
-        font-weight: 600;
-        align-self: flex-start;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-        margin: 0 auto;
-        min-width: 200px;
-
-        &:hover {
-            background-color: #56b55b;
-        }
-    }
 `;
 
-const StyledButtons = styled.div`
-    display: flex;
-
-    @media screen and (max-width: 511px) {
-        flex-direction: column;
-    }
-    
-    & > :first-child {
-        margin-right: 16px;
-        @media screen and (max-width: 511px) {
-            margin-right: 0;
-            margin-bottom: 20px;
-
-    }
-
-    
-`;
-
-export { StyledWrapper, StyledHeroText, StyledBG, StyledButtons };
+export { StyledWrapper, StyledHeroText, StyledBG };

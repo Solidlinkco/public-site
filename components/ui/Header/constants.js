@@ -37,6 +37,10 @@ const LINK = [
             },
         ],
     },
+    {
+        label: 'Agent',
+        to: '/agent',
+    },
     // {
     //     label: 'Training',
     //     dropdown: true,
