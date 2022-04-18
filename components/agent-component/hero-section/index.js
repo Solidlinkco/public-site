@@ -1,21 +1,19 @@
 import React, { useCallback } from 'react';
 import { shape, string } from 'prop-types';
-import { StyledWrapper, StyledHeroText, StyledBG, StyledButtons } from './styled';
 import { LINKS } from '../../../constants/links';
+import { StyledWrapper, StyledHeroText, StyledBG, StyledButtons } from './styled';
 
 const Hero = ({ heroImage }) => {
     return (
         <StyledBG src={heroImage?.url}>
             <StyledWrapper>
                 <StyledHeroText>
-                    <h1>Want to study abroad?</h1>
-                    <p>Admission, Visa Processing and all you'll ever need, we help you get it right, No Excuses</p>
+                    <h1>Earn Up To 100,000 Per Referral By Becoming A Solid-Link Agent</h1>
+                    <p>Get Paid Making Dreams Come True.</p>
+
                     <StyledButtons>
                         <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
-                            <span>Get started</span>
-                        </a>
-                        <a href={LINKS.brochureUrl} target="_blank" rel="noreferrer noopener">
-                            <span>Download Brochure</span>
+                            <span>Register Now</span>
                         </a>
                     </StyledButtons>
                 </StyledHeroText>

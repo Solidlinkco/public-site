@@ -1,7 +1,6 @@
 import React, { useMemo } from 'react';
 import { StyledWrapper, StyledCountriesItem } from './styled';
 
-import { capitalize } from '../../helper';
 import SchoolLayout from './Layout';
 import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
 import MultiSelect from '../MultiSelect';

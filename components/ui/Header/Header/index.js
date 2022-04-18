@@ -33,10 +33,17 @@ const Header = () => {
                                             </span>
                                         </p>
                                         <ul>
-                                            {nav.map(({ label: _label, to }) => (
+                                            {nav.map(({ label: _label, to, external }) => (
                                                 <li key={_label}>
                                                     <Link href={to}>
-                                                        <a>{_label}</a>
+                                                        <a
+                                                            {...(external && {
+                                                                target: '_blank',
+                                                                rel: 'noreferrer noopener',
+                                                            })}
+                                                        >
+                                                            {_label}
+                                                        </a>
                                                     </Link>
                                                 </li>
                                             ))}

@@ -7,9 +7,7 @@ export const StyledWrapper = styled.div`
 
     .cta-wrapper {
         padding: 40px;
-        h4 {
-            color: #fff;
-        }
+        color: #400436;
 
         p {
             margin: 20px auto 40px auto;
@@ -26,7 +24,7 @@ export const StyledButtons = styled.div`
 
         @media screen and (max-width: 56.25em) {
             margin-right: 0;
-            margin-bottom: 16px;
+            margin-bottom: 48px;
         }
     }
 

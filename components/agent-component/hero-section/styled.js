@@ -18,8 +18,11 @@ const animate = css`
 const StyledBG = styled.div`
     width: 100%;
     height: 500px;
-    background-image: ${({ src }) => `url(${src})`};
+    background-image: url('./assets/img/neonbrand-1-aA2Fadydc-unsplash.jpg');
     background-size: cover;
+    @media screen and (max-width: 31.25em) {
+        height: 650px;
+    }
 `;
 
 const StyledWrapper = styled.div`
@@ -42,7 +45,7 @@ const StyledHeroText = styled.div`
     text-align: center;
     width: 100%;
 
-    max-width: 560px;
+    max-width: 800px;
 
     @media screen and (max-width: 600px) {
         max-width: unset;
@@ -50,7 +53,7 @@ const StyledHeroText = styled.div`
 
     p {
         font-weight: 700;
-        font-size: 20px;
+        font-size: 26px;
         margin-bottom: 28px;
     }
 
@@ -62,12 +65,12 @@ const StyledHeroText = styled.div`
         ${animate};
         opacity: 1;
         animation-delay: 0.2s;
-        line-height: 64px;
+        line-height: 80px;
         /* text-transform: capitalize; */
 
         @media screen and (max-width: 56.25em) {
             font-size: 48px;
-            line-height: 50px;
+            line-height: 58px;
         }
     }
 
@@ -100,6 +103,7 @@ const StyledHeroText = styled.div`
 
 const StyledButtons = styled.div`
     display: flex;
+    margin-top: 38px;
 
     @media screen and (max-width: 511px) {
         flex-direction: column;
