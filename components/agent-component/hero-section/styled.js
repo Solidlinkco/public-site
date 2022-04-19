@@ -20,9 +20,6 @@ const StyledBG = styled.div`
     height: 500px;
     background-image: url('./assets/img/neonbrand-1-aA2Fadydc-unsplash.jpg');
     background-size: cover;
-    @media screen and (max-width: 31.25em) {
-        height: 650px;
-    }
 `;
 
 const StyledWrapper = styled.div`
@@ -55,6 +52,11 @@ const StyledHeroText = styled.div`
         font-weight: 700;
         font-size: 26px;
         margin-bottom: 28px;
+
+        @media screen and (max-width: 31.25em) {
+            font-size: 16px;
+            line-height: 1.5;
+        }
     }
 
     h1 {
@@ -69,8 +71,12 @@ const StyledHeroText = styled.div`
         /* text-transform: capitalize; */
 
         @media screen and (max-width: 56.25em) {
-            font-size: 48px;
+            font-size: 28px;
             line-height: 58px;
+        }
+        @media screen and (max-width: 31.25em) {
+            font-size: 20px;
+            line-height: 1.5;
         }
     }
 

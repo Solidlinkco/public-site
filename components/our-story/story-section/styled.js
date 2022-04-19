@@ -5,7 +5,7 @@ export const StyledStoryContent = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
+    padding: 20px 16px;
     width: 100%;
 
     & p {

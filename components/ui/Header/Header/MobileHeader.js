@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Header.module.scss';
 import Link from 'next/link';
 import { LINK } from '../constants';
+import MobileDropdown from './MobileDropdown';
 
 const MobileHeader = ({ nav, setNav }) => {
     return (
@@ -29,13 +30,7 @@ const MobileHeader = ({ nav, setNav }) => {
                 <div className={classes.SemiBox}>
                     {LINK.map(({ label, to, dropdown, nav }) => {
                         if (dropdown) {
-                            return nav.map(({ label, to }) => (
-                                <div className={classes.Navlinks} key={label}>
-                                    <Link href={to}>
-                                        <a>{label}</a>
-                                    </Link>
-                                </div>
-                            ));
+                            return <MobileDropdown key={label} label={label} nav={nav} />;
                         }
 
                         return (
