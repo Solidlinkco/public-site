@@ -8,7 +8,7 @@ const Hero = ({ heroImage }) => {
             <StyledWrapper>
                 <StyledHeroText>
                     <h1>Once Victims, Now Saving Dreams</h1>
-                    <p>Here's how it al started.</p>
+                    <p>Here's how it all started.</p>
                 </StyledHeroText>
             </StyledWrapper>
         </StyledBG>
