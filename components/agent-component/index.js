@@ -15,7 +15,7 @@ const AgentComponents = ({ contacts, agent }) => {
 
             <DidYouKnow />
 
-            <TextSection data={textContents[1]} reverse />
+            <TextSection data={textContents[1]} reverse></TextSection>
         </Layout>
     );
 };

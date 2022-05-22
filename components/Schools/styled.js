@@ -4,7 +4,7 @@ const StyledWrapper = styled.div`
     .blog-page-banner {
         height: 300px;
 
-        background-image: url('/assets/img/caleb-woods-RIcMwDLk1wo-unsplash.jpg');
+        background-image: url('/assets/img/institution-bg.jpeg');
         background-position: center 80%;
         background-repeat: no-repeat;
         background-size: cover;

@@ -17,7 +17,6 @@ const Packages = () => {
                         <th>Package</th>
                         <th>Whats is included?</th>
                         <th>Benefits to Client</th>
-                        <th>Price</th>
                     </tr>
                     {PACKAGES.map(({ title, included, benefits, price }) => (
                         <tr key={title}>
@@ -36,7 +35,6 @@ const Packages = () => {
                                     ))}
                                 </ul>
                             </td>
-                            <td>{price}</td>
                         </tr>
                     ))}
                 </StyledTable>
