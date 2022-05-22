@@ -9,7 +9,6 @@ const PACKAGES = [
             'Clarity about Cost of Study',
             'Information about Country of Study',
         ],
-        price: 'Free',
     },
     {
         title: 'Silver plan',
@@ -29,7 +28,6 @@ const PACKAGES = [
             'Clarity about Cost of Study',
             'Information about Country of Study',
         ],
-        price: '€500',
     },
     {
         title: 'Gold plan',
@@ -61,7 +59,6 @@ const PACKAGES = [
             'Solid- Link Welcome Pack',
             'Seamless Transition into Host Country',
         ],
-        price: '€1000',
     },
 ];
 

@@ -6,10 +6,6 @@ const GET_HOMEPAGE = gql`
             heroImage {
                 url(transformation: { image: { resize: { height: 350 } } })
             }
-            institutionsblock {
-                url(transformation: { image: { resize: { height: 40 } } })
-                fileName
-            }
         }
         reviews(stage: PUBLISHED) {
             author

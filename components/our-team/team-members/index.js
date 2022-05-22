@@ -16,13 +16,13 @@ const TeamMembers = ({ teamMembers }) => {
                 <StyledWrapper>
                     <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 550: 1, 850: 2, 900: 3, 1200: 4 }}>
                         <Masonry gutter="32px">
-                            {teamMembers.map(({ position, fullName, image }) => (
-                                <StyleTeamMember key={`ff${fullName}`}>
+                            {teamMembers.map(({ position, fullName, image, bio }) => (
+                                <StyleTeamMember key={`ff${fullName}`} img={image.url}>
                                     <div>
-                                        <img src={image?.url} alt={fullName} />
+                                        <p className="team-position">{position}</p>
+                                        <p className="team-name">{fullName}</p>
+                                        {bio && <p className="team-bio">{bio}</p>}
                                     </div>
-                                    <p>{fullName}</p>
-                                    <p>{position}</p>
                                 </StyleTeamMember>
                             ))}
                         </Masonry>

@@ -12,6 +12,7 @@ const GET_TEAM = gql`
                 fullName
                 id
                 position
+                bio
                 image {
                     id
                     fileName
