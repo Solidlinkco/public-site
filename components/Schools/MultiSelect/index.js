@@ -68,8 +68,6 @@ const generateOptions = (countries) => {
 const MultiSelect = ({ schools, title }) => {
     const countries = useMemo(() => [...new Set(generateList(schools, title)?.filter(Boolean))] ?? [], [schools]);
     const options = generateOptions(countries);
-    console.log('🚀 ~ file: index.js ~ line 77 ~ MultiSelect ~ options', options);
-
     return (
         <StyledFilterWrapper>
             <Search margin="0" />

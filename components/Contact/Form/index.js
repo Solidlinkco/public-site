@@ -8,24 +8,35 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 // import Map from './Map';
 
+const apiUrl = 'https://ams4you.net/amsapi/public/v1/webinquiry/getparameters?type=all';
+
+let config = {
+    headers: {
+        apikey: '750-e6dcc3cac0b63857e8e489d407b5bcfa',
+    },
+};
+
 const ContactForm = () => {
     const [loading, setLoading] = useState(false);
     const onSubmit = (values) => {
         setLoading(true);
-        axios
-            .post('/api/contact', values)
-            .then(({ data }) => {
-                toast(data?.ok ? 'Message successfully sent!' : 'Server error, please try again!', {
-                    position: 'top-right',
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            })
-            .finally(() => setLoading(false));
+
+        axios.get(apiUrl, config).then((response) => console.log(response));
+        // axios
+        //     .post('/api/contact', values)
+        //     .then(({ data }) => {
+        //         console.log('🚀 ~ file: index.js ~ line 18 ~ .then ~ data', data);
+        //         toast(data?.ok ? 'Message successfully sent!' : 'Server error, please try again!', {
+        //             position: 'top-right',
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //         });
+        //     })
+        //     .finally(() => setLoading(false));
     };
     return (
         <div className="col-12 centered collapse-mobile">
@@ -57,6 +68,7 @@ const ContactForm = () => {
                         src="https://maps.google.com/maps?q=Sallybrook%20Cork%2C%20T45%20R250%20Ireland&amp;t=m&amp;z=10&amp;output=embed&amp;iwloc=near"
                         title="%3$s"
                         aria-label="%3$s"
+                        nonce="gmaps"
                     ></iframe>
                 </StyledFormWrapper>
             </div>

@@ -28,9 +28,9 @@ const schema = Yup.object().shape({
 });
 
 const initialValues = {
-    [contactFieldsNames.fullName]: '',
-    [contactFieldsNames.email]: '',
-    [contactFieldsNames.phone]: '',
+    [contactFieldsNames.fullName]: 'tets',
+    [contactFieldsNames.email]: 'test@mail.com',
+    [contactFieldsNames.phone]: '009837637266382',
     [contactFieldsNames.preferredCourse]: '',
     [contactFieldsNames.program]: '',
     [contactFieldsNames.comment]: '',
