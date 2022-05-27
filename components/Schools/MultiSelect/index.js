@@ -3,6 +3,7 @@ import Select from 'react-select';
 import Search from '../../Blogs/Search';
 import { StyledFilterWrapper } from './styled';
 import { COUNTRY_LIST } from '../../../constants/CountryIso';
+import useSearch from '../../../hooks/useSearch';
 
 const customSelectStyles = {
     container: (provided) => ({
@@ -66,14 +67,26 @@ const generateOptions = (countries) => {
 };
 
 const MultiSelect = ({ schools, title }) => {
+    const [_, setSearchParams] = useSearch();
+
     const countries = useMemo(() => [...new Set(generateList(schools, title)?.filter(Boolean))] ?? [], [schools]);
     const options = generateOptions(countries);
+
+    const handleChange = (selectedOptions) => {
+        const countryValues = selectedOptions?.map((el) => el?.value);
+        setSearchParams((prevSearchParams) => ({
+            ...prevSearchParams,
+            filter: { ...prevSearchParams?.filter, country: countryValues },
+        }));
+    };
+
     return (
         <StyledFilterWrapper>
             <Search margin="0" />
             <Select
                 options={options}
                 styles={customSelectStyles}
+                onChange={handleChange}
                 placeholder="Filter by country"
                 isMulti
                 className="react-select"
