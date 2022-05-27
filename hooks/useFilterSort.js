@@ -28,7 +28,7 @@ export const useFilterSort = (list) => {
                 let filterResult = true;
                 Object.keys(searchParams?.filter ?? {}).map((filterKey) => {
                     if (filterKey === 'search') {
-                        const value = get(item, 'name');
+                        const value = get(item, 'name') || get(item, 'title');
 
                         filterResult =
                             value?.toLowerCase().indexOf(searchParams?.filter[filterKey]?.toLowerCase()) > -1;
