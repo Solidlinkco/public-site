@@ -8,20 +8,41 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 // import Map from './Map';
 
-const apiUrl = 'https://ams4you.net/amsapi/public/v1/webinquiry/getparameters?type=all';
-
-let config = {
-    headers: {
-        apikey: '750-e6dcc3cac0b63857e8e489d407b5bcfa',
-    },
-};
-
+function CreatedDateLocal() {
+    var today = new Date();
+    var yyyy = today.getFullYear();
+    var mm = today.getMonth() + 1;
+    var dd = today.getDate();
+    var hr = today.getHours();
+    var min = today.getMinutes();
+    var sec = today.getSeconds();
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+    if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (hr < 10) {
+        hr = '0' + hr;
+    }
+    if (min < 10) {
+        min = '0' + min;
+    }
+    if (sec < 10) {
+        sec = '0' + sec;
+    }
+    return yyyy + '-' + mm + '-' + dd + ' ' + hr + ':' + min + ':' + sec;
+}
 const ContactForm = () => {
     const [loading, setLoading] = useState(false);
     const onSubmit = (values) => {
         setLoading(true);
 
-        axios.get(apiUrl, config).then((response) => console.log(response));
+        const formData = new FormData();
+        formData.append('CreatedDateLocal', CreatedDateLocal());
+        formData.append('FirstName', values.fullName.split(' ')[0]);
+
+        axios.post('/api/contact', values).then((response) => console.log(response));
         // axios
         //     .post('/api/contact', values)
         //     .then(({ data }) => {

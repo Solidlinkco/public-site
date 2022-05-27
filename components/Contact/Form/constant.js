@@ -31,9 +31,9 @@ const initialValues = {
     [contactFieldsNames.fullName]: 'tets',
     [contactFieldsNames.email]: 'test@mail.com',
     [contactFieldsNames.phone]: '009837637266382',
-    [contactFieldsNames.preferredCourse]: '',
-    [contactFieldsNames.program]: '',
-    [contactFieldsNames.comment]: '',
+    [contactFieldsNames.preferredCourse]: 'preferredCourse',
+    [contactFieldsNames.program]: 'program',
+    [contactFieldsNames.comment]: 'comment',
 };
 
 const contactFields = [
