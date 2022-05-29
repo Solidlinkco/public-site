@@ -10,6 +10,7 @@ const ContactUs = ({ contact }) => {
     const address = contact.find((el) => el.type === 'address');
     const phone = contact.filter((el) => el.type === 'phone');
     const email = contact.find((el) => el.type === 'email');
+
     return (
         <>
             <StyledWrapper>
@@ -55,6 +56,7 @@ const ContactUs = ({ contact }) => {
                 </StyledContactCards>
             </div>
             <Form />
+
             <ToastContainer
                 autoClose={5000}
                 hideProgressBar={false}

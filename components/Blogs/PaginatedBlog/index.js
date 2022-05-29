@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { StyledBlogsWrapper } from '../styled';
 import PageButtons from './PageButtons';
+import Link from 'next/link';
 import BlogCard from '../../ui/BlogCard';
 import classes from './styled.module.scss';
-import { v4 } from 'uuid';
 import EventCard from '../../ui/EventCard';
 import format from 'date-fns/format';
 import { enGB } from 'date-fns/locale';
@@ -26,7 +26,7 @@ const getDescription = (description) =>
         ?.substring(0, 320)
         ?.trim() + '...';
 
-const PaginatedBlog = ({ blogs }) => {
+const PaginatedBlog = ({ blogs, isBlog }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const { pathname } = useRouter();
 
@@ -45,13 +45,31 @@ const PaginatedBlog = ({ blogs }) => {
                         locale: enGB,
                     });
 
+                    if (isBlog) {
+                        return (
+                            <Link key={data.title} href={`/articles/${data.blogSlug}`}>
+                                <a>
+                                    <EventCard
+                                        customDate={date}
+                                        className="blg-page-card"
+                                        title={data.title}
+                                        image={data?.image}
+                                        isBlog={isBlog}
+                                        description={getDescription(data.content || data.customContent)}
+                                    />
+                                </a>
+                            </Link>
+                        );
+                    }
+
                     return (
                         <EventCard
                             customDate={date}
                             className="blg-page-card"
                             title={data.title}
                             image={data?.image}
-                            key={v4()}
+                            key={data.title}
+                            isBlog={isBlog}
                             description={getDescription(data.content || data.customContent)}
                         />
                     );

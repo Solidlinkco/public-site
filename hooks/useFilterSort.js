@@ -18,7 +18,7 @@ export { sortList };
 
 const isEmpty = (object) => Object.values(object).every((x) => x === null || x === '');
 
-export const useFilterSort = (list, type) => {
+export const useFilterSort = (list) => {
     const [searchParams] = useSearch();
     const filterActive = useMemo(() => !isEmpty(searchParams), [searchParams]);
 
@@ -27,21 +27,24 @@ export const useFilterSort = (list, type) => {
             list.filter((item) => {
                 let filterResult = true;
                 Object.keys(searchParams?.filter ?? {}).map((filterKey) => {
-                    const value = get(item, 'title');
-
                     if (filterKey === 'search') {
+                        const value = get(item, 'name') || get(item, 'title');
+
                         filterResult =
                             value?.toLowerCase().indexOf(searchParams?.filter[filterKey]?.toLowerCase()) > -1;
+                    }
+
+                    if (filterKey === 'country') {
+                        const value = get(item, 'country');
+
+                        filterResult = searchParams?.filter[filterKey].includes(value);
                     }
                 });
                 return filterResult;
             }),
         [searchParams, list]
     );
-    const filterSortList = useMemo(
-        () => sortList(searchParams?.sort, filteredList),
-        [searchParams, filteredList, type]
-    );
+    const filterSortList = useMemo(() => sortList(searchParams?.sort, filteredList), [searchParams, filteredList]);
 
     const filterListTotal = filterSortList?.length;
 

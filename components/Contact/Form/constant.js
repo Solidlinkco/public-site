@@ -28,12 +28,12 @@ const schema = Yup.object().shape({
 });
 
 const initialValues = {
-    [contactFieldsNames.fullName]: '',
-    [contactFieldsNames.email]: '',
-    [contactFieldsNames.phone]: '',
-    [contactFieldsNames.preferredCourse]: '',
-    [contactFieldsNames.program]: '',
-    [contactFieldsNames.comment]: '',
+    [contactFieldsNames.fullName]: 'tets',
+    [contactFieldsNames.email]: 'test@mail.com',
+    [contactFieldsNames.phone]: '009837637266382',
+    [contactFieldsNames.preferredCourse]: 'preferredCourse',
+    [contactFieldsNames.program]: 'program',
+    [contactFieldsNames.comment]: 'comment',
 };
 
 const contactFields = [

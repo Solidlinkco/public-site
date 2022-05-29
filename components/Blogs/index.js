@@ -5,8 +5,7 @@ import Search from './Search';
 
 import PaginatedBlog from './PaginatedBlog';
 const Blogs = ({ blogs }) => {
-    const { filterListTotal, filterActive, filterSortList } = useFilterSort(blogs);
-
+    const { filterSortList } = useFilterSort(blogs);
     return (
         <StyledWrapper>
             <div className="blog-page-banner">
@@ -23,7 +22,7 @@ const Blogs = ({ blogs }) => {
                 </div>
 
                 <div className="col-10 centered collapse-mobile">
-                    <PaginatedBlog blogs={filterSortList} />
+                    <PaginatedBlog blogs={filterSortList} isBlog />
                 </div>
             </div>
         </StyledWrapper>

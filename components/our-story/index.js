@@ -7,6 +7,7 @@ import StoryContent from './story-section';
 import Stats from '../Homepage/Stats';
 import Gallery from './gallery';
 import DidYouKnow from './did-you-know-section';
+import WhatPeopleSay from './what-people-say';
 
 const OurStoryComponents = ({ contacts, ourStory }) => {
     return (
@@ -15,6 +16,7 @@ const OurStoryComponents = ({ contacts, ourStory }) => {
             <StoryContent ourStory={ourStory} />
             <Stats />
             <DidYouKnow didYouKnow={ourStory.didYouKnow} />
+            <WhatPeopleSay />
             <Gallery images={ourStory.gallery} />
         </Layout>
     );
@@ -27,7 +29,6 @@ OurStoryComponents.propTypes = {
             value: string,
         })
     ).isRequired,
-    ourStory: string.isRequired,
 };
 
 export default OurStoryComponents;
