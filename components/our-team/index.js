@@ -11,7 +11,7 @@ const OurTeamComponents = ({ contacts, ourTeam }) => {
         <Layout contacts={contacts}>
             <HeroSection heroImage={ourTeam?.heroImage} />
             {ourTeam?.ourFounders.map((founder, index) => (
-                <TextSection data={founder} reverse={index + 1 === ourTeam?.ourFounders.length} />
+                <TextSection key={founder.id} data={founder} reverse={index + 1 === ourTeam?.ourFounders.length} />
             ))}
 
             <TeamMembers teamMembers={ourTeam?.teamMembers} />
