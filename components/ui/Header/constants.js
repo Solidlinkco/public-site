@@ -38,7 +38,7 @@ const LINK = [
         ],
     },
     {
-        label: 'Agent',
+        label: 'Agency',
         to: '/agent',
     },
     // {
@@ -75,7 +75,7 @@ const LINK = [
         ],
     },
     {
-        label: 'Contact',
+        label: 'Contact Us',
         to: '/contact-us',
     },
 ];

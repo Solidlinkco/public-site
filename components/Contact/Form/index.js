@@ -9,31 +9,6 @@ import FlexibleFrame from '../../ui/FlexibleFrame';
 
 const isBrowser = () => typeof window !== 'undefined';
 
-function CreatedDateLocal() {
-    var today = new Date();
-    var yyyy = today.getFullYear();
-    var mm = today.getMonth() + 1;
-    var dd = today.getDate();
-    var hr = today.getHours();
-    var min = today.getMinutes();
-    var sec = today.getSeconds();
-    if (mm < 10) {
-        mm = '0' + mm;
-    }
-    if (dd < 10) {
-        dd = '0' + dd;
-    }
-    if (hr < 10) {
-        hr = '0' + hr;
-    }
-    if (min < 10) {
-        min = '0' + min;
-    }
-    if (sec < 10) {
-        sec = '0' + sec;
-    }
-    return yyyy + '-' + mm + '-' + dd + ' ' + hr + ':' + min + ':' + sec;
-}
 const ContactForm = () => {
     return (
         <div className="col-12 centered collapse-mobile">

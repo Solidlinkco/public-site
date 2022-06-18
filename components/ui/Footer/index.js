@@ -27,7 +27,7 @@ const FOOTER_CONTENT = [
                 to: '/founders-profile',
             },
             {
-                label: 'Contact',
+                label: 'Contact Us',
                 to: '/contact',
             },
             {

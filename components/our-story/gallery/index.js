@@ -25,7 +25,7 @@ const Gallery = ({ images }) => {
         <>
             <div className="col-12 py20 center">
                 <H2 fontWeight="700" color="#400436" margin="0 0 24px 0">
-                    Gallery
+                    Our Partners
                 </H2>
             </div>
             <StyledWrapper>

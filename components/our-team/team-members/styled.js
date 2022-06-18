@@ -10,7 +10,7 @@ export const StyleTeamMember = styled.div`
     position: relative;
     border-radius: 10px;
     transition: all 0.3s ease-out;
-    height: 300px;
+    height: 400px;
     width: 300px;
     background-image: ${({ img }) => `url(${img})`};
     background-size: cover;
