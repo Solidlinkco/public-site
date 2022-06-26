@@ -15,7 +15,9 @@ export const StyleTeamMember = styled.div`
     background-image: ${({ img }) => `url(${img})`};
     background-size: cover;
     background-position: center;
-
+    @media screen and (max-width: 511px) {
+        margin-bottom: 24px;
+    }
     & div {
         position: absolute;
         top: 0;

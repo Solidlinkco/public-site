@@ -104,16 +104,14 @@ const StyledButtons = styled.div`
     @media screen and (max-width: 511px) {
         flex-direction: column;
     }
-    
+
     & > :first-child {
         margin-right: 16px;
         @media screen and (max-width: 511px) {
             margin-right: 0;
-            margin-bottom: 20px;
-
+            margin-bottom: 48px;
+        }
     }
-
-    
 `;
 
 export { StyledWrapper, StyledHeroText, StyledBG, StyledButtons };

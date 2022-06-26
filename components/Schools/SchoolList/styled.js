@@ -21,6 +21,10 @@ const StyledCountriesItem = styled.div`
     padding: 16px;
     /* height: 100% !important; */
 
+    @media screen and (max-width: 511px) {
+        margin-bottom: 24px;
+    }
+
     img {
         width: 100%;
         border-radius: 10px;
