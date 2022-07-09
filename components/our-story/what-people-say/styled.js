@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 export const StyledWrapper = styled.div`
     display: flex;
-    justify-content: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
     margin-bottom: 48px;
+    padding: 0 16px;
 
     & div:not(:last-child) {
-        margin-right: 24px;
+        margin-bottom: 24px;
     }
 
     @media screen and (max-width: 56.25em) {
