@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useDropzone } from 'react-dropzone';
-import { useField } from 'formik';
 import classes from './styled.module.scss';
 import { CloseIcon } from '../../../assets/icons';
 
@@ -9,7 +8,7 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage }) =>
 
     const onDrop = (acceptedFiles) => {
         setFiles({
-            files: acceptedFiles[0],
+            file: acceptedFiles[0],
             inputId: name,
         });
     };

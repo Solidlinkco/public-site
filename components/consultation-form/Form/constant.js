@@ -52,12 +52,12 @@ const initialValues = {
     [contactFieldsNames.currentSchoolYear]: '',
     [contactFieldsNames.programmeOfInterest]: '',
 
-    [contactFieldsNames.cv]: '',
-    [contactFieldsNames.passport]: '',
-    [contactFieldsNames.necoOrWaecResult]: '',
-    [contactFieldsNames.degreeCertificate]: '',
-    [contactFieldsNames.degreeTranscript]: '',
-    [contactFieldsNames.testOfEnglishResult]: '',
+    // [contactFieldsNames.cv]: '',
+    // [contactFieldsNames.passport]: '',
+    // [contactFieldsNames.necoOrWaecResult]: '',
+    // [contactFieldsNames.degreeCertificate]: '',
+    // [contactFieldsNames.degreeTranscript]: '',
+    // [contactFieldsNames.testOfEnglishResult]: '',
     [contactFieldsNames.howDidYouHearAboutUs]: '',
 };
 
@@ -213,7 +213,6 @@ const contactFields = [
         name: contactFieldsNames.howDidYouHearAboutUs,
         label: 'How did you hear about us?',
         placeholder: 'how you heard about us',
-        required: true,
         fullWidth: true,
         options: [
             {
