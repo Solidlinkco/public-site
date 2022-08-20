@@ -23,7 +23,8 @@ $color-grey-bg: #21252e;
 $color-black-bg: #0f1016;
 $color-green: #0cc28c;
 $color-white-dark: #e1e3e7;
-
+$transparent: rgba(0, 0, 0, 0);
+$red: #ff0000;
 // specific colors
 $color-grey1: #232629;
 $color-grey2: #545a61;
@@ -45,7 +46,7 @@ $master-gutter-width: 16% / 11%;
  *  If using @font-face definitions, include those in the master scss, then use variables here to provide the preferred font name and fallbacks
  */
 
-$heading-font: "DM Serif Display", Serif;
+$heading-font: 'DM Serif Display', Serif;
 $body-font: sans-serif;
 $accelerator-title-font: sans-serif;
 

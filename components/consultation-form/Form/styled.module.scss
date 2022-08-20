@@ -1,0 +1,202 @@
+@import '../../../scss/_layout-mixins';
+
+$input-border: 1px solid $color-grey-text;
+
+.InputWrapper {
+    display: flex;
+    flex-direction: column;
+    width: getwidth(4, 6);
+    margin-bottom: 22px;
+    transition: all 0.3s ease-in-out;
+    flex: 1 1 auto;
+    margin: 8px 16px 28px 16px;
+    min-width: 250px;
+
+    @media screen and (max-width: 276px) {
+        min-width: unset;
+        width: 100%;
+    }
+
+    &.isTextArea,
+    &.fullWidth {
+        width: 100%;
+    }
+
+    .Input {
+        border: $input-border;
+        border-radius: 4px;
+        height: 55px;
+        padding: 14px;
+        background-color: $transparent;
+        font-size: 1.7rem;
+    }
+    .Textarea {
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        border: $input-border;
+        border-radius: 8px;
+        height: 153px;
+        padding: 14px;
+        background-color: $transparent;
+        resize: vertical;
+        font-size: 1.7rem;
+    }
+
+    .Input,
+    .Textarea {
+        transition: all 0.3s ease-in-out;
+        &:focus,
+        &:hover {
+            outline: none;
+            border-color: $color-green;
+        }
+
+        &.HasError {
+            outline: none;
+            border-color: $red;
+        }
+
+        &::placeholder {
+            color: $color-grey-text;
+        }
+    }
+
+    .Label {
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 180%;
+        margin-bottom: 4px;
+
+        span {
+            color: $red;
+        }
+    }
+
+    .Error {
+        color: $red;
+        font-weight: 500;
+        font-size: 1.4rem;
+        line-height: 24px;
+    }
+}
+
+.FormWrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.SubmitButton {
+    margin: 40px auto 140px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+        width: 200px;
+        padding: 16px 20px;
+    }
+}
+
+@mixin file-container-styles {
+    width: 100%;
+    // border: $input-border;
+    background-color: $transparent;
+    height: 153px;
+    transition: all 0.3s ease-out;
+    margin-top: 4px;
+
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='rgba(18, 17, 39, 0.5)' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    border-radius: 8px;
+    transition: all 0.3s ease-out;
+
+    &:hover {
+        background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='8' ry='8' stroke='rgba(91, 195, 128, 1)' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    }
+}
+.FileInput {
+    @include file-container-styles;
+
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Placeholders {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.6rem;
+        color: $color-grey-text;
+    }
+
+    &.isDragActive {
+        border-color: $color-green;
+    }
+}
+
+.FileContainer {
+    @include file-container-styles;
+
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+
+    button {
+        border: none;
+        outline: none;
+        background-color: $transparent;
+        cursor: pointer;
+        border-radius: 2px;
+        padding: 2px 6px;
+        border: 1px solid $transparent;
+        transition: all 0.3s ease-out;
+
+        &:hover {
+            border-color: $red;
+        }
+
+        svg {
+            transform: translate(0.2px, 2px);
+            path {
+                fill: $red;
+            }
+        }
+    }
+}
+
+.Loader {
+    border: 2px solid rgba(18, 17, 39, 0.12);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border-top-color: $white;
+    margin-left: 12px;
+    animation: spin 1s linear infinite;
+    flex-shrink: 0;
+    display: flex;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.Heading {
+    text-align: center;
+
+    padding: 80px 0 60px 0;
+
+    @include tablet {
+        padding: 60px 0 40px 0;
+    }
+}
