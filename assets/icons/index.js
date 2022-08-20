@@ -9,8 +9,9 @@ import Arrow from './Arrow';
 import Remittance from './Remittance';
 import CareerGuidance from './CareerGuidance';
 import Handshake from './Handshake';
-
+import { CloseIcon } from './CloseIcon';
 export {
+    CloseIcon,
     Binoculars,
     Plane,
     Institutions,
