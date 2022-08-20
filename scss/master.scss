@@ -1,0 +1,151 @@
+/*
+ *  Global styles
+ *  This should only be imported at the page level. Do not import into any component.
+ */
+
+// Import baseline resets
+// @import "resets";
+// @import "variables";
+@import 'resets';
+@import 'layout-mixins';
+@import 'grid';
+@import 'typography';
+@import 'toastify';
+@import 'node_modules/react-modal-video/scss/modal-video.scss';
+
+// body {
+// }
+
+body.fixed {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+.img-rounded {
+    border-radius: 12px;
+    display: block;
+    width: 100%;
+}
+
+.button--clean {
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+}
+
+.calendly-overlay {
+    z-index: 999999999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    & .calendly-close-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    & .calendly-popup {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & .calendly-popup-content {
+            max-width: 500px;
+            max-height: 670px;
+            width: 100%;
+            height: 100%;
+            z-index: 99999999999999;
+            position: relative;
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+
+            & .calendly-spinner {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                z-index: 99999999999999999;
+                // visibility: visible !important;
+                height: 100%;
+                width: 100%;
+                & > * {
+                    display: none !important;
+                }
+
+                &::before,
+                &::after {
+                    content: '';
+                    position: absolute;
+                    display: block;
+                    width: 100px;
+                    height: 100px;
+                    top: 45%;
+                    left: 40%;
+                    transform: translate(-45%, -45%);
+                    border-radius: 50%;
+                    background-color: #383171;
+                    transform: scale(1);
+                    transform-origin: center;
+                    opacity: 1;
+                }
+
+                &::after {
+                    border-radius: 50%;
+
+                    animation: bubble 0.5s ease-out infinite;
+                }
+            }
+        }
+    }
+}
+
+@keyframes bubble {
+    from {
+        transform: scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: scale(1.7);
+
+        opacity: 0;
+    }
+}
+
+.my-20 {
+    margin: 20px 0;
+}
+.py20 {
+    padding: 20px 0;
+}
+@keyframes rotate-spinner {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    border-top-color: white;
+    opacity: 1;
+    position: absolute;
+    left: 25%;
+    right: 25%;
+    top: 25%;
+    bottom: 25%;
+    margin: auto;
+    width: 22px;
+    height: 22px;
+    transition: opacity 250ms;
+    animation: rotate-spinner 1s linear;
+    animation-iteration-count: infinite;
+}

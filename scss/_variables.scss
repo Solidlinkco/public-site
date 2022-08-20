@@ -1,0 +1,65 @@
+/*
+ *  Configuration variables for this site go here
+ */
+
+/*
+ *  COLORS
+ *  Use semantic color names (primary, secondary) whenever possible
+ */
+
+$white: #fff;
+$color-white-hover: #efefef;
+
+$color-primary: blue;
+$color-primary-hover: #62b5e5;
+$color-secondary: #62b5e5;
+$color-black: #0e1017;
+$color-black-border: #232629;
+
+$color-grey-text: #8c909d;
+$color-grey-border: #21252e;
+$color-light-grey: #8c909d;
+$color-grey-bg: #21252e;
+$color-black-bg: #0f1016;
+$color-green: #0cc28c;
+$color-white-dark: #e1e3e7;
+$transparent: rgba(0, 0, 0, 0);
+$red: #ff0000;
+// specific colors
+$color-grey1: #232629;
+$color-grey2: #545a61;
+$color-grey3: #787f88;
+$color-grey4: #c1c3c6;
+$color-grey5: #e6e9ec;
+$color-grey6: #f5f6f7;
+
+/*
+ *  GRID
+ *
+ */
+
+$master-col-width: 7%;
+$master-gutter-width: 16% / 11%;
+
+/*
+ *  FONTS
+ *  If using @font-face definitions, include those in the master scss, then use variables here to provide the preferred font name and fallbacks
+ */
+
+$heading-font: 'DM Serif Display', Serif;
+$body-font: sans-serif;
+$accelerator-title-font: sans-serif;
+
+// provides a fallback for font-size()
+$base-font-size: 14.5;
+
+$widthTablet: 800px;
+$widthDesktop: 1024px;
+
+$max-width: 1440px;
+
+$grid-columns: 12;
+$grid-gutter-width: 16px;
+
+// don't generate the bootstrap grid classes - use the mixins!
+$enable-grid-classes: false;

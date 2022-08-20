@@ -1,0 +1,110 @@
+@import "variables";
+
+@mixin max-width-section {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $max-width;
+}
+
+@mixin section-bottom-spacing {
+    margin-bottom: $base-font-size * 2px;
+}
+
+@mixin container {
+    @include make-container();
+
+    @include tablet {
+        @include make-container-max-widths;
+    }
+}
+
+@function getwidth($cols, $gutters) {
+    @return ($cols * $master-col-width + $gutters * $master-gutter-width);
+}
+
+@function getinnerwidth($cols, $gutters, $outsideCols, $outsideGutters) {
+    @return (($cols * $master-col-width + $gutters * $master-gutter-width) / ($outsideCols * $master-col-width + $outsideGutters * $master-gutter-width)) * 100%;
+}
+
+@mixin get-width($cols, $gutters) {
+    $width: ($cols * $master-col-width + $gutters * $master-gutter-width);
+
+    width: $width;
+}
+
+@mixin get-inner-width($cols, $gutters, $outsideCols, $outsideGutters) {
+    $width: ((($cols * $master-col-width + $gutters * $master-gutter-width) / ($outsideCols * $master-col-width + $outsideGutters * $master-gutter-width)) * 100%);
+
+    width: $width;
+}
+
+@mixin phone-modern {
+    @media (min-width: #{$layout-phone-modern-width}) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: #{$widthTablet - 1px}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$widthTablet}) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: #{$widthDesktop}) {
+        @content;
+    }
+}
+
+@mixin extended-grid() {
+    position: relative;
+    &.flex {
+        @include tablet {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &.flex-always {
+        display: flex;
+        justify-content: space-between;
+    }
+    &.flex-start {
+        display: flex;
+        justify-content: flex-start;
+
+        & > :not(:last-child) {
+            margin-right: 16px;
+        }
+    }
+
+    &.centered {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &.flex-large {
+        @include desktop {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &.collapse-mobile {
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+
+    &.collapse-xs {
+        @include mobile {
+            width: 100% !important;
+        }
+    }
+}

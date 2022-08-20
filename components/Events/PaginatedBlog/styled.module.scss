@@ -1,0 +1,103 @@
+@mixin buttons {
+    border: 1px solid #1a1546;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    color: #1a1546;
+    transition: 0.2s;
+    font-size: 14px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+}
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin spaceOut($width) {
+    & > :not(:last-child) {
+        margin-right: $width;
+    }
+}
+
+.StyledWrapper {
+    padding: 40px 0;
+}
+
+.PagedButtons {
+    @include flexCenter;
+    @include spaceOut(16px);
+
+    &__Numbered {
+        @include flexCenter;
+        @include spaceOut(8px);
+
+        & > :last-child {
+            margin-right: 10px;
+        }
+    }
+
+    &__Item {
+        outline: none;
+        border: none;
+        background: #fff;
+        width: 40px;
+        cursor: pointer;
+        transition: 0.3s;
+
+        & [data-letters]:after {
+            @include buttons;
+        }
+
+        [data-letters]:after {
+            content: attr(data-letters);
+        }
+
+        &:hover {
+            [data-letters]:after {
+                background: rgba(26, 21, 70, 0.5);
+            }
+        }
+
+        &___Active {
+            [data-letters]:after {
+                background: #1a1546;
+                color: #fff;
+            }
+        }
+    }
+
+    &__Prev {
+        transform: rotate(90deg);
+    }
+    &__Next {
+        transform: rotate(-90deg);
+    }
+
+    &__Next,
+    &__Prev {
+        outline: none;
+        cursor: pointer;
+        display: block;
+
+        @include buttons;
+
+        &:hover {
+            background: rgba(26, 21, 70, 0.5);
+        }
+
+        & svg path {
+            stroke: #1a1546;
+        }
+
+        &:disabled {
+            pointer-events: none;
+        }
+    }
+}
