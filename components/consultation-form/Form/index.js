@@ -8,6 +8,7 @@ import SubmitButton from './SubmitButton';
 import classes from './styled.module.scss';
 import { FileInput } from './FileInput';
 import { getBase64 } from './getBase64';
+import NestedInput from './NestedInput';
 // import { jobApplicationFormPromise } from '../../../utils/jobApplicationFormPromise';
 
 const FILE_ERROR_MESSAGE = 'CV is required';
@@ -18,21 +19,23 @@ const JobApplicationForm = ({ role }) => {
     const [fileErrorMessage, setFileErrorMessage] = React.useState(null);
 
     const handleSubmit = async (values, actions) => {
+        console.log('🚀 ~ file: index.js ~ line 22 ~ handleSubmit ~ values', values);
         actions.setSubmitting(true);
 
         try {
             const attachments = files.map(async ({ file }) => {
-                const { error, base64 } = await getBase64(files);
+                const { error, base64 } = await getBase64(file);
 
                 return {
                     filename: file.inputId,
                     content: base64,
                 };
             });
+            console.log('🚀 ~ file: index.js ~ line 34 ~ attachments ~ attachments', attachments);
             // get base64 encoded file
             // const { error, base64 } = await getBase64(files);
 
-            await new Promise((resolve) =>
+            const response = await new Promise((resolve) =>
                 setTimeout(
                     resolve({
                         ...values,
@@ -41,6 +44,7 @@ const JobApplicationForm = ({ role }) => {
                     6000
                 )
             );
+            console.log('🚀 ~ file: index.js ~ line 46 ~ handleSubmit ~ res', res);
 
             // send form data to backend
             // const response = await jobApplicationFormPromise();
@@ -63,13 +67,20 @@ const JobApplicationForm = ({ role }) => {
         } finally {
             actions.setSubmitting(false);
             actions.resetForm();
-            setFile(null);
+            setFiles([]);
         }
     };
 
     return (
         <div className="col-10 centered collapse-mobile">
-            <h2 className={classes.Heading}>Apply by sending your CV</h2>
+            <div className={classes.Heading}>
+                <h2> SOLID-LINK CONSULTATION FORM</h2>
+                <p>
+                    Hello, kindly take the next 10 to 15 minutes to fill this form. Through this form, you will give us
+                    the opportunity to get to know you better ahead of the consultation. The more information you can
+                    provide, the more personalised and in-depth our consultation can be.
+                </p>
+            </div>
             <div className="col-10 centered collapse-mobile">
                 <Formik initialValues={initialValues} validationSchema={schema} onSubmit={handleSubmit}>
                     <Form>
@@ -91,6 +102,11 @@ const JobApplicationForm = ({ role }) => {
                                         />
                                     );
                                 }
+
+                                if (field.type === 'nested') {
+                                    return <NestedInput key={field.name} label={field.label} inputs={field.inputs} />;
+                                }
+
                                 return (
                                     <InputField
                                         key={field.name}
@@ -102,6 +118,7 @@ const JobApplicationForm = ({ role }) => {
                                         options={field.options}
                                         pattern={field.pattern}
                                         fullWidth={field.fullWidth}
+                                        {...field}
                                     />
                                 );
                             })}

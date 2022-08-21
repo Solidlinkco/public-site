@@ -2,7 +2,7 @@ import React from 'react';
 import { useField } from 'formik';
 import classes from './styled.module.scss';
 
-const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth }) => {
+const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth, helperText }) => {
     const [field, { error, touched }] = useField(name);
 
     const isTextInput = type === 'text';
@@ -81,7 +81,7 @@ const InputField = ({ name, type, label, placeholder, required, options = [], pa
                     placeholder={placeholder}
                 />
             ) : null}
-
+            {helperText && <p className={classes.HelperText}>{helperText}</p>}
             {showError && <p className={classes.Error}>{error}</p>}
         </div>
     );
