@@ -13,6 +13,18 @@ const contactFieldsNames = {
     presentOrPreviousInstitute: 'presentOrPreviousInstitute',
     currentSchoolYear: 'currentSchoolYear',
     programmeOfInterest: 'programmeOfInterest',
+    courseOfInterest1: 'courseOfInterest1',
+    courseOfInterest2: 'courseOfInterest2',
+    countryOfInterest1: 'countryOfInterest1',
+    countryOfInterest2: 'countryOfInterest2',
+    countryOfInterest3: 'countryOfInterest3',
+    instituteOfInterest: 'instituteOFInterest',
+    proposedYearOfResumption: 'proposedYearOfResumption',
+    proposedMonthOfResumption: 'proposedMonthOfResumption',
+    otherInterests: 'otherInterests',
+    travellingAloneOrWithFamily: 'travellingAloneOrWithFamily',
+    budget: 'budget',
+    sponsor: 'sponsor',
 
     cv: 'cv',
     passport: 'passport',
@@ -36,6 +48,12 @@ const schema = Yup.object().shape({
     [contactFieldsNames.presentOrPreviousInstitute]: Yup.string().required('Present/Previous Institute is required'),
     [contactFieldsNames.currentSchoolYear]: Yup.string().required('Current School Year is required'),
     [contactFieldsNames.programmeOfInterest]: Yup.string().required('Programme of Interest is required'),
+    [contactFieldsNames.proposedYearOfResumption]: Yup.string().required('Proposed Year of Resumption is required'),
+    [contactFieldsNames.proposedMonthOfResumption]: Yup.string().required('Proposed Month of Resumption is required'),
+    [contactFieldsNames.travellingAloneOrWithFamily]: Yup.string().required(
+        'Travelling Alone or with Family is required'
+    ),
+    [contactFieldsNames.budget]: Yup.string().required('Budget is required'),
 });
 
 const initialValues = {
@@ -51,6 +69,18 @@ const initialValues = {
     [contactFieldsNames.presentOrPreviousInstitute]: '',
     [contactFieldsNames.currentSchoolYear]: '',
     [contactFieldsNames.programmeOfInterest]: '',
+    [contactFieldsNames.courseOfInterest1]: '',
+    [contactFieldsNames.courseOfInterest2]: '',
+    [contactFieldsNames.countryOfInterest1]: '',
+    [contactFieldsNames.countryOfInterest2]: '',
+    [contactFieldsNames.countryOfInterest3]: '',
+    [contactFieldsNames.instituteOfInterest]: '',
+    [contactFieldsNames.proposedYearOfResumption]: '',
+    [contactFieldsNames.proposedMonthOfResumption]: '',
+    [contactFieldsNames.otherInterests]: '',
+    [contactFieldsNames.travellingAloneOrWithFamily]: '',
+    [contactFieldsNames.budget]: '',
+    [contactFieldsNames.sponsor]: '',
 
     // [contactFieldsNames.cv]: '',
     // [contactFieldsNames.passport]: '',
@@ -119,7 +149,7 @@ const contactFields = [
     },
     {
         type: 'select',
-        name: contactFieldsNames.gender,
+        name: contactFieldsNames.maritalStatus,
         label: 'Marital Status',
         placeholder: 'Marital Status',
         required: true,
@@ -177,6 +207,178 @@ const contactFields = [
             },
         ],
     },
+    {
+        type: 'nested',
+        name: 'nested.contactFieldsNames.courseOfInterest',
+        label: 'Course of Interest (Please List Two Options)',
+        inputs: [
+            {
+                type: 'text',
+                name: contactFieldsNames.courseOfInterest1,
+                label: 'Course 1',
+                placeholder: 'Course of Interest',
+                fullWidth: true,
+            },
+            {
+                type: 'text',
+                name: contactFieldsNames.courseOfInterest2,
+                label: 'Course 2',
+                placeholder: 'Course of Interest',
+                fullWidth: true,
+            },
+        ],
+    },
+    {
+        type: 'nested',
+        name: 'nested.contactFieldsNames.countryOfInterest',
+        label: 'Country of Interest',
+        inputs: [
+            {
+                type: 'text',
+                name: contactFieldsNames.countryOfInterest1,
+                label: 'Country 1',
+                placeholder: 'Country of Interest',
+                fullWidth: true,
+            },
+            {
+                type: 'text',
+                name: contactFieldsNames.countryOfInterest2,
+                label: 'Country 2',
+                placeholder: 'Country of Interest',
+                fullWidth: true,
+            },
+            {
+                type: 'text',
+                name: contactFieldsNames.countryOfInterest3,
+                label: 'Country 3',
+                placeholder: 'Country of Interest',
+                fullWidth: true,
+            },
+        ],
+    },
+    {
+        type: 'text',
+        name: contactFieldsNames.instituteOfInterest,
+        label: 'Institute of Interest',
+        placeholder: 'Institute of Interest',
+        fullWidth: true,
+    },
+    {
+        type: 'text',
+        name: contactFieldsNames.proposedYearOfResumption,
+        label: 'Proposed Year of Resumption',
+        placeholder: 'Proposed Year of Resumption',
+        fullWidth: true,
+        required: true,
+    },
+    {
+        type: 'select',
+        name: contactFieldsNames.proposedMonthOfResumption,
+        label: 'Proposed Month of Resumption',
+        placeholder: 'Proposed Month of Resumption',
+        required: true,
+        options: [
+            {
+                value: 'JANUARY',
+                label: 'JANUARY',
+            },
+            {
+                value: 'APRIL',
+                label: 'APRIL',
+            },
+            {
+                value: 'JULY',
+                label: 'JULY',
+            },
+            {
+                value: 'SEPTEMBER',
+                label: 'SEPTEMBER',
+            },
+        ],
+    },
+    {
+        type: 'text',
+        name: contactFieldsNames.otherInterests,
+        label: 'Other Interests  (Sports, Language or Other Skills) ',
+        placeholder: 'Other Interests',
+        fullWidth: true,
+    },
+    {
+        type: 'select',
+        name: contactFieldsNames.travellingAloneOrWithFamily,
+        label: 'Travelling Alone or With Family',
+        placeholder: 'Travelling Alone or With Family',
+        required: true,
+        options: [
+            {
+                value: 'ALONE',
+                label: 'ALONE',
+            },
+            {
+                value: 'WITH_FAMILY',
+                label: 'WITH FAMILY',
+            },
+        ],
+    },
+    {
+        type: 'select',
+        name: contactFieldsNames.budget,
+        label: 'Budget (Tuition Fees)',
+        placeholder: 'Budget',
+        required: true,
+        options: [
+            {
+                value: 'SELF',
+                label: '₦3 MILLION',
+            },
+            {
+                value: 'SPOUSE',
+                label: '₦4 MILLION',
+            },
+            {
+                value: '₦5_MILLION',
+                label: '₦5 MILLION',
+            },
+            {
+                value: '₦6_MILLION',
+                label: '₦6 MILLION',
+            },
+            {
+                value: 'MORE_THAN_₦6_MILLION',
+                label: 'MORE_THAN_₦6_MILLION',
+            },
+        ],
+    },
+    {
+        type: 'select',
+        name: contactFieldsNames.sponsor,
+        label: 'Sponsor',
+        placeholder: 'Sponsor',
+        helperText: 'Sponsor must have tuition fees plus another 4million Naira to cover one year living expenses.',
+        options: [
+            {
+                value: 'SELF',
+                label: 'SELF',
+            },
+            {
+                value: 'SPOUSE',
+                label: 'SPOUSE',
+            },
+            {
+                value: 'PARENT',
+                label: 'PARENT',
+            },
+            {
+                value: 'RELATIVE',
+                label: 'RELATIVE',
+            },
+            {
+                value: 'OTHER',
+                label: 'OTHER',
+            },
+        ],
+    },
+
     { type: 'file', name: contactFieldsNames.cv, label: 'Upload CV', placeholder: 'Upload cv' },
     {
         type: 'file',

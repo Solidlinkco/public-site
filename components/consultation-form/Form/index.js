@@ -8,6 +8,7 @@ import SubmitButton from './SubmitButton';
 import classes from './styled.module.scss';
 import { FileInput } from './FileInput';
 import { getBase64 } from './getBase64';
+import NestedInput from './NestedInput';
 // import { jobApplicationFormPromise } from '../../../utils/jobApplicationFormPromise';
 
 const FILE_ERROR_MESSAGE = 'CV is required';
@@ -69,7 +70,14 @@ const JobApplicationForm = ({ role }) => {
 
     return (
         <div className="col-10 centered collapse-mobile">
-            <h2 className={classes.Heading}>Apply by sending your CV</h2>
+            <div className={classes.Heading}>
+                <h2> SOLID-LINK CONSULTATION FORM</h2>
+                <p>
+                    Hello, kindly take the next 10 to 15 minutes to fill this form. Through this form, you will give us
+                    the opportunity to get to know you better ahead of the consultation. The more information you can
+                    provide, the more personalised and in-depth our consultation can be.
+                </p>
+            </div>
             <div className="col-10 centered collapse-mobile">
                 <Formik initialValues={initialValues} validationSchema={schema} onSubmit={handleSubmit}>
                     <Form>
@@ -91,6 +99,11 @@ const JobApplicationForm = ({ role }) => {
                                         />
                                     );
                                 }
+
+                                if (field.type === 'nested') {
+                                    return <NestedInput key={field.name} label={field.label} inputs={field.inputs} />;
+                                }
+
                                 return (
                                     <InputField
                                         key={field.name}
@@ -102,6 +115,7 @@ const JobApplicationForm = ({ role }) => {
                                         options={field.options}
                                         pattern={field.pattern}
                                         fullWidth={field.fullWidth}
+                                        {...field}
                                     />
                                 );
                             })}

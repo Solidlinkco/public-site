@@ -8,13 +8,7 @@ const SubmitButton = () => {
     const { isSubmitting, handleSubmit } = useFormikContext();
     return (
         <div className={classes.SubmitButton}>
-            <ButtonRounded
-                label="Submit"
-                as="button"
-                disabled={isSubmitting}
-                onClick={handleSubmit}
-                childrenPlaceMent="right"
-            >
+            <ButtonRounded label="Submit" as="button" disabled={isSubmitting} onClick={handleSubmit}>
                 {isSubmitting && <span className={classes.Loader}>&nbsp;</span>}
             </ButtonRounded>
         </div>
