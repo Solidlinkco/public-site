@@ -17,6 +17,7 @@ const StyledButton = styled.button`
     transition: all 0.3s ease-out;
     transform: translateY(0);
     position: relative;
+    width: ${({ width }) => width || 'auto'};
 
     &:hover {
         background-color: #56b55b;

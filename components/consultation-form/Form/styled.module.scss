@@ -96,8 +96,9 @@ $input-border: 1px solid #c3cad8;
     align-items: center;
 
     button {
-        width: 200px;
+        width: 100%;
         padding: 16px 20px;
+        font-size: 1.9rem;
     }
 }
 
@@ -207,9 +208,9 @@ $input-border: 1px solid #c3cad8;
 
 .NestedInput {
     min-width: 250px;
-    width: 100%;
+    width: 97%;
     margin-bottom: 16px;
-    max-width: 816px;
+
     &__Label {
         margin: 8px 16px 18px 16px;
 
@@ -219,6 +220,7 @@ $input-border: 1px solid #c3cad8;
 
     &__Forms {
         width: 100%;
+        max-width: 770px;
     }
 }
 .HelperText {

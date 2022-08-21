@@ -19,21 +19,23 @@ const JobApplicationForm = ({ role }) => {
     const [fileErrorMessage, setFileErrorMessage] = React.useState(null);
 
     const handleSubmit = async (values, actions) => {
+        console.log('🚀 ~ file: index.js ~ line 22 ~ handleSubmit ~ values', values);
         actions.setSubmitting(true);
 
         try {
             const attachments = files.map(async ({ file }) => {
-                const { error, base64 } = await getBase64(files);
+                const { error, base64 } = await getBase64(file);
 
                 return {
                     filename: file.inputId,
                     content: base64,
                 };
             });
+            console.log('🚀 ~ file: index.js ~ line 34 ~ attachments ~ attachments', attachments);
             // get base64 encoded file
             // const { error, base64 } = await getBase64(files);
 
-            await new Promise((resolve) =>
+            const response = await new Promise((resolve) =>
                 setTimeout(
                     resolve({
                         ...values,
@@ -42,6 +44,7 @@ const JobApplicationForm = ({ role }) => {
                     6000
                 )
             );
+            console.log('🚀 ~ file: index.js ~ line 46 ~ handleSubmit ~ res', res);
 
             // send form data to backend
             // const response = await jobApplicationFormPromise();
@@ -64,7 +67,7 @@ const JobApplicationForm = ({ role }) => {
         } finally {
             actions.setSubmitting(false);
             actions.resetForm();
-            setFile(null);
+            setFiles([]);
         }
     };
 

@@ -4,13 +4,17 @@ import classes from './styled.module.scss';
 import { CloseIcon } from '../../../assets/icons';
 
 export const FileInput = ({ name, label, files, setFiles, fileErrorMessage }) => {
-    const file = files.find((file) => file.inputId === name);
+    const file = files?.find((file) => file.inputId === name);
 
     const onDrop = (acceptedFiles) => {
-        setFiles({
-            file: acceptedFiles[0],
-            inputId: name,
-        });
+        setFiles((prevState) => [
+            ...prevState,
+            {
+                file: acceptedFiles[0],
+                fileName: acceptedFiles[0].name,
+                inputId: name,
+            },
+        ]);
     };
 
     const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -35,8 +39,8 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage }) =>
 
             {file && (
                 <div className={classes.FileContainer}>
-                    <p>{file.name}</p>
-                    <button type="button" aria-label={`remove ${file.name}`} onClick={handleRemoveFile}>
+                    <p>{file.fileName}</p>
+                    <button type="button" aria-label={`remove ${file.fileName}`} onClick={handleRemoveFile}>
                         <CloseIcon />
                     </button>
                 </div>

@@ -12,24 +12,22 @@ const NestedInput = ({ label, inputs }) => {
         <div className={classes.NestedInput}>
             <p className={classes.NestedInput__Label}>{label}</p>
 
-            <div className={classes.NestedInput__Forms}>
-                {inputs.map((field) => {
-                    return (
-                        <InputField
-                            key={field.name}
-                            name={field.name}
-                            label={field.label}
-                            type={field.type}
-                            placeholder={field.placeholder}
-                            required={field.required}
-                            options={field.options}
-                            pattern={field.pattern}
-                            fullWidth={field.fullWidth}
-                            {...field}
-                        />
-                    );
-                })}
-            </div>
+            {inputs.map((field) => {
+                return (
+                    <InputField
+                        key={field.name}
+                        name={field.name}
+                        label={field.label}
+                        type={field.type}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        options={field.options}
+                        pattern={field.pattern}
+                        fullWidth={field.fullWidth}
+                        {...field}
+                    />
+                );
+            })}
         </div>
     );
 };
