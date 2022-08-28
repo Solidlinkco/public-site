@@ -97,9 +97,15 @@ $input-border: 1px solid #c3cad8;
     padding: 0 16px;
 
     button {
+        background-color: #400436;
         width: 100%;
         padding: 16px 20px;
         font-size: 1.9rem;
+        position: relative;
+
+        &:hover {
+            background-color: rgba(#400436, 0.8);
+        }
     }
 }
 
@@ -174,15 +180,17 @@ $input-border: 1px solid #c3cad8;
 }
 
 .Loader {
-    border: 2px solid rgba(18, 17, 39, 0.12);
-    width: 18px;
-    height: 18px;
+    border: 4px solid rgba(#f49d2a, 1);
+    width: 26px;
+    height: 26px;
     border-radius: 50%;
     border-top-color: $white;
-    margin-left: 12px;
     animation: spin 1s linear infinite;
     flex-shrink: 0;
     display: flex;
+    position: absolute;
+    right: 16px;
+    top: 28%;
 }
 
 @keyframes spin {
@@ -209,7 +217,7 @@ $input-border: 1px solid #c3cad8;
 
 .NestedInput {
     min-width: 250px;
-    width: 97%;
+    width: 90%;
     margin-bottom: 16px;
 
     &__Label {
@@ -220,7 +228,7 @@ $input-border: 1px solid #c3cad8;
     }
 
     &__Forms {
-        width: 100%;
+        width: 90%;
         max-width: 770px;
     }
 }
