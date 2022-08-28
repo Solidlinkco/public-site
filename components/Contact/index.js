@@ -36,14 +36,14 @@ const ContactUs = ({ contact }) => {
                     {address && (
                         <div>
                             <BusinessIcon />
-                            <p class="fz-20 fw-700">Visit us</p>
+                            <p className="fz-20 fw-700">Visit us</p>
                             <p>{address?.value}</p>
                         </div>
                     )}
                     {phone && (
                         <div>
                             <PhoneEnabledIcon />
-                            <p class="fz-20 fw-700">Call us</p>
+                            <p className="fz-20 fw-700">Call us</p>
                             {phone
                                 ?.filter((el) => !el.value?.includes?.('+234'))
                                 ?.map((el) => (
@@ -56,7 +56,7 @@ const ContactUs = ({ contact }) => {
                     {email && (
                         <div>
                             <MailOutlineIcon />
-                            <p class="fz-20 fw-700">Contact us</p>
+                            <p className="fz-20 fw-700">Contact us</p>
                             <p>{email?.value}</p>
                         </div>
                     )}
@@ -70,7 +70,7 @@ const ContactUs = ({ contact }) => {
                 <StyledContactCards>
                     <div>
                         <BusinessIcon />
-                        <p class="fz-20 fw-700">Visit us</p>
+                        <p className="fz-20 fw-700">Visit us</p>
                         <p>
                             Solid-Link Consulting,3rd Floor, 13A Ayo Babatunde Crescent Oniru, Opposite Lekki Phase One
                             Lagos.
@@ -78,8 +78,8 @@ const ContactUs = ({ contact }) => {
                     </div>
                     <div>
                         <PhoneEnabledIcon />
-                        <p class="fz-20 fw-700">Call us</p>
-                        <p class="fz-18 fw-700" style={{ color: '#400436' }}>
+                        <p className="fz-20 fw-700">Call us</p>
+                        <p className="fz-18 fw-700" style={{ color: '#400436' }}>
                             +2348163000102
                         </p>
                     </div>
@@ -87,7 +87,7 @@ const ContactUs = ({ contact }) => {
                     {email && (
                         <div>
                             <MailOutlineIcon />
-                            <p class="fz-20 fw-700">Contact us</p>
+                            <p className="fz-20 fw-700">Contact us</p>
                             <p>{email?.value}</p>
                         </div>
                     )}
@@ -101,7 +101,7 @@ const ContactUs = ({ contact }) => {
                 <StyledContactCards>
                     <div>
                         <BusinessIcon />
-                        <p class="fz-20 fw-700">Visit us</p>
+                        <p className="fz-20 fw-700">Visit us</p>
                         <p>
                             Solid-Link Consulting, opposite Thermocool showroom Beside Eco-Bank ring road area
                             Challenge, Ibadan.
@@ -110,8 +110,8 @@ const ContactUs = ({ contact }) => {
 
                     <div>
                         <PhoneEnabledIcon />
-                        <p class="fz-20 fw-700">Call us</p>
-                        <p class="fz-18 fw-700" style={{ color: '#400436' }}>
+                        <p className="fz-20 fw-700">Call us</p>
+                        <p className="fz-18 fw-700" style={{ color: '#400436' }}>
                             +2347038695395
                         </p>
                     </div>
@@ -119,7 +119,7 @@ const ContactUs = ({ contact }) => {
                     {email && (
                         <div>
                             <MailOutlineIcon />
-                            <p class="fz-20 fw-700">Contact us</p>
+                            <p className="fz-20 fw-700">Contact us</p>
                             <p>{email?.value}</p>
                         </div>
                     )}
