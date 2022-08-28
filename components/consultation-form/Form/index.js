@@ -7,47 +7,23 @@ import InputField from './InputField';
 import SubmitButton from './SubmitButton';
 import classes from './styled.module.scss';
 import { FileInput } from './FileInput';
-import { getBase64 } from './getBase64';
 import NestedInput from './NestedInput';
 // import { jobApplicationFormPromise } from '../../../utils/jobApplicationFormPromise';
+import { useSubmitForm } from './useSubmitForm';
 
 const FILE_ERROR_MESSAGE = 'CV is required';
-const ERROR_MESSAGE = 'Something went wrong, please try again.';
 
 const JobApplicationForm = ({ role }) => {
     const [files, setFiles] = React.useState([]);
     const [fileErrorMessage, setFileErrorMessage] = React.useState(null);
+    const { handleSubmitAction } = useSubmitForm();
 
     const handleSubmit = async (values, actions) => {
-        console.log('🚀 ~ file: index.js ~ line 22 ~ handleSubmit ~ values', values);
+        // console.log('🚀 ~ file: index.js ~ line 22 ~ handleSubmit ~ values', values);
         actions.setSubmitting(true);
 
         try {
-            const attachments = files.map(async ({ file }) => {
-                const { error, base64 } = await getBase64(file);
-
-                return {
-                    filename: file.inputId,
-                    content: base64,
-                };
-            });
-            console.log('🚀 ~ file: index.js ~ line 34 ~ attachments ~ attachments', attachments);
-            // get base64 encoded file
-            // const { error, base64 } = await getBase64(files);
-
-            const response = await new Promise((resolve) =>
-                setTimeout(
-                    resolve({
-                        ...values,
-                        attachments,
-                    }),
-                    6000
-                )
-            );
-            console.log('🚀 ~ file: index.js ~ line 46 ~ handleSubmit ~ res', res);
-
-            // send form data to backend
-            // const response = await jobApplicationFormPromise();
+            const res = await handleSubmitAction({ values, files });
 
             if (response.status !== 200) {
                 toast(ERROR_MESSAGE, {
