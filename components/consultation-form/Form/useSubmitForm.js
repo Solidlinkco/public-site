@@ -1,42 +1,21 @@
-import React from 'react';
+import * as React from 'react';
 import { getBase64 } from './getBase64';
-import isEmpty from 'lodash/isEmpty';
-import { contactFields } from './constant';
+import { usePaystackPayment } from 'react-paystack';
+
+import { STORAGE_KEY } from './storage-key';
+import useSearch from '../../../hooks/useSearch';
 import { toast } from 'react-toastify';
-import axios from 'axios';
+import { composeEmail } from './compose-email';
 
 const ERROR_MESSAGE = 'Something went wrong, please try again or contact support.';
 
-const composeEmail = (values) => {
-    const keyArray = Object.keys(values);
-
-    const valueArray = keyArray.map((key) => {
-        const labelFinder = contactFields.find((field) => {
-            if (field.inputs) {
-                return field.inputs?.find((child) => child.name === key);
-            }
-
-            return field.name === key;
-        });
-
-        const label = labelFinder?.label || labelFinder?.find((input) => input.name === key)?.label;
-
-        return `\n${label}: ${values[key] || 'Null'}`;
-    });
-
-    const emailBody = `
-        ${valueArray.join('\n')}
-    `;
-
-    return emailBody;
-};
-
 export const useSubmitForm = () => {
-    const handleSubmitAction = async ({ values, files }) => {
+    const [, setSearchParams] = useSearch();
+
+    const handleSubmitAction = React.useCallback(async ({ values, files }) => {
         try {
             const mailContent = composeEmail(values);
 
-            // let  = [];
             const attachments = await Promise.all(
                 files.map(({ file, ...rest }) => {
                     return getBase64(file, { ...rest });
@@ -53,27 +32,44 @@ export const useSubmitForm = () => {
                 return composedAttachements;
             });
 
-            const response = await axios.post('/api/consultation', {
-                mailContent,
-                attachments,
+            sessionStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify({
+                    mailContent,
+                    attachments,
+                    customerEmail: values.email,
+                })
+            );
+            setSearchParams({
+                email: values.email,
+                firstName: values.firstName,
+                lastName: values.lastName,
+                reference: `${values.email}-${values.firstName}-${values.lastName}-${new Date().toISOString()}`
+                    .replace(/:/g, '_')
+                    .replace(/@/g, '__'),
             });
 
-            if (response.data?.ok) {
-                toast('Form successfully submitted.', {
-                    type: 'success',
-                });
-                return;
-            }
+            // const response = await axios.post('/api/consultation', {
+            //     mailContent,
+            //     attachments,
+            // });
 
-            toast(ERROR_MESSAGE, {
-                type: 'error',
-            });
+            // if (response.data?.ok) {
+            //     toast('Form successfully submitted.', {
+            //         type: 'success',
+            //     });
+            //     return;
+            // }
+
+            // toast(ERROR_MESSAGE, {
+            //     type: 'error',
+            // });
         } catch (e) {
             toast(ERROR_MESSAGE, {
                 type: 'error',
             });
         }
-    };
+    }, []);
 
     return {
         handleSubmitAction,

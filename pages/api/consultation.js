@@ -6,6 +6,7 @@ export default async (req, res) => {
 
     const msg = {
         to: 'remi.kolawole@solidlinkco.com',
+        // cc: values.customerEmail,
         from: 'farouqbabcock@gmail.com',
         subject: 'Consultation Form',
         text: values.mailContent,
@@ -13,9 +14,8 @@ export default async (req, res) => {
     };
     try {
         await sgMail.send(msg);
-
         res.status(200).json({ ok: true });
     } catch (e) {
-        res.status(200).json({ ok: false });
+        res.status(200).json({ ok: false, e });
     }
 };
