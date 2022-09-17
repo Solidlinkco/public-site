@@ -10,41 +10,17 @@ import { FileInput } from './FileInput';
 import NestedInput from './NestedInput';
 // import { jobApplicationFormPromise } from '../../../utils/jobApplicationFormPromise';
 import { useSubmitForm } from './useSubmitForm';
-
+import { usePayWithPaystack } from './usePayWithPaystack';
 const FILE_ERROR_MESSAGE = 'CV is required';
 
 const JobApplicationForm = ({ role }) => {
     const [files, setFiles] = React.useState([]);
     const [fileErrorMessage, setFileErrorMessage] = React.useState(null);
     const { handleSubmitAction } = useSubmitForm();
-
+    usePayWithPaystack();
     const handleSubmit = async (values, actions) => {
-        // console.log('🚀 ~ file: index.js ~ line 22 ~ handleSubmit ~ values', values);
         actions.setSubmitting(true);
-
-        try {
-            const res = await handleSubmitAction({ values, files });
-
-            if (response.status !== 200) {
-                toast(ERROR_MESSAGE, {
-                    type: 'error',
-                });
-                return;
-            }
-
-            toast('Form successfully submitted.', {
-                type: 'success',
-            });
-        } catch {
-            // catch errors
-            toast(ERROR_MESSAGE, {
-                type: 'error',
-            });
-        } finally {
-            actions.setSubmitting(false);
-            actions.resetForm();
-            setFiles([]);
-        }
+        await handleSubmitAction({ values, files });
     };
 
     return (

@@ -1,6 +1,7 @@
 module.exports = {
+    swcMinify: true,
     images: {
-        domains: ["media.graphcms.com"],
+        domains: ['media.graphcms.com'],
     },
     env: {
         calendlyUrl: process.env.REACT_APP_CALENDLY_URL,
@@ -10,6 +11,8 @@ module.exports = {
         youTubeAPIKey: process.env.REACT_APP_YOUTUBE_API_KEY,
         youtubeChannelID: process.env.YOUTUBE_CHANNEL_ID,
         instaToken: process.env.INSTA_TOKEN,
+        paystackSecretKey: process.env.PAYSTACK_SECRET_KEY,
+        paystackPublicKey: process.env.PAYSTACK_PUBLIC_KEY,
     },
-    target: "serverless",
+    target: 'serverless',
 };
