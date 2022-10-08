@@ -1,6 +1,7 @@
 import React from 'react';
 import { useField } from 'formik';
 import classes from './styled.module.scss';
+import { SelectInput } from './select';
 
 const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth, helperText }) => {
     const [field, { error, touched }] = useField(name);
@@ -55,20 +56,21 @@ const InputField = ({ name, type, label, placeholder, required, options = [], pa
             ) : null}
 
             {isSelectInput ? (
-                <select
-                    className={`${classes.Input} ${showError ? classes.HasError : ''}`}
-                    name={name}
-                    id={name}
-                    {...field}
-                >
-                    <option value="">Select {placeholder}</option>
-                    {options.map((option) => (
-                        <option key={option.value} value={option.value}>
-                            {option.label}
-                        </option>
-                    ))}
-                </select>
-            ) : null}
+                <SelectInput name={name} {...field} options={options} />
+            ) : // <select
+            //     className={`${classes.Input} ${showError ? classes.HasError : ''}`}
+            //     name={name}
+            //     id={name}
+            //     {...field}
+            // >
+            //     <option value="">Select {placeholder}</option>
+            //     {options.map((option) => (
+            //         <option key={option.value} value={option.value}>
+            //             {option.label}
+            //         </option>
+            //     ))}
+            // </select>
+            null}
 
             {isTelephoneInput ? (
                 <input

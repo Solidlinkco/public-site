@@ -14,17 +14,17 @@ const STATS = [
     },
     {
         label: 'STUDENTS SENT ABROAD',
-        total: 2500,
+        total: 5000,
         icon: Plane,
     },
     {
         label: 'PARTNER INSTITUTIONS',
-        total: 112,
+        total: 150,
         icon: Institutions,
     },
     {
         label: 'ALL GRADUATES',
-        total: 3000,
+        total: 4800,
         icon: Grad,
     },
 ];

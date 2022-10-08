@@ -11,6 +11,7 @@ import NestedInput from './NestedInput';
 // import { jobApplicationFormPromise } from '../../../utils/jobApplicationFormPromise';
 import { useSubmitForm } from './useSubmitForm';
 import { usePayWithPaystack } from './usePayWithPaystack';
+
 const FILE_ERROR_MESSAGE = 'CV is required';
 
 const JobApplicationForm = ({ role }) => {
