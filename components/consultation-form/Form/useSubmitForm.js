@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { getBase64 } from './getBase64';
-import { usePaystackPayment } from 'react-paystack';
 
 import { STORAGE_KEY } from './storage-key';
 import useSearch from '../../../hooks/useSearch';
@@ -44,7 +43,7 @@ export const useSubmitForm = () => {
                 email: values.email,
                 firstName: values.firstName,
                 lastName: values.lastName,
-                reference: `${values.email}-${values.firstName}-${values.lastName}-${new Date().toISOString()}`
+                reference: `${values.firstName}-${values.lastName}-${new Date().toISOString()}`
                     .replace(/:/g, '_')
                     .replace(/@/g, '__'),
             });

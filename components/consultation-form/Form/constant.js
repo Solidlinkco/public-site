@@ -36,24 +36,24 @@ const contactFieldsNames = {
 };
 
 const schema = Yup.object().shape({
-    [contactFieldsNames.firstName]: Yup.string().required('First name is required'),
-    [contactFieldsNames.lastName]: Yup.string().required('Last name is required'),
-    [contactFieldsNames.nationality]: Yup.string().required('Nationality is required'),
-    [contactFieldsNames.dateOfBirth]: Yup.string().required('Date of birth is required'),
-    [contactFieldsNames.gender]: Yup.string(),
-    [contactFieldsNames.email]: Yup.string().email('Email is not valid').required('Email is required'),
-    [contactFieldsNames.phoneNumber]: Yup.string(),
-    [contactFieldsNames.permanentAddress]: Yup.string().required('Permanent address is required'),
-    [contactFieldsNames.maritalStatus]: Yup.string(),
-    [contactFieldsNames.presentOrPreviousInstitute]: Yup.string().required('Present/Previous Institute is required'),
-    [contactFieldsNames.currentSchoolYear]: Yup.string().required('Current School Year is required'),
-    [contactFieldsNames.programmeOfInterest]: Yup.string().required('Programme of Interest is required'),
-    [contactFieldsNames.proposedYearOfResumption]: Yup.string().required('Proposed Year of Resumption is required'),
-    [contactFieldsNames.proposedMonthOfResumption]: Yup.string().required('Proposed Month of Resumption is required'),
-    [contactFieldsNames.travellingAloneOrWithFamily]: Yup.string().required(
-        'Travelling Alone or with Family is required'
-    ),
-    [contactFieldsNames.budget]: Yup.string().required('Budget is required'),
+    // [contactFieldsNames.firstName]: Yup.string().required('First name is required'),
+    // [contactFieldsNames.lastName]: Yup.string().required('Last name is required'),
+    // [contactFieldsNames.nationality]: Yup.string().required('Nationality is required'),
+    // [contactFieldsNames.dateOfBirth]: Yup.string().required('Date of birth is required'),
+    // [contactFieldsNames.gender]: Yup.string(),
+    // [contactFieldsNames.email]: Yup.string().email('Email is not valid').required('Email is required'),
+    // [contactFieldsNames.phoneNumber]: Yup.string().required('Phone number is required'),
+    // [contactFieldsNames.permanentAddress]: Yup.string().required('Permanent address is required'),
+    // [contactFieldsNames.maritalStatus]: Yup.string(),
+    // [contactFieldsNames.presentOrPreviousInstitute]: Yup.string().required('Present/Previous Institute is required'),
+    // [contactFieldsNames.currentSchoolYear]: Yup.string().required('Current School Year is required'),
+    // [contactFieldsNames.programmeOfInterest]: Yup.string().required('Programme of Interest is required'),
+    // [contactFieldsNames.proposedYearOfResumption]: Yup.string().required('Proposed Year of Resumption is required'),
+    // [contactFieldsNames.proposedMonthOfResumption]: Yup.string().required('Proposed Month of Resumption is required'),
+    // [contactFieldsNames.travellingAloneOrWithFamily]: Yup.string().required(
+    //     'Travelling Alone or with Family is required'
+    // ),
+    // [contactFieldsNames.budget]: Yup.string().required('Budget is required'),
 });
 
 const initialValues = {
@@ -139,6 +139,7 @@ const contactFields = [
         label: 'Phone Number',
         placeholder: '(000) 000-0000',
         pattern: '[0-9]{3}-[0-9]{3}-[0-9]{4}',
+        required: true,
     },
     {
         type: 'textarea',
@@ -345,7 +346,7 @@ const contactFields = [
             },
             {
                 value: 'MORE_THAN_₦6_MILLION',
-                label: 'MORE_THAN_₦6_MILLION',
+                label: 'MORE THAN ₦6 MILLION',
             },
         ],
     },
@@ -418,6 +419,14 @@ const contactFields = [
         fullWidth: true,
         options: [
             {
+                value: 'FRIENDS_AND_FAMILY',
+                label: 'FRIENDS AND FAMILY',
+            },
+            {
+                value: 'OLD_CLIENT',
+                label: 'OLD CLIENT',
+            },
+            {
                 value: 'FACEBOOK',
                 label: 'FACEBOOK',
             },
@@ -445,14 +454,6 @@ const contactFields = [
             {
                 value: 'TIKTOK',
                 label: 'TIKTOK',
-            },
-            {
-                value: 'FRIENDS_AND_FAMILY',
-                label: 'FRIENDS AND FAMILY',
-            },
-            {
-                value: 'OLD_CLIENT',
-                label: 'OLD CLIENT',
             },
         ],
     },

@@ -6,8 +6,8 @@ export default async (req, res) => {
 
     const msg = {
         to: 'remi.kolawole@solidlinkco.com',
-        // cc: values.customerEmail,
-        from: 'farouqbabcock@gmail.com',
+        cc: values.customerEmail,
+        from: 'admin@solidlinkco.com',
         subject: 'Consultation Form',
         text: values.mailContent,
         attachments: values.attachments,
