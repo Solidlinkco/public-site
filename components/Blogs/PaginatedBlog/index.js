@@ -23,7 +23,7 @@ const getDescription = (description) =>
         ?.replace(/<strong>/g, ' ')
         ?.replace('<a href="https://www.goabroad.com/study-abroad">"', ' ')
 
-        ?.substring(0, 320)
+        ?.substring(0, 400)
         ?.trim() + '...';
 
 const PaginatedBlog = ({ blogs, isBlog }) => {
@@ -57,6 +57,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                                         image={data?.image}
                                         isBlog={isBlog}
                                         description={getDescription(data.content || data.customContent)}
+                                        imageAltAttribute={data.imageAltAttribute}
                                     />
                                 </a>
                             </Link>
@@ -72,6 +73,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                             key={data.title}
                             isBlog={isBlog}
                             description={getDescription(data.content || data.customContent)}
+                            imageAltAttribute={data.imageAltAttribute}
                         />
                     );
                 })}

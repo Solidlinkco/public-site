@@ -28,6 +28,7 @@ const GET_TEAM = gql`
                 content {
                     html
                 }
+                imageAltAttribute
             }
         }
     }

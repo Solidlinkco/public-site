@@ -2,7 +2,7 @@ import { graphcms } from '../../config';
 import { GET_BLOGS, GET_CONTACTS } from '../../queries';
 import Blogs from '../../components/Blogs';
 import Layout from '../../components/ui/Layout';
-
+import Head from 'next/head';
 export async function getStaticProps() {
     const { blogs } = await graphcms.request(GET_BLOGS);
     const { contacts } = await graphcms.request(GET_CONTACTS);
@@ -15,10 +15,15 @@ export async function getStaticProps() {
     };
 }
 
-export default function Home({ blogs, contacts }) {
+export default function Articles({ blogs, contacts }) {
     return (
-        <Layout contacts={contacts}>
-            <Blogs blogs={blogs} />
-        </Layout>
+        <>
+            <Head>
+                <title> Solid-Link EDU Consulting | Articles</title>
+            </Head>
+            <Layout contacts={contacts}>
+                <Blogs blogs={blogs} />
+            </Layout>
+        </>
     );
 }

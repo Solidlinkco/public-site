@@ -20,7 +20,7 @@ const getDescription = (description) =>
         ?.replace('</strong>', ' ')
         ?.replace(/<strong>/g, ' ')
         ?.replace('<a href="https://www.goabroad.com/study-abroad">"', ' ')
-        ?.substring(0, 110)
+        ?.substring(0, 400)
         ?.trim() + '...';
 
 const BlogsEvent = ({ blog, events }) => {
@@ -69,14 +69,21 @@ const BlogsEvent = ({ blog, events }) => {
                                 });
 
                                 return (
-                                    <EventCard
-                                        customDate={date}
-                                        className="blg-page-card"
-                                        title={data.title}
-                                        image={data?.image}
-                                        key={v4()}
-                                        description={getDescription(data?.content?.text || data?.customContent)}
-                                    />
+                                    <div>
+                                        <Link key={data.title} href={`/articles/${data.blogSlug}`}>
+                                            <a>
+                                                <EventCard
+                                                    customDate={date}
+                                                    className="blg-page-card"
+                                                    title={data.title}
+                                                    image={data?.image}
+                                                    description={getDescription(
+                                                        data?.content?.text || data?.customContent
+                                                    )}
+                                                />
+                                            </a>
+                                        </Link>
+                                    </div>
                                 );
                             })}
                         </StyledEventWrapper>

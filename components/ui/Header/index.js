@@ -12,7 +12,7 @@ import HeaderBar from './Header';
 import { v4 } from 'uuid';
 
 const LEFT_MAP = ['phone', 'email'];
-const RIGHT_MAP = ['facebook', 'twitter', 'linkedin'];
+const RIGHT_MAP = ['facebook', 'twitter', 'linkedin', 'instagram'];
 
 const SOCIAL_ICON_MAP = {
     facebook: FacebookIcon,
@@ -50,9 +50,10 @@ const Header = ({ contacts }) => {
                         <div className={classes.BannerWrapper__Right}>
                             {rightMap?.map(({ type, value }) => {
                                 const Icon = SOCIAL_ICON_MAP[type] ?? SOCIAL_ICON_MAP.facebook;
+                                console.log('🚀 ~ file: index.js ~ line 53 ~ {rightMap?.map ~ Icon', type);
 
                                 return (
-                                    <div key={v4()} className={classes.BannerWrapper__Bar}>
+                                    <div key={type} className={classes.BannerWrapper__Bar}>
                                         <a
                                             href={value}
                                             className={classes.BannerWrapper__Bar_svg}

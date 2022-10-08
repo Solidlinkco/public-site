@@ -4,7 +4,7 @@ import { P24 } from '../../atoms/P24';
 import { P16 } from '../../atoms/P16';
 import { convertWAT } from '../../helper';
 
-const Events = ({ title, eventSlug, dateAndTime, description, image, customDate, showDate }) => {
+const Events = ({ title, eventSlug, dateAndTime, description, image, customDate, showDate, imageAltAttribute }) => {
     const date = !customDate && convertWAT(dateAndTime).toDateString();
     const time = !customDate && convertWAT(dateAndTime).toTimeString().substring(0, 5);
     // const day = date.getMonth();
@@ -14,7 +14,7 @@ const Events = ({ title, eventSlug, dateAndTime, description, image, customDate,
     return (
         <StyledCard>
             <div className="image">
-                <img src={image?.url} alt={`solid-link-co-${title}`} />
+                <img src={image?.url} alt={imageAltAttribute || `solid-link-co-${title}`} />
             </div>
             <div className="texts">
                 <P24 textTransform="capitalize" color="#400436">

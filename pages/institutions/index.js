@@ -1,7 +1,7 @@
 import React from 'react';
 import Schools from '../../components/Schools';
 import { graphcms } from '../../config';
-
+import Head from 'next/head';
 import { GET_CONTACTS, GET_SCHOOLS } from '../../queries';
 import Layout from '../../components/ui/Layout';
 
@@ -19,9 +19,14 @@ export async function getStaticProps() {
 
 const InstitutionsPage = ({ contacts, schools }) => {
     return (
-        <Layout contacts={contacts}>
-            <Schools title={'Institutions'} schools={schools} />
-        </Layout>
+        <>
+            <Head>
+                <title> Solid-Link EDU Consulting | Institution Partners</title>
+            </Head>{' '}
+            <Layout contacts={contacts}>
+                <Schools title={'Institutions'} schools={schools} />
+            </Layout>
+        </>
     );
 };
 

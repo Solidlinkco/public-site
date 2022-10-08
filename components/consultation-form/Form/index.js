@@ -20,7 +20,6 @@ const JobApplicationForm = ({ role }) => {
     const { handleSubmitAction } = useSubmitForm();
     usePayWithPaystack();
     const handleSubmit = async (values, actions) => {
-        console.log('🚀 ~ file: index.js ~ line 23 ~ handleSubmit ~ values', values);
         actions.setSubmitting(true);
         await handleSubmitAction({ values, files });
     };
