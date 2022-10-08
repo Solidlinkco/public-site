@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './styled.module.scss';
 
-const CareerTemplate = ({ html, title, image, date, customContent, imageAltAttribute }) => {
+const CareerTemplate = ({ html, title, image, date, imageAltAttribute }) => {
     return (
         <div className={classes.CareerTemplate}>
             <div className={classes.CareerTemplate__Header}>
@@ -10,7 +10,7 @@ const CareerTemplate = ({ html, title, image, date, customContent, imageAltAttri
                 <img src={image} alt={imageAltAttribute || title} />
             </div>
 
-            <div className={classes.CareerTemplate__Body} dangerouslySetInnerHTML={{ __html: customContent || html }} />
+            <div className={classes.CareerTemplate__Body} dangerouslySetInnerHTML={{ __html: html }} />
         </div>
     );
 };

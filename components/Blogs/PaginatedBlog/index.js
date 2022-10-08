@@ -56,7 +56,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                                         title={data.title}
                                         image={data?.image}
                                         isBlog={isBlog}
-                                        description={getDescription(data.content || data.customContent)}
+                                        description={getDescription(data.content?.text)}
                                         imageAltAttribute={data.imageAltAttribute}
                                     />
                                 </a>
@@ -72,7 +72,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                             image={data?.image}
                             key={data.title}
                             isBlog={isBlog}
-                            description={getDescription(data.content || data.customContent)}
+                            description={getDescription(data.content?.text)}
                             imageAltAttribute={data.imageAltAttribute}
                         />
                     );
