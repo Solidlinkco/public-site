@@ -112,7 +112,7 @@ const contactFields = [
         type: 'date',
         name: contactFieldsNames.dateOfBirth,
         label: 'Date of Birth',
-        placeholder: 'Nationality/Passport',
+        placeholder: 'select',
         required: true,
     },
     {

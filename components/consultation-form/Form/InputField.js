@@ -2,9 +2,10 @@ import React from 'react';
 import { useField } from 'formik';
 import classes from './styled.module.scss';
 import { SelectInput } from './select';
+import { DatePicker } from './date-picker';
 
 const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth, helperText }) => {
-    const [field, { error, touched }, { setValue }] = useField(name);
+    const [field, { error, touched }, { setValue, setTouched }] = useField(name);
 
     const isTextInput = type === 'text';
     const isTextArea = type === 'textarea';
@@ -45,13 +46,16 @@ const InputField = ({ name, type, label, placeholder, required, options = [], pa
             ) : null}
 
             {isDateInput ? (
-                <input
+                <DatePicker
                     className={`${classes.Input} ${showError ? classes.HasError : ''}`}
                     name={name}
                     id={name}
-                    type="date"
-                    {...field}
+                    type="text"
+                    field={field}
                     placeholder={placeholder}
+                    showError={showError}
+                    setValue={setValue}
+                    setTouched={setTouched}
                 />
             ) : null}
 
