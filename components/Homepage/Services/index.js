@@ -20,7 +20,7 @@ const Services = ({ servicesCards }) => {
                     </H2>
 
                     <StyledCardWrapper className="service-cards-wrap ">
-                        {dataArr?.slice(0, 4)?.map(({ id, title, description, ctaUrl }) => (
+                        {dataArr?.slice(0, 3)?.map(({ id, title, description, ctaUrl }) => (
                             <ServiceCard
                                 className={CARDS_CLASS}
                                 key={id}

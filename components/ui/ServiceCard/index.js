@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyledCard } from './styled';
-import { P16B } from '../../atoms/P16B';
+import { P16 } from '../../atoms/P16';
+import { P18B } from '../../atoms/P18B';
+
 import { P14 } from '../../atoms/P14';
 import { Support, VisaApp, PlaneArrival, Grad, Remittance, CareerGuidance, Handshake } from '../../../assets/icons';
 
@@ -22,12 +24,12 @@ const ServiceCard = ({ className, title, description, ctaUrl }) => {
                 <Icon />
             </div>
             <div className="texts">
-                <P16B color="#400436" textTransform="capitalize" margin="0 0 16px 0">
+                <P18B color="#400436" textTransform="capitalize" margin="0 0 16px 0">
                     {title?.toLowerCase()}
-                </P16B>
-                <P14 lineHeight="1.3" color="#797979">
+                </P18B>
+                <P16 lineHeight="1.3" color="#797979">
                     {description}
-                </P14>
+                </P16>
             </div>
             <div className="cta">
                 <a href={ctaUrl} target="_blank" rel="noreferrer noopener">

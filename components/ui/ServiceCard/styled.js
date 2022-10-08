@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 const StyledCard = styled.div`
-    min-width: 280px;
-    max-width: 280px;
-    height: 360px;
+    width: 100%;
+    max-width: 370px;
+    height: 440px;
     border: 1px solid #ececec;
     border-radius: 12px;
     padding: 32px 24px;
@@ -15,6 +15,14 @@ const StyledCard = styled.div`
     overflow: hidden;
     flex-wrap: nowrap;
     background-color: #fff;
+    margin: 16px;
+
+    @media screen and (max-width: 56.25em) {
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        margin: 16px 0;
+    }
 
     .icon {
         position: relative;
@@ -28,10 +36,14 @@ const StyledCard = styled.div`
     }
     .texts {
         margin-top: 75px;
+        font-size: 16px;
     }
 
     .cta {
         margin-top: auto;
+        @media screen and (max-width: 56.25em) {
+            margin-top: 30px;
+        }
 
         a {
             color: #400436;
