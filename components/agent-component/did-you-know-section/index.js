@@ -18,8 +18,10 @@ const DidYouKnow = ({ didYouKnow }) => {
                     </H2>
                     <StyledStoryContent>
                         <p>
-                            Solid-Link has a 100% success rate when clients follow our processes and instructions. This
-                            means that everyone you refer is guaranteed results
+                            Solid-Link has a 100% success rate in study abroad admissions and visa applications when
+                            clients follow our processes and instructions. This means that everyone you refer is
+                            guaranteed a place in Top universities for international students in the country of their
+                            choice be it UK, USA, Canada, Ireland or other top countries in Europe
                         </p>
                     </StyledStoryContent>
                 </StyledWrapper>

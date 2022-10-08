@@ -50,7 +50,6 @@ const Header = ({ contacts }) => {
                         <div className={classes.BannerWrapper__Right}>
                             {rightMap?.map(({ type, value }) => {
                                 const Icon = SOCIAL_ICON_MAP[type] ?? SOCIAL_ICON_MAP.facebook;
-                                console.log('🚀 ~ file: index.js ~ line 53 ~ {rightMap?.map ~ Icon', type);
 
                                 return (
                                     <div key={type} className={classes.BannerWrapper__Bar}>

@@ -19,8 +19,8 @@ const ContactUs = ({ contact }) => {
                         <div>
                             <h1>Contact us</h1>
                             <p className="fz-18">
-                                Need an expert? You are more than welcomed to leave your contact info and we will be in
-                                touch shortly
+                                Interesred in studying in Canada, UK, Ireland orother top European countries? Take the
+                                first step by leaving your contact info and we will be in touch with you shortly.
                             </p>
                         </div>
                     </div>

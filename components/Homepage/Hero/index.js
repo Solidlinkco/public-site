@@ -9,7 +9,7 @@ const Hero = ({ heroImage }) => {
             <StyledWrapper>
                 <StyledHeroText>
                     <h1>Want to study abroad?</h1>
-                    <p>Admission, Visa Processing and all you'll ever need, we help you get it right, No Excuses</p>
+                    <p>Secure admission to study in the UK, USA, Canada, Ireland & other top countries</p>
                     <StyledButtons>
                         <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
                             <span>Get started</span>
