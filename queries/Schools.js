@@ -10,6 +10,7 @@ const GET_SCHOOLS = gql`
             }
             country
             isSecondarySchool
+            logoAltAttribute
         }
     }
 `;

@@ -1,7 +1,7 @@
 import { graphcms } from '../../config';
 import { GET_CONTACTS } from '../../queries';
 import ContactUs from '../../components/Contact';
-
+import Head from 'next/head';
 import Layout from '../../components/ui/Layout';
 
 export async function getStaticProps() {
@@ -16,8 +16,13 @@ export async function getStaticProps() {
 
 export default function Contact({ events, contacts }) {
     return (
-        <Layout contacts={contacts}>
-            <ContactUs contact={contacts} />
-        </Layout>
+        <>
+            <Head>
+                <title> Solid-Link EDU Consulting | Contact</title>
+            </Head>
+            <Layout contacts={contacts}>
+                <ContactUs contact={contacts} />
+            </Layout>
+        </>
     );
 }

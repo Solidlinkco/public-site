@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import Head from 'next/head';
 import ConsultationFormComponent from '../components/consultation-form';
 import { graphcms } from '../config';
 import { GET_CONTACTS, GET_OUR_STORY } from '../queries';
@@ -16,9 +16,14 @@ export async function getStaticProps() {
 
 function ConsultationForm({ contacts, ourStory }) {
     return (
-        <div>
-            <ConsultationFormComponent contacts={contacts} />
-        </div>
+        <>
+            <Head>
+                <title>Solid-Link EDU Consulting | Consultation Form</title>
+            </Head>
+            <div>
+                <ConsultationFormComponent contacts={contacts} />
+            </div>
+        </>
     );
 }
 

@@ -20,7 +20,10 @@ const SchoolList = ({ schools, title, pageName, pageAlpha3 }) => {
                                 {filterSortList.map((school) => {
                                     return (
                                         <StyledCountriesItem key={school?.name}>
-                                            <img src={school?.logo?.url ?? ''} alt={school?.name} />
+                                            <img
+                                                src={school?.logo?.url ?? ''}
+                                                alt={school.logoAltAttribute || school?.name}
+                                            />
 
                                             <p>{school?.name}</p>
                                         </StyledCountriesItem>

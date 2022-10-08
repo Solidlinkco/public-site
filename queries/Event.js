@@ -10,6 +10,7 @@ const GET_EVENTS = gql`
             image {
                 url(transformation: { image: { resize: { width: 200 } } })
             }
+            imageAltAttribute
         }
     }
 `;

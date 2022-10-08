@@ -34,27 +34,33 @@ export async function getStaticPaths() {
     };
 }
 
-const JobDetails = ({ data, contacts }) => {
+const FullBlogPost = ({ data, contacts }) => {
     const parsedDate = format(new Date(data?.customDate || data.publishedAt), 'dd/MM/yyyy', {
         locale: enGB,
     });
 
     return (
-        <React.Fragment>
+        <>
             <Head>
-                <title>SolidLinkCo | Blog - {data.title}</title>
-                <meta name="description" content={data.title} />
+                <title> Solid-Link EDU Consulting | {data.title}</title>
             </Head>
-            <Layout contacts={contacts}>
-                <BlogTemplate
-                    html={data?.content?.html}
-                    title={data.title}
-                    image={data?.image?.url}
-                    date={parsedDate}
-                    customContent={data?.customContent}
-                />
-            </Layout>
-        </React.Fragment>
+            <React.Fragment>
+                <Head>
+                    <title>SolidLinkCo | Blog - {data.title}</title>
+                    <meta name="description" content={data.title} />
+                </Head>
+                <Layout contacts={contacts}>
+                    <BlogTemplate
+                        html={data?.content?.html}
+                        title={data.title}
+                        image={data?.image?.url}
+                        date={parsedDate}
+                        customContent={data?.customContent}
+                        imageAltAttribute={data?.imageAltAttribute}
+                    />
+                </Layout>
+            </React.Fragment>
+        </>
     );
 };
-export default JobDetails;
+export default FullBlogPost;

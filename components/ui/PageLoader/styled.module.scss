@@ -18,7 +18,12 @@
         left: 0;
         width: 400px;
         height: 3px;
-        background: rgba(0, 0, 139, 0.6);
+        background: linear-gradient(
+            to right,
+            rgba(#f49d2a, 1) 0%,
+            rgba(rgba(64, 4, 54, 1), 1) 50%,
+            rgba(#f49d2a, 1) 100%
+        );
         animation: moveLeft 1.7s ease-out infinite;
     }
 }

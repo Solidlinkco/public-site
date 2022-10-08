@@ -4,6 +4,8 @@ const StyledWrapper = styled.div`
     width: 100%;
     overflow: hidden;
     padding-bottom: 40px;
+    overflow-x: scroll;
+
     & > * {
         position: relative;
         display: flex;

@@ -238,3 +238,10 @@ $input-border: 1px solid #c3cad8;
     color: $color-grey-text;
     margin-bottom: 16px;
 }
+
+.DayPicker {
+    position: absolute;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    top: 50px;
+}

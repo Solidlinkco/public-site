@@ -7,13 +7,12 @@ const GET_BLOGS = gql`
             image {
                 url(transformation: { image: { resize: { width: 500 } } })
             }
+            imageAltAttribute
             content {
                 text
             }
             blogSlug
             publishedAt
-            customContent
-            customDate
         }
     }
 `;
@@ -29,8 +28,6 @@ const GET_BLOG = gql`
                 html
             }
             publishedAt
-            customContent
-            customDate
         }
     }
 `;

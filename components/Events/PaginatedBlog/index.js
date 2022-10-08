@@ -43,7 +43,7 @@ const PaginatedBlog = ({ blogs }) => {
             )}
             {!isEmpty(blogList) && (
                 <StyledBlogsWrapper>
-                    {blogList.map(({ title, eventSlug, dateAndTime, description, image }) => (
+                    {blogList.map(({ title, eventSlug, dateAndTime, description, image, imageAltAttribute }) => (
                         <EventCard
                             key={v4()}
                             title={title}
@@ -51,6 +51,7 @@ const PaginatedBlog = ({ blogs }) => {
                             dateAndTime={dateAndTime}
                             description={description}
                             image={image}
+                            imageAltAttribute={imageAltAttribute}
                         />
                     ))}
                 </StyledBlogsWrapper>

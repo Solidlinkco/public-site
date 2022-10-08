@@ -3,10 +3,13 @@ import styled from 'styled-components';
 export const StyledWrapper = styled.div`
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-around;
+    justify-content: center;
     margin-bottom: 48px;
     padding: 0 16px;
 
+    & > div {
+        margin-right: 14px;
+    }
     & div:not(:last-child) {
         margin-bottom: 24px;
     }

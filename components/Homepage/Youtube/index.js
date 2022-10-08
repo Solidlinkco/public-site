@@ -33,7 +33,7 @@ const Youtube = ({ data }) => {
                         <ModalVideo
                             isLarge
                             key={mainVideo.id}
-                            id={mainVideo.id}
+                            id={mainVideo.snippet?.resourceId?.videoId}
                             title={mainVideo.snippet?.title}
                             backdrop={mainVideo.snippet?.thumbnails?.high?.url}
                         />
@@ -49,10 +49,10 @@ const Youtube = ({ data }) => {
                                 id ? (
                                     <ModalVideo
                                         key={id}
-                                        id={id}
+                                        id={snippet?.resourceId?.videoId}
                                         title={snippet?.title}
                                         backdrop={snippet?.thumbnails?.high?.url}
-                                        date={snippet?.publishTime}
+                                        date={snippet?.publishedAt}
                                     />
                                 ) : null
                             )}

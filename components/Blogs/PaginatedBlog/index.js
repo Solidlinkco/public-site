@@ -23,7 +23,7 @@ const getDescription = (description) =>
         ?.replace(/<strong>/g, ' ')
         ?.replace('<a href="https://www.goabroad.com/study-abroad">"', ' ')
 
-        ?.substring(0, 320)
+        ?.substring(0, 400)
         ?.trim() + '...';
 
 const PaginatedBlog = ({ blogs, isBlog }) => {
@@ -50,12 +50,14 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                             <Link key={data.title} href={`/articles/${data.blogSlug}`}>
                                 <a>
                                     <EventCard
+                                        showDate={false}
                                         customDate={date}
                                         className="blg-page-card"
                                         title={data.title}
                                         image={data?.image}
                                         isBlog={isBlog}
-                                        description={getDescription(data.content || data.customContent)}
+                                        description={getDescription(data.content?.text)}
+                                        imageAltAttribute={data.imageAltAttribute}
                                     />
                                 </a>
                             </Link>
@@ -70,7 +72,8 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                             image={data?.image}
                             key={data.title}
                             isBlog={isBlog}
-                            description={getDescription(data.content || data.customContent)}
+                            description={getDescription(data.content?.text)}
+                            imageAltAttribute={data.imageAltAttribute}
                         />
                     );
                 })}
