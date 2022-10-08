@@ -45,7 +45,8 @@ export const useSubmitForm = () => {
                 lastName: values.lastName,
                 reference: `${values.firstName}-${values.lastName}-${new Date().toISOString()}`
                     .replace(/:/g, '_')
-                    .replace(/@/g, '__'),
+                    .replace(/@/g, '__')
+                    .replace(/\./g, '___'),
             });
 
             // const response = await axios.post('/api/consultation', {
