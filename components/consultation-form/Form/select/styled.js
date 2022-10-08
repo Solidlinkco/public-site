@@ -3,8 +3,22 @@ import MuiFormControl from '@material-ui/core/FormControl';
 import MuiSelect from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export const FormControl = styled(MuiFormControl)``;
+export const StyledFilterWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    & > div {
+        flex: 1;
+    }
 
+    & > .react-select {
+        flex: 1;
+    }
+
+    & .react-select__control {
+        min-height: 54px;
+    }
+`;
 export const StyledInputRequiredStar = styled.span`
     color: #ff0000;
 `;

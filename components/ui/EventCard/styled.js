@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledCard = styled.div`
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     flex-flow: row wrap;
     overflow: hidden;
     flex-wrap: nowrap;

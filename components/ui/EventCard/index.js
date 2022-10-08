@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyledCard } from './styled';
-import { P18B } from '../../atoms/P18B';
-import { P14 } from '../../atoms/P14';
+import { P24 } from '../../atoms/P24';
+import { P16 } from '../../atoms/P16';
 import { convertWAT } from '../../helper';
 
-const Events = ({ title, eventSlug, dateAndTime, description, image, customDate }) => {
+const Events = ({ title, eventSlug, dateAndTime, description, image, customDate, showDate }) => {
     const date = !customDate && convertWAT(dateAndTime).toDateString();
     const time = !customDate && convertWAT(dateAndTime).toTimeString().substring(0, 5);
     // const day = date.getMonth();
@@ -17,18 +17,23 @@ const Events = ({ title, eventSlug, dateAndTime, description, image, customDate 
                 <img src={image?.url} alt={`solid-link-co-${title}`} />
             </div>
             <div className="texts">
-                <P18B textTransform="capitalize" color="#400436">
+                <P24 textTransform="capitalize" color="#400436">
                     {title}
-                </P18B>
-                <P14 margin="6px 0 6px 0" fontWeight="600" color="#797979">
-                    {_date}
-                </P14>
-                <P14 margin="0 0 10px 0" color="#797979">
+                </P24>
+
+                <P16 margin="6px 0 12px 0" fontWeight="600" color="#797979">
+                    {showDate ? _date : ''}
+                </P16>
+
+                <P16 margin="0 0 10px 0" color="#797979">
                     {description}
-                </P14>
+                </P16>
             </div>
         </StyledCard>
     );
 };
 
+Events.propTypes = {
+    showDate: true,
+};
 export default Events;

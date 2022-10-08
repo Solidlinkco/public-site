@@ -4,7 +4,7 @@ import classes from './styled.module.scss';
 import { SelectInput } from './select';
 
 const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth, helperText }) => {
-    const [field, { error, touched }] = useField(name);
+    const [field, { error, touched }, { setValue }] = useField(name);
 
     const isTextInput = type === 'text';
     const isTextArea = type === 'textarea';
@@ -56,7 +56,7 @@ const InputField = ({ name, type, label, placeholder, required, options = [], pa
             ) : null}
 
             {isSelectInput ? (
-                <SelectInput name={name} {...field} options={options} />
+                <SelectInput name={name} {...field} options={options} setValue={setValue} />
             ) : // <select
             //     className={`${classes.Input} ${showError ? classes.HasError : ''}`}
             //     name={name}

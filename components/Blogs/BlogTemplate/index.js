@@ -6,7 +6,7 @@ const CareerTemplate = ({ html, title, image, date, customContent }) => {
         <div className={classes.CareerTemplate}>
             <div className={classes.CareerTemplate__Header}>
                 <h2 className="h3">{title}</h2>
-                <p>Date Published: {date}</p>
+                {/* <p>Date Published: {date}</p> */}
                 <img src={image} alt={title} />
             </div>
 

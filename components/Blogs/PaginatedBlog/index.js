@@ -50,6 +50,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                             <Link key={data.title} href={`/articles/${data.blogSlug}`}>
                                 <a>
                                     <EventCard
+                                        showDate={false}
                                         customDate={date}
                                         className="blg-page-card"
                                         title={data.title}

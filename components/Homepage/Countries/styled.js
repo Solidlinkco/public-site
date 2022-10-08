@@ -5,11 +5,7 @@ export const StyledWrapper = styled.div`
     overflow: hidden;
     overflow-x: scroll;
     padding-bottom: 40px;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-    &::-webkit-scrollbar {
-        display: none;
-    }
+
     & > * {
         position: relative;
         display: flex;
