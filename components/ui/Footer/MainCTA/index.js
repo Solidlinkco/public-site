@@ -8,7 +8,7 @@ const MainCTA = () => {
         <StyledWrapper>
             <div className="col-12">
                 <div className="cta-wrapper">
-                    <h4>Ready to find out more?</h4>
+                    <h4>Ready To Study Abroad?</h4>
                     <p className="fz-16">
                         If you want to live your dream of studying overseas contact us today to start a hassle free
                         application process. Do not be left behind.
