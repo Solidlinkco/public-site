@@ -7,32 +7,13 @@ const StyledWrapper = styled.div`
 const StyledCardWrapper = styled.div`
     position: relative;
     display: flex;
-    justify-content: space-between;
     margin: 32px 0;
     flex-flow: row wrap;
 
-    & > :not(:last-child) {
-        margin-right: 12px;
-    }
+    justify-content: center;
 
-    & > * {
-        margin-bottom: 32px;
-    }
     @media screen and (max-width: 60.25em) {
         justify-content: flex-start;
-        & > :not(:last-child) {
-            margin-right: 32px;
-        }
-    }
-
-    @media screen and (max-width: 25em) {
-        & > :not(:last-child) {
-            margin-right: 0;
-        }
-    }
-
-    @media (max-width: 600px) {
-        width: 296px;
     }
 `;
 
