@@ -13,6 +13,7 @@ import RoomIcon from '@material-ui/icons/Room';
 import MainCTA from './MainCTA';
 import { v4 } from 'uuid';
 import { SOCIAL_ICON_MAP, LEFT_MAP, RIGHT_MAP } from '../Header';
+import { LINKS } from '../../../constants/links';
 
 const FOOTER_CONTENT = [
     {
@@ -23,29 +24,30 @@ const FOOTER_CONTENT = [
                 to: '/services',
             },
             {
-                label: "Founder's profile",
-                to: '/founders-profile',
+                label: 'Our story',
+                to: '/our-story',
             },
             {
-                label: 'Contact Us',
-                to: '/contact',
-            },
-            {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Our team',
+                to: '/our-team',
             },
         ],
     },
     {
-        title: 'Training',
+        title: 'Resources',
         links: [
             {
-                label: 'Corporate training',
-                to: '/corporate-training',
+                label: 'Articles',
+                to: '/articles',
             },
             {
-                label: 'Bespoke training',
-                to: '/bespoke-training',
+                label: 'Events',
+                to: '/events',
+            },
+            {
+                label: 'Download brochure',
+                to: LINKS.brochureUrl,
+                external: true,
             },
         ],
     },
@@ -57,7 +59,7 @@ const FOOTER_CONTENT = [
                 to: '/institutions',
             },
             {
-                label: 'Secondary school',
+                label: 'Secondary schools',
                 to: '/secondary-school',
             },
         ],
@@ -106,10 +108,17 @@ const Footer = ({ contacts }) => {
                         {FOOTER_CONTENT.map(({ title, links }) => (
                             <ul key={v4()}>
                                 <p>{title}</p>
-                                {links.map(({ to, label }) => (
+                                {links.map(({ to, label, external }) => (
                                     <li key={label}>
                                         <Link href={to}>
-                                            <a>{label}</a>
+                                            <a
+                                                {...(external && {
+                                                    target: '_blank',
+                                                    rel: 'noreferrer noopener',
+                                                })}
+                                            >
+                                                {label}
+                                            </a>
                                         </Link>
                                     </li>
                                 ))}

@@ -32,8 +32,8 @@ const LINK = [
                 to: '/institutions',
             },
             {
-                label: 'Secondary school',
-                to: '/secondary-schools',
+                label: 'Secondary schools',
+                to: '/secondary-school',
             },
         ],
     },

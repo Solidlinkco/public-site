@@ -20,8 +20,8 @@ const WhatPeopleSay = () => {
             <StyledWrapper>
                 {VIDEOS_SRC.map((src) => (
                     <div key={src}>
-                        <video width="310" height="550" controls controlsList="nodownload">
-                            <source src={src} type="video/mp4" />
+                        <video width="310" height="550" controls controlsList="nodownload" preload="metadata">
+                            <source src={src + '#t=0.5'} type="video/mp4" />
                             Your browser does not support HTML video.
                         </video>
                     </div>
