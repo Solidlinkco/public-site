@@ -49,6 +49,7 @@
         "yup": "^0.32.9"
     },
     "devDependencies": {
+        "@netlify/plugin-nextjs": "^4.28.4",
         "babel-plugin-styled-components": "^1.12.0"
     }
 }

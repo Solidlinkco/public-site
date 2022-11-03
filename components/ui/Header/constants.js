@@ -67,6 +67,11 @@ const LINK = [
                 label: 'Events',
                 to: '/events',
             },
+
+            {
+                label: 'Contact Us',
+                to: '/contact-us',
+            },
             {
                 label: 'Download brochure',
                 to: LINKS.brochureUrl,
@@ -75,8 +80,8 @@ const LINK = [
         ],
     },
     {
-        label: 'Contact Us',
-        to: '/contact-us',
+        label: 'Book Consultation',
+        to: '/consultation-form',
     },
 ];
 

@@ -8,10 +8,11 @@ import FloatingComponent from './FloatingComponent';
 
 const StyledMain = styled.main`
     padding-top: 120px;
+
     max-width: 100vw;
     overflow: hidden;
 
-    @media screen and (max-width: 56.25em) {
+    @media screen and (max-width: 61.5em) {
         padding-top: 77px;
     }
 `;
