@@ -8,6 +8,7 @@ import FloatingComponent from './FloatingComponent';
 
 const StyledMain = styled.main`
     padding-top: 120px;
+
     max-width: 100vw;
     overflow: hidden;
 
