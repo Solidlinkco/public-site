@@ -80,7 +80,7 @@ const ContactUs = ({ contact }) => {
                         <PhoneEnabledIcon />
                         <p className="fz-20 fw-700">Call us</p>
                         <p className="fz-18 fw-700" style={{ color: '#400436' }}>
-                            +2348163000102
+                            +2349085500062
                         </p>
                     </div>
 

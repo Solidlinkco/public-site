@@ -4,5 +4,6 @@ const LINKS = {
     getFreeConsultationUrl: 'https://wa.link/gcg5m5',
     contactUsFooterUrl: 'https://wa.link/198lwv',
     getStartedUrlServicesPage: 'https://wa.link/ar1o0h',
+    agent: 'https://wa.link/4qx0e3',
 };
 export { LINKS };
