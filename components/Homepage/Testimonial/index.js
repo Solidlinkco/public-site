@@ -30,7 +30,7 @@ const Testimonials = ({ data, videoId, reverse }) => {
                             It's not just about making successful applications, it is about making your dreams come
                             true.
                         </p>
-                        <p>Sentence of emphasis</p>
+                        <p>&nbsp;</p>
                     </StyledBlob>
                     <a href={LINKS.getFreeConsultationUrl} target="_blank" rel="noreferrer noopener">
                         <Button as="span">Get a free consultation</Button>

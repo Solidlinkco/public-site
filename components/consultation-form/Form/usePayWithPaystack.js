@@ -1,22 +1,26 @@
-import * as React from 'react';
+import React from 'react';
 import { usePaystackPayment } from 'react-paystack';
 import useSearch from '../../../hooks/useSearch';
-import { STORAGE_KEY } from './storage-key';
 import isEmpty from 'lodash/isEmpty';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import { useFormikContext } from 'formik';
+import { composeEmail } from './compose-email';
+import { getBase64 } from './getBase64';
+import { compress } from 'lz-string';
 
 const ERROR_MESSAGE = 'Something went wrong, please try again or contact support.';
 
-export const usePayWithPaystack = () => {
+export const usePayWithPaystack = ({ files, setFiles }) => {
     const [searchParams, setSearchParams] = useSearch();
     const referenceRef = React.useRef(null);
+    const { values, resetForm, setSubmitting } = useFormikContext();
 
     const payStackConfig = React.useMemo(
         () => ({
             publicKey: process.env.paystackPublicKey,
             email: searchParams.email,
-            amount: 1000000,
+            amount: 1000000, // NGN 10,000
             firstName: searchParams.firstName,
             lastName: searchParams.lastName,
             reference: searchParams.reference,
@@ -25,6 +29,7 @@ export const usePayWithPaystack = () => {
         [searchParams]
     );
 
+    // init paystack
     const initializePayment = usePaystackPayment(payStackConfig);
 
     const onSuccess = React.useCallback(async () => {
@@ -38,20 +43,45 @@ export const usePayWithPaystack = () => {
             const isSuccessFul = verifyPayment.data?.result?.data?.status === 'success';
 
             if (verifyPayment.data?.ok && isSuccessFul) {
-                const mailData = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '{}');
+                //compose email
+                const mailContent = composeEmail(values);
 
-                const response = await axios.post('/api/consultation', {
-                    mailContent: `Payment Reference: ${referenceRef.current} \n${mailData.mailContent}`,
-                    attachments: mailData.attachments,
-                    customerEmail: mailData.customerEmail,
+                //convert attachments to base64
+                const attachments = await Promise.all(
+                    files.map(({ file, ...rest }) => {
+                        return getBase64(file, { ...rest });
+                    })
+                ).then((base64Images) => {
+                    const composedAttachements = base64Images.map((base64Image) => {
+                        return {
+                            content: `${base64Image.base64.split('base64,')[1]}`,
+                            filename: `${base64Image.rest[0].inputId}.${base64Image.rest[0].fileName.split('.').pop()}`,
+                            type: base64Image.file.type,
+                            disposition: 'attachment',
+                        };
+                    });
+                    return composedAttachements;
                 });
-                sessionStorage.removeItem(STORAGE_KEY);
-                setSearchParams({});
+
+                //send email
+                const response = await axios.post('/api/consultation', {
+                    compressed: compress(
+                        JSON.stringify({
+                            mailContent: `Payment Reference: ${referenceRef.current} \n${mailContent}`,
+                            attachments: attachments,
+                            customerEmail: values.email,
+                        })
+                    ),
+                });
 
                 if (response.data?.ok) {
                     toast('Form successfully submitted.', {
                         type: 'success',
                     });
+                    resetForm();
+                    setSubmitting(false);
+                    setSearchParams({});
+                    // setFiles([]);
                 } else {
                     toast(ERROR_MESSAGE, {
                         type: 'error',
@@ -67,18 +97,17 @@ export const usePayWithPaystack = () => {
                 type: 'error',
             });
         }
-    }, []);
+    }, [files, values]);
 
     const onClose = React.useCallback(() => {
-        sessionStorage.removeItem(STORAGE_KEY);
+        resetForm();
+        setSubmitting(false);
         setSearchParams({});
+        setFiles([]);
     }, []);
 
     React.useEffect(() => {
-        const savedConfig = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
-
         if (
-            !isEmpty(savedConfig) &&
             !isEmpty(searchParams?.reference) &&
             !isEmpty(searchParams?.email) &&
             referenceRef.current !== searchParams.reference

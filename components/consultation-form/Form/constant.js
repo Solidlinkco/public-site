@@ -384,8 +384,9 @@ const contactFields = [
     {
         type: 'file',
         name: contactFieldsNames.passport,
-        label: 'Upload International Passport *',
+        label: 'Upload International Passport',
         placeholder: 'Upload  International Passport ',
+        required: true,
     },
     {
         type: 'file',
@@ -408,7 +409,7 @@ const contactFields = [
     {
         type: 'file',
         name: contactFieldsNames.testOfEnglishResult,
-        label: 'Upload Test of English Result',
+        label: 'Upload Test of English Result ',
         placeholder: 'Upload Test of English Result',
     },
     {

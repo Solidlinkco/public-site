@@ -69,7 +69,8 @@ $input-border: 1px solid #c3cad8;
         font-weight: 600;
         line-height: 180%;
         margin-bottom: 4px;
-
+        display: flex;
+        flex-flow: row wrap;
         span {
             color: $red;
         }
@@ -87,6 +88,16 @@ $input-border: 1px solid #c3cad8;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+}
+
+.MaxFile {
+    margin-left: auto;
+    font-style: normal !important;
+    color: $color-grey-text;
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-left: 10px;
+    justify-self: flex-start;
 }
 
 .SubmitButton {
