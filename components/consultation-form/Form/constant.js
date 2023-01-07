@@ -36,33 +36,33 @@ const contactFieldsNames = {
 };
 
 const schema = Yup.object().shape({
-    [contactFieldsNames.firstName]: Yup.string().required('First name is required'),
-    [contactFieldsNames.lastName]: Yup.string().required('Last name is required'),
-    [contactFieldsNames.nationality]: Yup.string().required('Nationality is required'),
-    [contactFieldsNames.dateOfBirth]: Yup.string().required('Date of birth is required'),
-    [contactFieldsNames.gender]: Yup.string(),
-    [contactFieldsNames.email]: Yup.string().email('Email is not valid').required('Email is required'),
-    [contactFieldsNames.phoneNumber]: Yup.string().required('Phone number is required'),
-    [contactFieldsNames.permanentAddress]: Yup.string().required('Permanent address is required'),
-    [contactFieldsNames.maritalStatus]: Yup.string(),
-    [contactFieldsNames.presentOrPreviousInstitute]: Yup.string().required('Present/Previous Institute is required'),
-    [contactFieldsNames.currentSchoolYear]: Yup.string().required('Current School Year is required'),
-    [contactFieldsNames.programmeOfInterest]: Yup.string().required('Programme of Interest is required'),
-    [contactFieldsNames.proposedYearOfResumption]: Yup.string().required('Proposed Year of Resumption is required'),
-    [contactFieldsNames.proposedMonthOfResumption]: Yup.string().required('Proposed Month of Resumption is required'),
-    [contactFieldsNames.travellingAloneOrWithFamily]: Yup.string().required(
-        'Travelling Alone or with Family is required'
-    ),
-    [contactFieldsNames.budget]: Yup.string().required('Budget is required'),
+    //     [contactFieldsNames.firstName]: Yup.string().required('First name is required'),
+    //     [contactFieldsNames.lastName]: Yup.string().required('Last name is required'),
+    //     [contactFieldsNames.nationality]: Yup.string().required('Nationality is required'),
+    //     [contactFieldsNames.dateOfBirth]: Yup.string().required('Date of birth is required'),
+    //     [contactFieldsNames.gender]: Yup.string(),
+    //     [contactFieldsNames.email]: Yup.string().email('Email is not valid').required('Email is required'),
+    //     [contactFieldsNames.phoneNumber]: Yup.string().required('Phone number is required'),
+    //     [contactFieldsNames.permanentAddress]: Yup.string().required('Permanent address is required'),
+    //     [contactFieldsNames.maritalStatus]: Yup.string(),
+    //     [contactFieldsNames.presentOrPreviousInstitute]: Yup.string().required('Present/Previous Institute is required'),
+    //     [contactFieldsNames.currentSchoolYear]: Yup.string().required('Current School Year is required'),
+    //     [contactFieldsNames.programmeOfInterest]: Yup.string().required('Programme of Interest is required'),
+    //     [contactFieldsNames.proposedYearOfResumption]: Yup.string().required('Proposed Year of Resumption is required'),
+    //     [contactFieldsNames.proposedMonthOfResumption]: Yup.string().required('Proposed Month of Resumption is required'),
+    //     [contactFieldsNames.travellingAloneOrWithFamily]: Yup.string().required(
+    //         'Travelling Alone or with Family is required'
+    //     ),
+    //     [contactFieldsNames.budget]: Yup.string().required('Budget is required'),
 });
 
 const initialValues = {
-    [contactFieldsNames.firstName]: '',
-    [contactFieldsNames.lastName]: '',
+    [contactFieldsNames.firstName]: 'Farouq',
+    [contactFieldsNames.lastName]: 'test',
     [contactFieldsNames.nationality]: '',
     [contactFieldsNames.dateOfBirth]: '',
     [contactFieldsNames.gender]: '',
-    [contactFieldsNames.email]: '',
+    [contactFieldsNames.email]: 'ayofef@gmail.com',
     [contactFieldsNames.phoneNumber]: '',
     [contactFieldsNames.permanentAddress]: '',
     [contactFieldsNames.maritalStatus]: '',
@@ -384,8 +384,9 @@ const contactFields = [
     {
         type: 'file',
         name: contactFieldsNames.passport,
-        label: 'Upload International Passport *',
+        label: 'Upload International Passport',
         placeholder: 'Upload  International Passport ',
+        required: true,
     },
     {
         type: 'file',
@@ -408,7 +409,7 @@ const contactFields = [
     {
         type: 'file',
         name: contactFieldsNames.testOfEnglishResult,
-        label: 'Upload Test of English Result',
+        label: 'Upload Test of English Result ',
         placeholder: 'Upload Test of English Result',
     },
     {

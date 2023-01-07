@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Form, Formik } from 'formik';
-import { toast } from 'react-toastify';
 
 import { initialValues, contactFields, schema } from './constant';
 import InputField from './InputField';
@@ -10,15 +9,12 @@ import { FileInput } from './FileInput';
 import NestedInput from './NestedInput';
 // import { jobApplicationFormPromise } from '../../../utils/jobApplicationFormPromise';
 import { useSubmitForm } from './useSubmitForm';
-import { usePayWithPaystack } from './usePayWithPaystack';
-
-const FILE_ERROR_MESSAGE = 'CV is required';
+import { PaymentWrapper } from './PaymentWrapper';
 
 const JobApplicationForm = ({ role }) => {
     const [files, setFiles] = React.useState([]);
     const [fileErrorMessage, setFileErrorMessage] = React.useState(null);
     const { handleSubmitAction } = useSubmitForm();
-    usePayWithPaystack();
     const handleSubmit = async (values, actions) => {
         actions.setSubmitting(true);
         await handleSubmitAction({ values, files });
@@ -37,47 +33,51 @@ const JobApplicationForm = ({ role }) => {
             <div className="col-10 centered collapse-mobile">
                 <Formik initialValues={initialValues} validationSchema={schema} onSubmit={handleSubmit}>
                     <Form>
-                        <div className={classes.FormWrapper}>
-                            {contactFields.map((field, index) => {
-                                if (field.type === 'file') {
+                        <PaymentWrapper files={files} setFiles={setFiles}>
+                            <div className={classes.FormWrapper}>
+                                {contactFields.map((field, index) => {
+                                    if (field.type === 'file') {
+                                        return (
+                                            <FileInput
+                                                key={field.name}
+                                                name={field.name}
+                                                label={field.label}
+                                                type={field.type}
+                                                placeholder={field.placeholder}
+                                                required={field.required}
+                                                files={files}
+                                                setFiles={setFiles}
+                                                fileErrorMessage={fileErrorMessage}
+                                                fullWidth={true}
+                                            />
+                                        );
+                                    }
+
+                                    if (field.type === 'nested') {
+                                        return (
+                                            <NestedInput key={field.name} label={field.label} inputs={field.inputs} />
+                                        );
+                                    }
+
                                     return (
-                                        <FileInput
+                                        <InputField
                                             key={field.name}
                                             name={field.name}
                                             label={field.label}
                                             type={field.type}
                                             placeholder={field.placeholder}
                                             required={field.required}
-                                            files={files}
-                                            setFiles={setFiles}
-                                            fileErrorMessage={fileErrorMessage}
-                                            fullWidth={true}
+                                            options={field.options}
+                                            pattern={field.pattern}
+                                            fullWidth={field.fullWidth}
+                                            {...field}
                                         />
                                     );
-                                }
+                                })}
+                            </div>
 
-                                if (field.type === 'nested') {
-                                    return <NestedInput key={field.name} label={field.label} inputs={field.inputs} />;
-                                }
-
-                                return (
-                                    <InputField
-                                        key={field.name}
-                                        name={field.name}
-                                        label={field.label}
-                                        type={field.type}
-                                        placeholder={field.placeholder}
-                                        required={field.required}
-                                        options={field.options}
-                                        pattern={field.pattern}
-                                        fullWidth={field.fullWidth}
-                                        {...field}
-                                    />
-                                );
-                            })}
-                        </div>
-
-                        <SubmitButton />
+                            <SubmitButton />
+                        </PaymentWrapper>
                     </Form>
                 </Formik>
             </div>

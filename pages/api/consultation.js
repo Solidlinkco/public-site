@@ -1,10 +1,14 @@
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const Lz = require('lz-string');
 
 const ORG_EMAIL = 'remi.kolawole@solidlinkco.com';
 
 export default async (req, res) => {
-    const values = req.body;
+    const body = req.body;
+
+    const decompressed = Lz.decompress(body.compressed);
+    const values = JSON.parse(decompressed);
 
     const msg = {
         to: ORG_EMAIL,

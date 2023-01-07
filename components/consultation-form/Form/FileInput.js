@@ -2,11 +2,24 @@ import * as React from 'react';
 import { useDropzone } from 'react-dropzone';
 import classes from './styled.module.scss';
 import { CloseIcon } from '../../../assets/icons';
+import isEmpty from 'lodash/isEmpty';
+import { toast } from 'react-toastify';
 
-export const FileInput = ({ name, label, files, setFiles, fileErrorMessage }) => {
+const FILE_ERROR_MESSAGE =
+    'File is too large, Max. file size is 100kb. Please send large files to admin@solidlinkco.com';
+
+export const FileInput = ({ name, label, files, setFiles, fileErrorMessage, required }) => {
     const file = files?.find((file) => file.inputId === name);
 
     const onDrop = (acceptedFiles) => {
+        if (isEmpty(acceptedFiles)) {
+            toast(FILE_ERROR_MESSAGE, {
+                type: 'info',
+                autoClose: 10000,
+            });
+            return;
+        }
+
         setFiles((prevState) => [
             ...prevState,
             {
@@ -24,6 +37,7 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage }) =>
             document: ['.docx'],
             image: ['.jpg', '.jpeg', '.png'],
         },
+        maxSize: 100000,
     });
 
     const handleRemoveFile = () => {
@@ -34,7 +48,7 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage }) =>
     return (
         <div className={`${classes.InputWrapper} ${classes.fullWidth}`}>
             <label htmlFor={name} className={classes.Label}>
-                {label}
+                {label} {required && <span>*</span>} <em className={classes.MaxFile}>Max. Size (100kb)</em>
             </label>
 
             {file && (
