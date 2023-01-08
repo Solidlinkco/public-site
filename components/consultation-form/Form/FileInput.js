@@ -5,8 +5,7 @@ import { CloseIcon } from '../../../assets/icons';
 import isEmpty from 'lodash/isEmpty';
 import { toast } from 'react-toastify';
 
-const FILE_ERROR_MESSAGE =
-    'File is too large, Max. file size is 100kb. Please send large files to admin@solidlinkco.com';
+const FILE_ERROR_MESSAGE = 'File is too large, Max. file size is 3mb. Please send large files to admin@solidlinkco.com';
 
 export const FileInput = ({ name, label, files, setFiles, fileErrorMessage, required }) => {
     const file = files?.find((file) => file.inputId === name);
@@ -37,7 +36,7 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage, requ
             document: ['.docx'],
             image: ['.jpg', '.jpeg', '.png'],
         },
-        maxSize: 100000,
+        maxSize: 3.2e6,
     });
 
     const handleRemoveFile = () => {
@@ -48,13 +47,13 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage, requ
     return (
         <div className={`${classes.InputWrapper} ${classes.fullWidth}`}>
             <label htmlFor={name} className={classes.Label}>
-                {label} {required && <span>*</span>} <em className={classes.MaxFile}>Max. Size (100kb)</em>
+                {label} {required && <span>*</span>} <em className={classes.MaxFile}>Max. Size (3mb)</em>
             </label>
 
             {file && (
                 <div className={classes.FileContainer}>
                     <p>{file.fileName}</p>
-                    <button type="button" aria-label={`remove ${file.fileName}`} onClick={handleRemoveFile}>
+                    <button type="button" aria-label={`remove ${file.label}`} onClick={handleRemoveFile}>
                         <CloseIcon />
                     </button>
                 </div>

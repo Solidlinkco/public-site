@@ -7,7 +7,6 @@ import { toast } from 'react-toastify';
 import { useFormikContext } from 'formik';
 import { composeEmail } from './compose-email';
 import { getBase64 } from './getBase64';
-import { compress } from 'lz-string';
 
 const ERROR_MESSAGE = 'Something went wrong, please try again or contact support.';
 
@@ -64,15 +63,21 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                 });
 
                 //send email
-                const response = await axios.post('/api/consultation', {
-                    compressed: compress(
-                        JSON.stringify({
-                            mailContent: `Payment Reference: ${referenceRef.current} \n${mailContent}`,
-                            attachments: attachments,
-                            customerEmail: values.email,
-                        })
-                    ),
-                });
+                const response = await axios.post(
+                    '/api/consultation',
+                    {
+                        mailContent: `Payment Reference: ${referenceRef.current} \n${mailContent}`,
+                        attachments: attachments,
+                        customerEmail: values.email,
+                    }
+                    // {
+                    //     onUploadProgress: (progressEvent) => {
+                    //         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+
+                    //         console.log(progressEvent, percentCompleted);
+                    //     },
+                    // }
+                );
 
                 if (response.data?.ok) {
                     toast('Form successfully submitted.', {
@@ -81,7 +86,7 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                     resetForm();
                     setSubmitting(false);
                     setSearchParams({});
-                    // setFiles([]);
+                    setFiles([]);
                 } else {
                     toast(ERROR_MESSAGE, {
                         type: 'error',
