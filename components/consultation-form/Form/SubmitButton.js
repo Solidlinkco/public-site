@@ -13,10 +13,12 @@ const SubmitButton = () => {
 
     const showLoadingSpinner = isSubmitting || !isEmpty(searchParams.reference);
 
+    const label = showLoadingSpinner ? 'Submitting..' : 'submit';
+
     return (
         <div className={classes.SubmitButton}>
             <StyledButton type="submit" label="Submit" as="button" disabled={showLoadingSpinner} onClick={handleSubmit}>
-                Submit
+                {label}
                 {showLoadingSpinner && <span className={classes.Loader}>&nbsp;</span>}
             </StyledButton>
         </div>
