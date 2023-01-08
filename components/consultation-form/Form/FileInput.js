@@ -53,7 +53,7 @@ export const FileInput = ({ name, label, files, setFiles, fileErrorMessage, requ
             {file && (
                 <div className={classes.FileContainer}>
                     <p>{file.fileName}</p>
-                    <button type="button" aria-label={`remove ${file.label}`} onClick={handleRemoveFile}>
+                    <button type="button" aria-label={`remove ${file.fileName}`} onClick={handleRemoveFile}>
                         <CloseIcon />
                     </button>
                 </div>
