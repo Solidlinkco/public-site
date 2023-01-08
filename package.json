@@ -16,7 +16,6 @@
         "add": "^2.0.6",
         "axios": "^0.21.1",
         "date-fns": "^2.22.1",
-        "formidable": "2.1.1",
         "formik": "^2.2.9",
         "graphcms-image": "^1.1.0-beta4",
         "graphql": "^15.5.0",
