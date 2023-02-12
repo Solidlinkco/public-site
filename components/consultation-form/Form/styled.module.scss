@@ -30,6 +30,17 @@ $input-border: 1px solid #c3cad8;
         padding: 14px;
         background-color: $transparent;
         font-size: 1.7rem;
+        &::-webkit-calendar-picker-indicator {
+            right: -10px;
+            position: absolute;
+            width: 78px;
+            height: 40px;
+            color: rgba(204, 204, 204, 0);
+            opacity: 0;
+        }
+        &::-ms-calendar-picker-indicator {
+            display: none;
+        }
     }
     .Textarea {
         display: block;

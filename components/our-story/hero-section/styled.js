@@ -42,7 +42,7 @@ const StyledHeroText = styled.div`
     text-align: center;
     width: 100%;
 
-    max-width: 560px;
+    max-width: 760px;
 
     @media screen and (max-width: 600px) {
         max-width: unset;
@@ -50,13 +50,14 @@ const StyledHeroText = styled.div`
 
     p {
         font-weight: 700;
-        font-size: 20px;
+        font-size: 28px;
         margin-bottom: 28px;
+        line-height: 1.15;
     }
 
     h1 {
         border-radius: 8px;
-        font-size: 64px;
+        font-size: 54px;
         font-weight: 700 !important;
         line-height: 45px;
         ${animate};

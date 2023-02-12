@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledCard = styled.div`
     width: 100%;
     max-width: 370px;
-    height: 440px;
     border: 1px solid #ececec;
     border-radius: 12px;
     padding: 32px 24px;
@@ -37,13 +36,11 @@ const StyledCard = styled.div`
     .texts {
         margin-top: 75px;
         font-size: 16px;
+        margin-bottom: auto;
     }
 
     .cta {
-        margin-top: auto;
-        @media screen and (max-width: 56.25em) {
-            margin-top: 30px;
-        }
+        margin-top: 30px;
 
         a {
             color: #400436;

@@ -7,8 +7,8 @@ const Hero = ({ heroImage }) => {
         <StyledBG src={heroImage?.url}>
             <StyledWrapper>
                 <StyledHeroText>
-                    <h1>Once Victims, Now Saving Dreams</h1>
-                    <p>Here's how it all started.</p>
+                    <h1>We Were Once You…</h1>
+                    <p>Dreaming Of A Life Abroad Our Dream Has Come True We Want To Make Yours A Reality</p>
                 </StyledHeroText>
             </StyledWrapper>
         </StyledBG>

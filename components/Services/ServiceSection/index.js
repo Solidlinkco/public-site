@@ -18,15 +18,17 @@ const ServicesSection = ({ servicesCards }) => {
                     </H2>
 
                     <StyledCardWrapper className="service-cards-wrap ">
-                        {servicesCards?.map(({ id, title, description, ctaUrl }) => (
-                            <ServiceCard
-                                className={CARDS_CLASS}
-                                key={id}
-                                title={title?.toLowerCase()}
-                                description={description}
-                                ctaUrl={ctaUrl}
-                            />
-                        ))}
+                        {servicesCards
+                            ?.sort((a, b) => a?.order - b?.order)
+                            ?.map(({ id, title, description, ctaUrl }) => (
+                                <ServiceCard
+                                    className={CARDS_CLASS}
+                                    key={id}
+                                    title={title?.toLowerCase()}
+                                    description={description}
+                                    ctaUrl={ctaUrl}
+                                />
+                            ))}
                     </StyledCardWrapper>
 
                     <div className="justify-content-center ">
