@@ -112,7 +112,7 @@ const contactFields = [
         type: 'date',
         name: contactFieldsNames.dateOfBirth,
         label: 'Date of Birth',
-        placeholder: '12 / 02 / 1990',
+        placeholder: 'dd / mm / yyyy',
         required: true,
     },
     {
