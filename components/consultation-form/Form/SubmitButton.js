@@ -13,7 +13,7 @@ const SubmitButton = () => {
 
     const showLoadingSpinner = isSubmitting || !isEmpty(searchParams.reference);
 
-    const label = showLoadingSpinner ? 'Submitting..' : 'submit';
+    const label = showLoadingSpinner ? 'Submitting..' : 'Submit';
 
     return (
         <div className={classes.SubmitButton}>

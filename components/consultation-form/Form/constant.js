@@ -39,7 +39,7 @@ const schema = Yup.object().shape({
     [contactFieldsNames.firstName]: Yup.string().required('First name is required'),
     [contactFieldsNames.lastName]: Yup.string().required('Last name is required'),
     [contactFieldsNames.nationality]: Yup.string().required('Nationality is required'),
-    [contactFieldsNames.how]: Yup.string().required('Date of birth is required'),
+    [contactFieldsNames.dateOfBirth]: Yup.string().required('Date of birth is required'),
     [contactFieldsNames.gender]: Yup.string(),
     [contactFieldsNames.email]: Yup.string().email('Email is not valid').required('Email is required'),
     [contactFieldsNames.phoneNumber]: Yup.string().required('Phone number is required'),
