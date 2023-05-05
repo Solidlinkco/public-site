@@ -22,7 +22,11 @@ const SOCIAL_ICON_MAP = {
 };
 
 const Header = ({ contacts }) => {
-    const leftMap = useMemo(() => contacts?.filter((el) => LEFT_MAP.includes(el?.type)) ?? [], [contacts]);
+    const leftMap = useMemo(
+        () =>
+            contacts?.filter((el) => LEFT_MAP.includes(el?.type))?.sort((a, b) => b.type?.localeCompare(a.type)) ?? [],
+        [contacts]
+    );
     const rightMap = useMemo(() => contacts?.filter((el) => RIGHT_MAP.includes(el?.type)) ?? [], [contacts]);
 
     return (

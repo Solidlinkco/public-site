@@ -80,7 +80,7 @@ const ContactUs = ({ contact }) => {
                         <PhoneEnabledIcon />
                         <p className="fz-20 fw-700">Call us</p>
                         <p className="fz-18 fw-700" style={{ color: '#400436' }}>
-                            +2349085500062
+                            +2349133700236
                         </p>
                     </div>
 
@@ -112,7 +112,7 @@ const ContactUs = ({ contact }) => {
                         <PhoneEnabledIcon />
                         <p className="fz-20 fw-700">Call us</p>
                         <p className="fz-18 fw-700" style={{ color: '#400436' }}>
-                            +2347038695395
+                            +2349085500067
                         </p>
                     </div>
 

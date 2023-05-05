@@ -69,7 +69,11 @@ const FOOTER_CONTENT = [
 const Footer = ({ contacts }) => {
     const date = new Date();
     const year = date.getFullYear();
-    const leftMap = useMemo(() => contacts?.filter((el) => LEFT_MAP.includes(el?.type)) ?? [], [contacts]);
+    const leftMap = useMemo(
+        () =>
+            contacts?.filter((el) => LEFT_MAP.includes(el?.type))?.sort((a, b) => b.type?.localeCompare(a.type)) ?? [],
+        [contacts]
+    );
     const rightMap = useMemo(() => contacts?.filter((el) => RIGHT_MAP.includes(el?.type)) ?? [], [contacts]);
     const address = useMemo(() => contacts?.find((el) => el?.type === 'address'), [contacts]);
 
@@ -137,7 +141,6 @@ const Footer = ({ contacts }) => {
                             </li>
                         </ul>
                         <ul>
-                            <p className="facade">&nbsp;</p>
                             {leftMap?.map(({ type, value }) => {
                                 const href = type === 'phone' ? `tel:${value}` : `mailto:${value}`;
                                 const Icon = type === 'phone' ? PhoneIcon : MailIcon;
