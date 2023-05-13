@@ -19,7 +19,7 @@ const ContactUs = ({ contact }) => {
             <div>
               <h1>Contact us</h1>
               <p className="fz-18">
-                Interesred in studying in Canada, UK, Ireland orother top European countries? Take the
+                Interested in studying in Canada, UK, Ireland or other top European countries? Take the
                 first step by leaving your contact info and we will be in touch with you shortly.
               </p>
             </div>
