@@ -72,7 +72,7 @@ const ContactUs = ({ contact }) => {
             <BusinessIcon />
             <p className="fz-20 fw-700">Visit us</p>
             <p>
-              Solid-Link Consulting,3rd Floor, 13A Ayo Babatunde Crescent Oniru, Opposite Lekki Phase One
+              Solid-Link Consulting, 3rd Floor, 13A Ayo Babatunde Crescent Oniru, Opposite Lekki Phase One
               Lagos.
             </p>
           </div>

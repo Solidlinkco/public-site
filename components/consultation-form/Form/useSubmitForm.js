@@ -13,10 +13,6 @@ export const useSubmitForm = () => {
                 email: values.email,
                 firstName: values.firstName,
                 lastName: values.lastName,
-                reference: `${values.firstName}-${values.lastName}-${new Date().toISOString()}`
-                    .replace(/:/g, '_')
-                    .replace(/@/g, '__')
-                    .replace(/\./g, '___'),
             });
         } catch (e) {
             toast(ERROR_MESSAGE, {

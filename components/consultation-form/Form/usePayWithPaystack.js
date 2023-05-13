@@ -1,5 +1,5 @@
 import React from 'react';
-import { usePaystackPayment } from 'react-paystack';
+import { usePaystackPayment,  } from 'react-paystack';
 import useSearch from '../../../hooks/useSearch';
 import isEmpty from 'lodash/isEmpty';
 import axios from 'axios';
@@ -12,7 +12,7 @@ const ERROR_MESSAGE = 'Something went wrong, please try again or contact support
 
 export const usePayWithPaystack = ({ files, setFiles }) => {
     const [searchParams, setSearchParams] = useSearch();
-    const referenceRef = React.useRef(null);
+    const triggeredPaymentRef = React.useRef(false);
     const { values, resetForm, setSubmitting } = useFormikContext();
 
     const payStackConfig = React.useMemo(
@@ -22,7 +22,6 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
             amount: 1000000, // NGN 10,000
             firstName: searchParams.firstName,
             lastName: searchParams.lastName,
-            reference: searchParams.reference,
             channels: ['card', 'bank', 'mobile_money', 'ussd', 'qr'],
         }),
         [searchParams]
@@ -31,17 +30,11 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
     // init paystack
     const initializePayment = usePaystackPayment(payStackConfig);
 
-    const onSuccess = React.useCallback(async () => {
+    const onSuccess = React.useCallback(async (result) => {
         try {
-            const verifyPayment = await axios.post('/api/confirm-payment', {
-                data: {
-                    reference: referenceRef.current,
-                },
-            });
+            const isSuccessFul = result?.status?.toLowerCase() === 'success';
 
-            const isSuccessFul = verifyPayment.data?.result?.data?.status === 'success';
-
-            if (verifyPayment.data?.ok && isSuccessFul) {
+            if (isSuccessFul) {
                 //compose email
                 const mailContent = composeEmail(values);
 
@@ -66,7 +59,7 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                 const response = await axios.post(
                     '/api/consultation',
                     {
-                        mailContent: `Payment Reference: ${referenceRef.current} \n${mailContent}`,
+                        mailContent: `Payment Reference: ${result.reference} \nPayment Transaction ID: ${result.transaction} \n${mailContent}`,
                         attachments: attachments,
                         customerEmail: values.email,
                     }
@@ -113,12 +106,10 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
 
     React.useEffect(() => {
         if (
-            !isEmpty(searchParams?.reference) &&
-            !isEmpty(searchParams?.email) &&
-            referenceRef.current !== searchParams.reference
+            !isEmpty(searchParams?.email) && !triggeredPaymentRef.current
         ) {
-            referenceRef.current = searchParams.reference;
             initializePayment(onSuccess, onClose);
+            triggeredPaymentRef.current = true;
         }
-    }, [initializePayment, searchParams]);
+    }, [initializePayment, searchParams?.email]);
 };
