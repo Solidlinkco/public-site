@@ -36,7 +36,7 @@ const MobileHeader = ({ nav, setNav }) => {
                         return (
                             <div className={classes.Navlinks} key={label}>
                                 <Link href={to}>
-                                    <a>{label}</a>
+                                    <>{label}</>
                                 </Link>
                             </div>
                         );

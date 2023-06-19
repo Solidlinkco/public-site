@@ -84,9 +84,9 @@ const Footer = ({ contacts }) => {
                 <div className="col-12">
                     <StyledHeader>
                         <Link href="/">
-                            <a>
+                            <>
                                 <Image src="/assets/img/logo-green.png" alt="solid-link co" width={80.3} height={50} />
-                            </a>
+                            </>
                         </Link>
                         <StyledSocial>
                             {rightMap?.map(({ type, value }) => {
@@ -114,15 +114,13 @@ const Footer = ({ contacts }) => {
                                 <p>{title}</p>
                                 {links.map(({ to, label, external }) => (
                                     <li key={label}>
-                                        <Link href={to}>
-                                            <a
-                                                {...(external && {
+                                        <Link href={to}  {...(external && {
                                                     target: '_blank',
                                                     rel: 'noreferrer noopener',
-                                                })}
-                                            >
+                                                })}>
+                                           
                                                 {label}
-                                            </a>
+                                        
                                         </Link>
                                     </li>
                                 ))}
@@ -163,10 +161,10 @@ const Footer = ({ contacts }) => {
                         <div className="right">&copy; {year} Solidlink|Edu Consulting. All Rights Reserved.</div>
                         <div className="left">
                             <Link href="/">
-                                <a>PRIVACY POLICY</a>
+                                <>PRIVACY POLICY</>
                             </Link>
                             <Link href="/">
-                                <a>TERMS AND CONDITIONS</a>
+                                <>TERMS AND CONDITIONS</>
                             </Link>
                         </div>
                     </StyledFooter>

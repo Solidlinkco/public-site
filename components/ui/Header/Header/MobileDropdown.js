@@ -19,15 +19,13 @@ const MobileDropdown = ({ label, nav }) => {
             <StyledDropDownSubItems $isOpen={showDropDown}>
                 {nav.map(({ label, to, external }) => (
                     <div className={classes.Navlinks} key={label}>
-                        <Link href={to}>
-                            <a
-                                {...(external && {
+                        <Link href={to}  {...(external && {
                                     target: '_blank',
                                     rel: 'noreferrer noopener',
-                                })}
-                            >
+                                })}>
+                            
                                 {label}
-                            </a>
+                           
                         </Link>
                     </div>
                 ))}

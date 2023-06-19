@@ -99,9 +99,9 @@ const Institutions = ({ schools }) => {
             </StyledWrapper>
             {/* <div className="col-12 py20">
                 <Link href="/">
-                    <a>
+                    <>
                         <StyledButton>View all institutions</StyledButton>
-                    </a>
+                    </>
                 </Link>
             </div> */}
         </>

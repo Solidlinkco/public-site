@@ -32,10 +32,10 @@ function MyApp({ Component, pageProps }) {
                 <meta name="viewport" content="width=device-width, initial-scale=1, max-width=1" />
                 <title>Solid-Link EDU Consulting</title>
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link
+                {/* <link
                     href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
                     rel="stylesheet"
-                />
+                /> */}
                 <meta name="robots" content="noindex" />
 
                 <meta

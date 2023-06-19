@@ -48,7 +48,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                     if (isBlog) {
                         return (
                             <Link key={data.title} href={`/articles/${data.blogSlug}`}>
-                                <a>
+                               
                                     <EventCard
                                         showDate={false}
                                         customDate={date}
@@ -59,7 +59,7 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                                         description={getDescription(data.content?.text)}
                                         imageAltAttribute={data.imageAltAttribute}
                                     />
-                                </a>
+                                
                             </Link>
                         );
                     }

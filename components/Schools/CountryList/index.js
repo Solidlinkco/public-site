@@ -31,13 +31,13 @@ const CountryList = ({ schools, title }) => {
                                         href={`/${title?.toLowerCase()?.split(' ')?.join('-')}/${countryLink}`}
                                         key={country}
                                     >
-                                        <a>
+                                        <>
                                             <StyledCountriesItem>
                                                 <img src={getIconUrl(country)} alt={country} />
 
                                                 <p>{countryName}</p>
                                             </StyledCountriesItem>
-                                        </a>
+                                        </>
                                     </Link>
                                 );
                             })}

@@ -15,9 +15,9 @@ const Header = () => {
                 <div className={classes.SolidLink__masthead}>
                     <div className={classes.SolidLink__logo}>
                         <Link href="/">
-                            <a>
+                            <>
                                 <Image src="/assets/img/logo-green.png" alt="solid-link co" width={80.3} height={50} />
-                            </a>
+                            </>
                         </Link>
                     </div>
 
@@ -35,15 +35,13 @@ const Header = () => {
                                         <ul>
                                             {nav.map(({ label: _label, to, external }) => (
                                                 <li key={_label}>
-                                                    <Link href={to}>
-                                                        <a
-                                                            {...(external && {
+                                                    <Link href={to} {...(external && {
                                                                 target: '_blank',
                                                                 rel: 'noreferrer noopener',
-                                                            })}
-                                                        >
+                                                            })}>
+                                                        
                                                             {_label}
-                                                        </a>
+                                                     
                                                     </Link>
                                                 </li>
                                             ))}
@@ -55,7 +53,7 @@ const Header = () => {
                             return (
                                 <div className={classes.Navlinks} key={label}>
                                     <Link href={to}>
-                                        <a>{label}</a>
+                                        <>{label}</>
                                     </Link>
                                 </div>
                             );

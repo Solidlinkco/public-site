@@ -45,7 +45,7 @@ const ServiceCard = ({ data, className, replaceN }) => {
             </div>
             <div className="read-more">
                 <Link href={`/articles/${data?.blogSlug}`}>
-                    <a>Read more &#xbb;</a>
+                    <>Read more &#xbb;</>
                 </Link>
             </div>
         </StyledCard>

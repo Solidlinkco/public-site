@@ -40,9 +40,9 @@ const Services = ({ servicesCards }) => {
                             }}
                         >
                             <Link href="/services">
-                                <a>
+                                <>
                                     <StyledButton>View all services</StyledButton>
-                                </a>
+                                </>
                             </Link>
                         </div>
                     </div>

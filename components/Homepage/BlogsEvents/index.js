@@ -50,9 +50,9 @@ const BlogsEvent = ({ blog, events }) => {
 
                             <div className="major-link">
                                 <Link href="/events">
-                                    <a>
+                                   
                                         <StyledButton>View all</StyledButton>
-                                    </a>
+                                    
                                 </Link>
                             </div>
                         </div>
@@ -71,7 +71,7 @@ const BlogsEvent = ({ blog, events }) => {
                                 return (
                                     <div>
                                         <Link key={data.title} href={`/articles/${data.blogSlug}`}>
-                                            <a>
+                                            <>
                                                 <EventCard
                                                     customDate={date}
                                                     className="blg-page-card"
@@ -81,7 +81,7 @@ const BlogsEvent = ({ blog, events }) => {
                                                         data?.content?.text || data?.customContent
                                                     )}
                                                 />
-                                            </a>
+                                            </>
                                         </Link>
                                     </div>
                                 );
@@ -90,9 +90,9 @@ const BlogsEvent = ({ blog, events }) => {
 
                         <div className="major-link">
                             <Link href="/articles">
-                                <a>
+                                <>
                                     <StyledButton>View all</StyledButton>
-                                </a>
+                                </>
                             </Link>
                         </div>
                     </div>
