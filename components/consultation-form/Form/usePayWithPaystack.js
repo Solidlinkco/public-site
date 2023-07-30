@@ -1,7 +1,7 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { usePaystackPayment,  } from 'react-paystack';
 import useSearch from '../../../hooks/useSearch';
-import isEmpty from 'lodash/isEmpty';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useFormikContext } from 'formik';
@@ -13,7 +13,11 @@ const ERROR_MESSAGE = 'Something went wrong, please try again or contact support
 export const usePayWithPaystack = ({ files, setFiles }) => {
     const [searchParams, setSearchParams] = useSearch();
     const triggeredPaymentRef = React.useRef(false);
+    const triggeredPaymentReferenceCallback = React.useRef(false);
+    const router = useRouter();
+
     const { values, resetForm, setSubmitting } = useFormikContext();
+    const [paymentReference, setPaymentReference] = React.useState(null);
 
     const payStackConfig = React.useMemo(
         () => ({
@@ -30,11 +34,27 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
     // init paystack
     const initializePayment = usePaystackPayment(payStackConfig);
 
-    const onSuccess = React.useCallback(async (result) => {
-        try {
-            const isSuccessFul = result?.status?.toLowerCase() === 'success';
+    const onSuccess = (result) => {
 
-            if (isSuccessFul) {
+        const isSuccessFul = result?.status?.toLowerCase() === 'success';
+
+        if (isSuccessFul) {
+            setPaymentReference(result.reference);
+            return;
+        } 
+
+        setSubmitting(false);
+        setSearchParams({});
+        setPaymentReference(null);
+       
+           
+        toast(ERROR_MESSAGE, {
+            type: 'error',
+        });
+    };
+
+    const onSuccessCallback = React.useCallback(async (paymentReference) => {
+            try {   
                 //compose email
                 const mailContent = composeEmail(values);
 
@@ -59,7 +79,7 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                 const response = await axios.post(
                     '/api/consultation',
                     {
-                        mailContent: `Payment Reference: ${result.reference} \nPayment Transaction ID: ${result.transaction} \n${mailContent}`,
+                        mailContent: `Payment Reference: ${paymentReference} \n${mailContent}`,
                         attachments: attachments,
                         customerEmail: values.email,
                     }
@@ -76,40 +96,58 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                     toast('Form successfully submitted.', {
                         type: 'success',
                     });
+            setSearchParams({});
                     resetForm();
                     setSubmitting(false);
-                    setSearchParams({});
                     setFiles([]);
                 } else {
+                    setSubmitting(false);
                     toast(ERROR_MESSAGE, {
                         type: 'error',
                     });
                 }
-            } else {
-                toast(ERROR_MESSAGE, {
-                    type: 'error',
-                });
-            }
-        } catch (e) {
+            }  catch (e) {
             toast(ERROR_MESSAGE, {
                 type: 'error',
-            });
-        }
+            }) 
+         }finally{
+            setPaymentReference(null);
+
+            setTimeout(() => {
+                router.push('/consultation-form');
+            }, 3000);
+            
+            }
+
+            
     }, [files, values]);
 
     const onClose = React.useCallback(() => {
+        setSearchParams({});
         resetForm();
         setSubmitting(false);
-        setSearchParams({});
         setFiles([]);
+        triggeredPaymentReferenceCallback.current = false;
+        router.push('/consultation-form');
     }, []);
 
     React.useEffect(() => {
         if (
-            !isEmpty(searchParams?.email) && !triggeredPaymentRef.current
+            searchParams?.email && !triggeredPaymentRef.current
         ) {
-            initializePayment(onSuccess, onClose);
             triggeredPaymentRef.current = true;
+            initializePayment(onSuccess, onClose);
         }
     }, [initializePayment, searchParams?.email]);
+
+
+
+
+    React.useEffect(() => {
+
+        if(paymentReference && !triggeredPaymentReferenceCallback.current) {
+            triggeredPaymentReferenceCallback.current = true;
+            onSuccessCallback(paymentReference);
+        }
+    },[onSuccessCallback, paymentReference]);
 };
