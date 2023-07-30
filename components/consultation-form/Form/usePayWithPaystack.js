@@ -23,7 +23,7 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
         () => ({
             publicKey: process.env.paystackPublicKey,
             email: searchParams.email,
-            amount: 1000000, // NGN 10,000
+            amount: 2000000, // NGN 20,000
             firstName: searchParams.firstName,
             lastName: searchParams.lastName,
             channels: ['card', 'bank', 'mobile_money', 'ussd', 'qr'],
