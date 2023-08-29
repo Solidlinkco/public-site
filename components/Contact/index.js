@@ -48,7 +48,8 @@ const ContactUs = ({ contact }) => {
                 ?.filter((el) => !el.value?.includes?.('+234'))
                 ?.map((el) => (
                   <p class="fz-18 fw-700" style={{ color: '#400436' }} key={el?.value}>
-                    {el?.value}
+                    <a className="fz-18" href={`tel:${el?.value}`}>{el?.value}</a>
+                    
                   </p>
                 ))}
             </div>
@@ -57,7 +58,7 @@ const ContactUs = ({ contact }) => {
             <div>
               <MailOutlineIcon />
               <p className="fz-20 fw-700">Contact us</p>
-              <p>{email?.value}</p>
+               <a className="fz-18" href={`mailto:${email?.value}`}>{email?.value}</a>
             </div>
           )}
         </StyledContactCards>
@@ -80,7 +81,8 @@ const ContactUs = ({ contact }) => {
             <PhoneEnabledIcon />
             <p className="fz-20 fw-700">Call us</p>
             <p className="fz-18 fw-700" style={{ color: '#400436' }}>
-              +2349133700236
+            <a className="fz-18" href="tel:+2349133700236">+2349133700236</a>
+              
             </p>
           </div>
 
@@ -88,7 +90,7 @@ const ContactUs = ({ contact }) => {
             <div>
               <MailOutlineIcon />
               <p className="fz-20 fw-700">Contact us</p>
-              <p>{email?.value}</p>
+               <a className="fz-18" href={`mailto:${email?.value}`}>{email?.value}</a>
             </div>
           )}
         </StyledContactCards>
@@ -112,7 +114,7 @@ const ContactUs = ({ contact }) => {
             <PhoneEnabledIcon />
             <p className="fz-20 fw-700">Call us</p>
             <p className="fz-18 fw-700" style={{ color: '#400436' }}>
-              +2349085500067
+              <a className="fz-18" href="tel:+2349085500067">+2349085500067</a>
             </p>
           </div>
 
@@ -120,7 +122,40 @@ const ContactUs = ({ contact }) => {
             <div>
               <MailOutlineIcon />
               <p className="fz-20 fw-700">Contact us</p>
-              <p>{email?.value}</p>
+               <a className="fz-18" href={`mailto:${email?.value}`}>{email?.value}</a>
+            </div>
+          )}
+        </StyledContactCards>
+      </div>
+
+      <div className="col-12 centered collapse-mobile">
+        <H2 fontWeight="700" color="#400436" margin="0 0 24px 0" textAlign="center">
+          Ilorin Office
+        </H2>
+        <StyledContactCards>
+          <div>
+            <BusinessIcon />
+            <p className="fz-20 fw-700">Visit us</p>
+            <p>
+              Solid-Link Consulting, 62, NNPC Pipeline Road, Gaa-Akanbi, Ilorin.
+            </p>
+          </div>
+
+          <div>
+            <PhoneEnabledIcon />
+            <p className="fz-20 fw-700">Call us</p>
+            <p className="fz-18 fw-700" style={{ color: '#400436' }}>
+            <a className="fz-18" href="tel:+2348032294612">+2348032294612</a>
+            </p>
+          </div>
+
+          {email && (
+            <div>
+              <MailOutlineIcon />
+              <p className="fz-20 fw-700">Contact us</p>
+              <p>
+              <a className="fz-18" href={`mailto:${email?.value}`}>{email?.value}</a>
+              </p>
             </div>
           )}
         </StyledContactCards>
