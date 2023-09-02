@@ -105,7 +105,7 @@ const ContactUs = ({ contact }) => {
             <BusinessIcon />
             <p className="fz-20 fw-700">Visit us</p>
             <p>
-              Solid-Link Consulting, Thermocool Showroom, Beside Eco-Bank, Ring Road Area,
+              Solid-Link Consulting, Opposite Thermocool Showroom, Beside Eco-Bank, Ring Road Area,
               Challenge, Ibadan.
             </p>
           </div>
