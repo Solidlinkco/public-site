@@ -20,7 +20,7 @@ const getDescription = (description) =>
         ?.replace('</strong>', ' ')
         ?.replace(/<strong>/g, ' ')
         ?.replace('<a href="https://www.goabroad.com/study-abroad">"', ' ')
-        ?.substring(0, 400)
+        ?.substring(0, 200)
         ?.trim() + '...';
 
 const BlogsEvent = ({ blog, events }) => {
