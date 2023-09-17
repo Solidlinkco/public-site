@@ -17,54 +17,6 @@ export const StyledWrapper = styled.div`
 `;
 
 
-export const StyledContainer = styled.div`
-    display: flex;
-    align-items: center;
-
-    & div {
-
-        flex: 1;
-    }
-
-
-    @media screen and (max-width: 825px) {
-        flex-direction: column-reverse;
-    }
-
-`;
-
-export const StyledImageContainer = styled.div`
-
-
-
-.mobile {
-        display: none;
-        visibility: hidden;
-        opacity: 0;
-
-    @media screen and (max-width: 825px) {
-        display: block;
-
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-
-@media screen and (max-width: 825px) {
-      .desktop{ 
-        display: none;
-        visibility: hidden;
-        opacity: 0;
-      }
-    }
-
-img {
-        max-width: 100%;
-    }
-
-`;
-
 export const StyledButtons = styled.div`
     display: flex;
     justify-content: center;

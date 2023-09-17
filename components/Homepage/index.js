@@ -12,6 +12,8 @@ import BlogsEvents from './BlogsEvents';
 import Countries from './Countries';
 import Testimonials from './Testimonial';
 import { MOCK_YOUTUBE } from './constant';
+import ReferAndEarn from './ReferAndEarn/ReferAndEarn';
+
 const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events, youtube, testimonials }) => {
     return (
         <Layout contacts={contacts}>
@@ -27,6 +29,7 @@ const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, e
             {/* <Reviews reviews={reviews} /> */}
 
             <Youtube data={youtube} />
+            <ReferAndEarn />
             <BlogsEvents blog={blog} events={events} />
             {/* <Instagram data={instaData} /> */}
         </Layout>

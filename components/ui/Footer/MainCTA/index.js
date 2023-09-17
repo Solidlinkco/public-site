@@ -7,15 +7,7 @@ const MainCTA = () => {
     return (
         <StyledWrapper>
             <div className="col-12 ">
-<StyledContainer>
-
-    <StyledImageContainer>
-
-<img src="/assets/img/banner.jpeg" alt="solid link refer and earn" className='desktop' />
-
-<img src="/assets/img/banner-mobile.jpg" alt="solid link refer and earn" className='mobile' />
-    </StyledImageContainer>
-                
+ 
                 <div className="cta-wrapper">
                     <h4>Ready To Study Abroad?</h4>
                     <p className="fz-16">
@@ -35,8 +27,7 @@ const MainCTA = () => {
                             </StyledButton>
                         </a>
                     </StyledButtons>
-                </div>
-                </StyledContainer>
+                </div> 
             </div>
         </StyledWrapper>
     );
