@@ -2,8 +2,11 @@ import React from 'react';
 import StyledButton from '../../../atoms/StyledButton';
 import { StyledWrapper, StyledButtons, StyledContainer, StyledImageContainer } from './styled';
 import { LINKS } from '../../../../constants/links';
+import { useBrochureContext } from '../../Layout/BrochureModal/brochure-context';
 
 const MainCTA = () => {
+    const { 
+        toggleBrochure} = useBrochureContext();
     return (
         <StyledWrapper>
             <div className="col-12 ">
@@ -21,11 +24,11 @@ const MainCTA = () => {
                                 Contact us
                             </StyledButton>
                         </a>
-                        <a href={LINKS.brochureUrl} target="_blank" rel="noreferrer noopener">
-                            <StyledButton as="span" bgcolor="#400436">
+                        
+                            <StyledButton as="span" bgcolor="#400436" onClick={toggleBrochure}>
                                 Download Brochure
                             </StyledButton>
-                        </a>
+                        
                     </StyledButtons>
                 </div> 
             </div>

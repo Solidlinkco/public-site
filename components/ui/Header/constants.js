@@ -74,8 +74,8 @@ const LINK = [
             },
             {
                 label: 'Download brochure',
-                to: LINKS.brochureUrl,
-                external: true,
+                to: "#",
+                brochure: true,
             },
         ],
     },

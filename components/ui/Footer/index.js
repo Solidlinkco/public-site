@@ -14,6 +14,7 @@ import MainCTA from './MainCTA';
 import { v4 } from 'uuid';
 import { SOCIAL_ICON_MAP, LEFT_MAP, RIGHT_MAP } from '../Header';
 import { LINKS } from '../../../constants/links';
+import { useBrochureContext } from '../Layout/BrochureModal/brochure-context';
 
 const FOOTER_CONTENT = [
     {
@@ -46,8 +47,8 @@ const FOOTER_CONTENT = [
             },
             {
                 label: 'Download brochure',
-                to: LINKS.brochureUrl,
-                external: true,
+                to: "#",
+                brochure: true,
             },
         ],
     },
@@ -67,6 +68,7 @@ const FOOTER_CONTENT = [
 ];
 
 const Footer = ({ contacts }) => {
+     const { toggleBrochure } = useBrochureContext();
     const date = new Date();
     const year = date.getFullYear();
     const leftMap = useMemo(
@@ -112,18 +114,36 @@ const Footer = ({ contacts }) => {
                         {FOOTER_CONTENT.map(({ title, links }) => (
                             <ul key={v4()}>
                                 <p>{title}</p>
-                                {links.map(({ to, label, external }) => (
-                                    <li key={label}>
-                                        <Link href={to}  {...(external && {
-                                                    target: '_blank',
-                                                    rel: 'noreferrer noopener',
-                                                })}>
-                                           
-                                                {label}
-                                        
-                                        </Link>
-                                    </li>
-                                ))}
+                                {links.map(({ to, label, external, brochure }) => {
+
+                                    if(brochure) {
+
+
+                                       return (
+                                            <li key={label}>
+                                                <a href="#" onClick={toggleBrochure}>
+                                                   
+                                                        {label}
+                                                
+                                                </a>
+                                            </li>
+                                        )
+                                    }
+
+
+return (
+    <li key={label}>
+        <Link href={to}  {...(external && {
+                    target: '_blank',
+                    rel: 'noreferrer noopener',
+                })}>
+           
+                {label}
+        
+        </Link>
+    </li>
+)
+                                })}
                             </ul>
                         ))}
 

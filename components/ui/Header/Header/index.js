@@ -5,9 +5,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMoreRounded';
 import { LINK } from '../constants';
+import { useBrochureContext } from '../../Layout/BrochureModal/brochure-context';
 
 const Header = () => {
     const [nav, setNav] = useState(false);
+    const { 
+        toggleBrochure} = useBrochureContext();
 
     return (
         <header className={classes.SolidLink}>
@@ -33,7 +36,23 @@ const Header = () => {
                                             </span>
                                         </p>
                                         <ul>
-                                            {nav.map(({ label: _label, to, external }) => (
+                                            {nav.map(({ label: _label, to, external, brochure }) =>{ 
+                                                
+                                                    if(brochure) {
+                                                        return (
+                                                            <li key={_label}>
+                                                    <a href="#" onClick={toggleBrochure}>
+                                                        
+                                                            {_label}
+                                                     
+                                                    </a>
+                                                </li>
+                                                        )
+                                                    }
+                                                
+                                                
+                                                
+                                                return (
                                                 <li key={_label}>
                                                     <Link href={to} {...(external && {
                                                                 target: '_blank',
@@ -44,7 +63,7 @@ const Header = () => {
                                                      
                                                     </Link>
                                                 </li>
-                                            ))}
+                                            )})}
                                         </ul>
                                     </div>
                                 );

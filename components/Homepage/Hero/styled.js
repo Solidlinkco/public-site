@@ -112,6 +112,12 @@ const StyledButtons = styled.div`
             margin-bottom: 48px;
         }
     }
+
+    button {
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        outline: none;
+    }
 `;
 
 export { StyledWrapper, StyledHeroText, StyledBG, StyledButtons };

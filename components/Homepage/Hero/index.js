@@ -2,8 +2,11 @@ import React, { useCallback } from 'react';
 import { shape, string } from 'prop-types';
 import { StyledWrapper, StyledHeroText, StyledBG, StyledButtons } from './styled';
 import { LINKS } from '../../../constants/links';
+import { useBrochureContext } from '../../ui/Layout/BrochureModal/brochure-context';
 
 const Hero = ({ heroImage }) => {
+    const { 
+        toggleBrochure} = useBrochureContext();
     return (
         <StyledBG src={heroImage?.url}>
             <StyledWrapper>
@@ -14,9 +17,10 @@ const Hero = ({ heroImage }) => {
                         <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
                             <span>Get started</span>
                         </a>
-                        <a href={LINKS.brochureUrl} target="_blank" rel="noreferrer noopener">
+                        
+                        <button onClick={toggleBrochure}>
                             <span>Download Brochure</span>
-                        </a>
+                        </button>
                     </StyledButtons>
                 </StyledHeroText>
             </StyledWrapper>
