@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { H2 } from "../../atoms/H2";
-import StyledButton from "../../atoms/StyledButton";
-import Link from "next/link";
-import { StyledWrapper } from "./styled";
-import Hammer from "react-hammerjs";
-import TweenLite from "gsap";
+import React, { useEffect, useState } from 'react';
+import { H2 } from '../../atoms/H2';
+import StyledButton from '../../atoms/StyledButton';
+import Link from 'next/link';
+import { StyledWrapper } from './styled';
+import Hammer from 'react-hammerjs';
+import TweenLite from 'gsap';
 
-const INSTA_LINK = "https://www.instagram.com/solidlinkco/";
-const CARDS_CLASS = "service-card";
+const INSTA_LINK = 'https://www.instagram.com/solidlinkco/';
+const CARDS_CLASS = 'service-card';
 
 const Instagram = ({ data }) => {
     const [position, setPosition] = useState(0);
@@ -28,8 +28,8 @@ const Instagram = ({ data }) => {
         }
     };
     useEffect(() => {
-        const swipeElement = document.getElementsByClassName("insta-grid")[0];
-        TweenLite.to(swipeElement, { duration: 0.3, ease: " Power4.easeOut", x: -100 * position + "%" });
+        const swipeElement = document.getElementsByClassName('insta-grid')[0];
+        TweenLite.to(swipeElement, { duration: 0.3, ease: ' Power4.easeOut', x: -100 * position + '%' });
     }, [position]);
 
     return (

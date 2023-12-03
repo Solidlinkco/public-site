@@ -5,7 +5,8 @@
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start"
+        "start": "next start",
+        "prettier": "prettier --write \"**/*.{js,jsx,json,md}\""
     },
     "dependencies": {
         "@material-ui/core": "^4.11.4",
@@ -25,6 +26,7 @@
         "lodash": "^4.17.21",
         "next": "13.4.6",
         "node-sass": "^7.0.1",
+        "prettier": "3.1.0",
         "prop-types": "^15.7.2",
         "qs": "^6.10.1",
         "react": "^18.1.0",

@@ -10,6 +10,8 @@ import Remittance from './Remittance';
 import CareerGuidance from './CareerGuidance';
 import Handshake from './Handshake';
 import { CloseIcon } from './CloseIcon';
+import { Group } from './Group';
+
 export {
     CloseIcon,
     Binoculars,
@@ -23,4 +25,5 @@ export {
     Remittance,
     CareerGuidance,
     Handshake,
+    Group,
 };

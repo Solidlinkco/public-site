@@ -1,5 +1,5 @@
-import { useCallback, useMemo } from "react";
-import useSearch from "./useSearch";
+import { useCallback, useMemo } from 'react';
+import useSearch from './useSearch';
 
 const useSearchFilter = () => {
     const [searchParams, setSearchParams] = useSearch();
@@ -7,7 +7,10 @@ const useSearchFilter = () => {
 
     const setFilter = useCallback(
         (filter) => {
-            setSearchParams((prevSearchParams) => ({ ...prevSearchParams, filter: { ...prevSearchParams?.filter, ...filter } }));
+            setSearchParams((prevSearchParams) => ({
+                ...prevSearchParams,
+                filter: { ...prevSearchParams?.filter, ...filter },
+            }));
         },
         [setSearchParams]
     );

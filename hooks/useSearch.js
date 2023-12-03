@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef } from "react";
-import { useRouter } from "next/router";
-import qs from "qs";
+import { useCallback, useEffect, useMemo, useRef } from 'react';
+import { useRouter } from 'next/router';
+import qs from 'qs';
 
 const keywords = {
     true: true,
@@ -10,8 +10,8 @@ const keywords = {
 };
 
 const decoder = (str, _ /*decoder*/, charset) => {
-    const strWithoutPlus = str.replace(/\+/g, " ");
-    if (charset === "iso-8859-1") {
+    const strWithoutPlus = str.replace(/\+/g, ' ');
+    if (charset === 'iso-8859-1') {
         // unescape never throws, no try...catch needed:
         return strWithoutPlus.replace(/%[0-9a-f]{2}/gi, unescape);
     }
@@ -47,7 +47,7 @@ const useSearch = () => {
 
     const setSearchParams = useCallback(
         (updater) => {
-            const params = typeof updater === "function" ? updater(searchParamsRef.current) : updater;
+            const params = typeof updater === 'function' ? updater(searchParamsRef.current) : updater;
             push({ pathname, query: qs.stringify(params, STRINGIFY_OPTIONS) });
         },
         [push, pathname]

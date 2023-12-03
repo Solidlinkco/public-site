@@ -69,12 +69,17 @@ const LINK = [
             },
 
             {
+                label: 'Bloom',
+                to: '/bloom',
+            },
+
+            {
                 label: 'Contact Us',
                 to: '/contact-us',
             },
             {
                 label: 'Download brochure',
-                to: "#",
+                to: '#',
                 brochure: true,
             },
         ],

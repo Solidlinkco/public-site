@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledButton = styled.button`
     background-color: ${({ bgcolor }) => bgcolor || '#73d97a'};
     border: none;
-    padding: 16px 24px;
     outline: none;
     border-radius: 10px;
     color: #fff;
@@ -18,6 +17,7 @@ const StyledButton = styled.button`
     transform: translateY(0);
     position: relative;
     width: ${({ width }) => width || 'auto'};
+    padding: ${({ padding }) => padding || '16px 24px'};
 
     &:hover {
         background-color: #56b55b;

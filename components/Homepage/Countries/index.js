@@ -4,7 +4,7 @@ import { StyledWrapper, StyledCountry } from './styled';
 import { gsap } from 'gsap';
 import { H2 } from '../../atoms/H2';
 
-const Countries = ({ schools }) => {
+const Countries = ({ schools, customTitle }) => {
     const leftRef = useRef(null);
 
     const countries = [...new Set(schools.map((school) => school.country))];
@@ -27,7 +27,7 @@ const Countries = ({ schools }) => {
         <div>
             <div className="col-12 py20 center">
                 <H2 fontWeight="600" color="#400436" margin="0 0 24px 0">
-                    Countries
+                    {customTitle || 'Countries'}
                 </H2>
             </div>
             <StyledWrapper>

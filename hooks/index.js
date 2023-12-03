@@ -1,3 +1,3 @@
-import { useFilterSort } from "./useFilterSort";
+import { useFilterSort } from './useFilterSort';
 
 export { useFilterSort };

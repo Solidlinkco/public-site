@@ -47,7 +47,7 @@ const FOOTER_CONTENT = [
             },
             {
                 label: 'Download brochure',
-                to: "#",
+                to: '#',
                 brochure: true,
             },
         ],
@@ -68,7 +68,7 @@ const FOOTER_CONTENT = [
 ];
 
 const Footer = ({ contacts }) => {
-     const { toggleBrochure } = useBrochureContext();
+    const { toggleBrochure } = useBrochureContext();
     const date = new Date();
     const year = date.getFullYear();
     const leftMap = useMemo(
@@ -115,34 +115,29 @@ const Footer = ({ contacts }) => {
                             <ul key={v4()}>
                                 <p>{title}</p>
                                 {links.map(({ to, label, external, brochure }) => {
-
-                                    if(brochure) {
-
-
-                                       return (
+                                    if (brochure) {
+                                        return (
                                             <li key={label}>
                                                 <a href="#" onClick={toggleBrochure}>
-                                                   
-                                                        {label}
-                                                
+                                                    {label}
                                                 </a>
                                             </li>
-                                        )
+                                        );
                                     }
 
-
-return (
-    <li key={label}>
-        <Link href={to}  {...(external && {
-                    target: '_blank',
-                    rel: 'noreferrer noopener',
-                })}>
-           
-                {label}
-        
-        </Link>
-    </li>
-)
+                                    return (
+                                        <li key={label}>
+                                            <Link
+                                                href={to}
+                                                {...(external && {
+                                                    target: '_blank',
+                                                    rel: 'noreferrer noopener',
+                                                })}
+                                            >
+                                                {label}
+                                            </Link>
+                                        </li>
+                                    );
                                 })}
                             </ul>
                         ))}

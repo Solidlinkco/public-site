@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { customTextColor } from "../../constants/CommonStyles";
+import styled from 'styled-components';
+import { customTextColor } from '../../constants/CommonStyles';
 
 export const P18B = styled.p`
     font-weight: 600;

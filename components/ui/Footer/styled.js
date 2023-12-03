@@ -13,7 +13,7 @@ const StyledWrapper = styled.footer`
 const StyledHeader = styled.div`
     display: flex;
     padding: 2.5rem 0;
-    border-bottom: 1px solid #f49d2a; ;
+    border-bottom: 1px solid #f49d2a;
 `;
 
 const StyledSocial = styled.div`

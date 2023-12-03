@@ -1,4 +1,4 @@
-import { GraphQLClient } from "graphql-request";
+import { GraphQLClient } from 'graphql-request';
 
 const endpoint = process.env.REACT_APP_CMS_ENDPOINT;
 

@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { arrayOf, shape, string } from 'prop-types';
 
@@ -7,7 +6,7 @@ import Footer from '../Footer';
 import styled from 'styled-components';
 import FloatingComponent from './FloatingComponent';
 import BrochureModal from './BrochureModal/BrochureModal';
-import {BrochureProvider} from "./BrochureModal/brochure-context"
+import { BrochureProvider } from './BrochureModal/brochure-context';
 
 const StyledMain = styled.main`
     padding-top: 120px;
@@ -21,17 +20,19 @@ const StyledMain = styled.main`
 `;
 
 const Layout = ({ children, contacts }) => {
-const [brochureOpen, setBrochureOpen] = React.useState(false);
+    const [brochureOpen, setBrochureOpen] = React.useState(false);
 
-const toggleBrochure = () => {
-    setBrochureOpen(prevState => !prevState);
-};
+    const toggleBrochure = () => {
+        setBrochureOpen((prevState) => !prevState);
+    };
 
     return (
-        <BrochureProvider value={{
-            brochureOpen,
-            toggleBrochure,
-        }}>
+        <BrochureProvider
+            value={{
+                brochureOpen,
+                toggleBrochure,
+            }}
+        >
             <Header contacts={contacts} />
             <StyledMain>{children}</StyledMain>
 

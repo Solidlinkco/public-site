@@ -5,12 +5,10 @@ import { LINKS } from '../../../../constants/links';
 import { useBrochureContext } from '../../Layout/BrochureModal/brochure-context';
 
 const MainCTA = () => {
-    const { 
-        toggleBrochure} = useBrochureContext();
+    const { toggleBrochure } = useBrochureContext();
     return (
         <StyledWrapper>
             <div className="col-12 ">
- 
                 <div className="cta-wrapper">
                     <h4>Ready To Study Abroad?</h4>
                     <p className="fz-16">
@@ -24,13 +22,12 @@ const MainCTA = () => {
                                 Contact us
                             </StyledButton>
                         </a>
-                        
-                            <StyledButton as="span" bgcolor="#400436" onClick={toggleBrochure}>
-                                Download Brochure
-                            </StyledButton>
-                        
+
+                        <StyledButton as="span" bgcolor="#400436" onClick={toggleBrochure}>
+                            Download Brochure
+                        </StyledButton>
                     </StyledButtons>
-                </div> 
+                </div>
             </div>
         </StyledWrapper>
     );

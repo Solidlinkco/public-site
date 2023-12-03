@@ -16,16 +16,17 @@ ${country && `<pre>Preferred country: <code>${country}</code></pre>`}
 
 `);
 
-const telegram = (message) => `https://api.telegram.org/bot${process.env.telegramBot}/sendMessage?chat_id=@${process.env.telegramChannel}&parse_mode=HTML&text=${message}`;
+const telegram = (message) =>
+    `https://api.telegram.org/bot${process.env.telegramBot}/sendMessage?chat_id=@${process.env.telegramChannel}&parse_mode=HTML&text=${message}`;
 
 const config = {
     headers: { Authorization: `Bearer ${process.env.calendlyToken}` },
 };
 
 const CUSTOM_QUESTION_MAP = {
-    phone: "Phone number",
-    edu: "Level of education enquiring about",
-    country: "Prefered Country",
+    phone: 'Phone number',
+    edu: 'Level of education enquiring about',
+    country: 'Prefered Country',
 };
 
 const findAnswer = (arr, key) => arr?.find((el) => el?.question === key)?.answer;

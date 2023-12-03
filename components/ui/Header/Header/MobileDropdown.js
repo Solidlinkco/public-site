@@ -11,11 +11,10 @@ const MobileDropdown = ({ label, nav }) => {
     const toggleDropDown = () => setShowDropDown((prevState) => !prevState);
     const { toggleBrochure } = useBrochureContext();
 
-
     const onBrochureClick = () => {
         toggleBrochure();
         toggleDropDown();
-    }
+    };
 
     return (
         <StyledDropDownContainer>
@@ -27,34 +26,29 @@ const MobileDropdown = ({ label, nav }) => {
             </p>
             <StyledDropDownSubItems $isOpen={showDropDown}>
                 {nav.map(({ label, to, external, brochure }) => {
+                    if (brochure) {
+                        return (
+                            <div className={classes.Navlinks} key={label}>
+                                <a href="#" onClick={onBrochureClick}>
+                                    {label}
+                                </a>
+                            </div>
+                        );
+                    }
 
-
-if(brochure) {
-
-
-    return (
-        <div className={classes.Navlinks} key={label}>
-            <a href="#" onClick={onBrochureClick}>
-                
-                    {label}
-               
-            </a>
-        </div>
-    )
-}
-
-return (
-    <div className={classes.Navlinks} key={label}>
-        <Link href={to}  {...(external && {
-                    target: '_blank',
-                    rel: 'noreferrer noopener',
-                })}>
-            
-                {label}
-           
-        </Link>
-    </div>
-)
+                    return (
+                        <div className={classes.Navlinks} key={label}>
+                            <Link
+                                href={to}
+                                {...(external && {
+                                    target: '_blank',
+                                    rel: 'noreferrer noopener',
+                                })}
+                            >
+                                {label}
+                            </Link>
+                        </div>
+                    );
                 })}
             </StyledDropDownSubItems>
         </StyledDropDownContainer>

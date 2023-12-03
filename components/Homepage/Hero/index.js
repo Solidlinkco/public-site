@@ -5,8 +5,7 @@ import { LINKS } from '../../../constants/links';
 import { useBrochureContext } from '../../ui/Layout/BrochureModal/brochure-context';
 
 const Hero = ({ heroImage }) => {
-    const { 
-        toggleBrochure} = useBrochureContext();
+    const { toggleBrochure } = useBrochureContext();
     return (
         <StyledBG src={heroImage?.url}>
             <StyledWrapper>
@@ -17,7 +16,7 @@ const Hero = ({ heroImage }) => {
                         <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
                             <span>Get started</span>
                         </a>
-                        
+
                         <button onClick={toggleBrochure}>
                             <span>Download Brochure</span>
                         </button>

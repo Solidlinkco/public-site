@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
     padding: 0 0 100px 0;

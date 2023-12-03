@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-
 // context
 
 export const BrochureContext = React.createContext({
@@ -9,7 +8,7 @@ export const BrochureContext = React.createContext({
 });
 
 // hooks
- 
+
 export const useBrochureContext = () => React.useContext(BrochureContext);
 
 // provider

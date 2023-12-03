@@ -1,22 +1,20 @@
 import styled from 'styled-components';
 
-export const StyledBrochureModal  = styled.div`
-width: 100%;
-max-width: 700px; 
+export const StyledBrochureModal = styled.div`
+    width: 100%;
+    max-width: 700px;
 
-background-color: #f49d2a;
-border: 2px solid #400436;
+    background-color: #f49d2a;
+    border: 2px solid #400436;
 
-position: fixed;
-top: 50%;   
-left: 50%;
-transform: translate(-50%, -50%);
-z-index: 99999;
-border-radius: 6px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99999;
+    border-radius: 6px;
 
-padding: 10px;
-
- 
+    padding: 10px;
 `;
 export const StyledBackdrop = styled.div`
     width: 100vw;
@@ -24,20 +22,17 @@ export const StyledBackdrop = styled.div`
     top: 0;
     left: 0;
     height: 100vh;
-    
 
-background-color: rgba(0,0,0,0.5);
-z-index: 9999;
-
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
 `;
-
 
 export const StyledCloseButton = styled.button`
     background-color: #400436;
     color: #fff;
     border: none;
     outline: none;
-   width: 40px;
+    width: 40px;
     height: 40px;
     border-radius: 4px;
     font-size: 36px;
@@ -49,24 +44,19 @@ export const StyledCloseButton = styled.button`
     cursor: pointer;
 
     span {
-        transform: translateY(-2px)
+        transform: translateY(-2px);
     }
 `;
 
 export const StyledHeader = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
-
-
 export const StyledBrochureContainer = styled.div`
-
     display: flex;
     margin-top: 52px;
-
 `;
 export const StyledBrochureCard = styled.a`
     flex: 1;
@@ -87,5 +77,4 @@ export const StyledBrochureCard = styled.a`
         font-weight: 600;
         margin-top: auto;
     }
-
 `;

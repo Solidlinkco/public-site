@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import { customTextColor } from "../../constants/CommonStyles";
+import styled, { css } from 'styled-components';
+import { customTextColor } from '../../constants/CommonStyles';
 
 export const H3 = styled.h3`
     font-weight: 500;

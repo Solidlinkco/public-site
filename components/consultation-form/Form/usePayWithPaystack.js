@@ -1,6 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import { usePaystackPayment,  } from 'react-paystack';
+import { usePaystackPayment } from 'react-paystack';
 import useSearch from '../../../hooks/useSearch';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -35,26 +35,25 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
     const initializePayment = usePaystackPayment(payStackConfig);
 
     const onSuccess = (result) => {
-
         const isSuccessFul = result?.status?.toLowerCase() === 'success';
 
         if (isSuccessFul) {
             setPaymentReference(result.reference);
             return;
-        } 
+        }
 
         setSubmitting(false);
         setSearchParams({});
         setPaymentReference(null);
-       
-           
+
         toast(ERROR_MESSAGE, {
             type: 'error',
         });
     };
 
-    const onSuccessCallback = React.useCallback(async (paymentReference) => {
-            try {   
+    const onSuccessCallback = React.useCallback(
+        async (paymentReference) => {
+            try {
                 //compose email
                 const mailContent = composeEmail(values);
 
@@ -96,7 +95,7 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                     toast('Form successfully submitted.', {
                         type: 'success',
                     });
-            setSearchParams({});
+                    setSearchParams({});
                     resetForm();
                     setSubmitting(false);
                     setFiles([]);
@@ -106,21 +105,20 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
                         type: 'error',
                     });
                 }
-            }  catch (e) {
-            toast(ERROR_MESSAGE, {
-                type: 'error',
-            }) 
-         }finally{
-            setPaymentReference(null);
+            } catch (e) {
+                toast(ERROR_MESSAGE, {
+                    type: 'error',
+                });
+            } finally {
+                setPaymentReference(null);
 
-            setTimeout(() => {
-                router.push('/consultation-form');
-            }, 3000);
-            
+                setTimeout(() => {
+                    router.push('/consultation-form');
+                }, 3000);
             }
-
-            
-    }, [files, values]);
+        },
+        [files, values]
+    );
 
     const onClose = React.useCallback(() => {
         setSearchParams({});
@@ -132,22 +130,16 @@ export const usePayWithPaystack = ({ files, setFiles }) => {
     }, []);
 
     React.useEffect(() => {
-        if (
-            searchParams?.email && !triggeredPaymentRef.current
-        ) {
+        if (searchParams?.email && !triggeredPaymentRef.current) {
             triggeredPaymentRef.current = true;
             initializePayment(onSuccess, onClose);
         }
     }, [initializePayment, searchParams?.email]);
 
-
-
-
     React.useEffect(() => {
-
-        if(paymentReference && !triggeredPaymentReferenceCallback.current) {
+        if (paymentReference && !triggeredPaymentReferenceCallback.current) {
             triggeredPaymentReferenceCallback.current = true;
             onSuccessCallback(paymentReference);
         }
-    },[onSuccessCallback, paymentReference]);
+    }, [onSuccessCallback, paymentReference]);
 };

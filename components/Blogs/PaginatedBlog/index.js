@@ -48,18 +48,16 @@ const PaginatedBlog = ({ blogs, isBlog }) => {
                     if (isBlog) {
                         return (
                             <Link key={data.title} href={`/articles/${data.blogSlug}`}>
-                               
-                                    <EventCard
-                                        showDate={false}
-                                        customDate={date}
-                                        className="blg-page-card"
-                                        title={data.title}
-                                        image={data?.image}
-                                        isBlog={isBlog}
-                                        description={getDescription(data.content?.text)}
-                                        imageAltAttribute={data.imageAltAttribute}
-                                    />
-                                
+                                <EventCard
+                                    showDate={false}
+                                    customDate={date}
+                                    className="blg-page-card"
+                                    title={data.title}
+                                    image={data?.image}
+                                    isBlog={isBlog}
+                                    description={getDescription(data.content?.text)}
+                                    imageAltAttribute={data.imageAltAttribute}
+                                />
                             </Link>
                         );
                     }

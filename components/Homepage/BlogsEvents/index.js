@@ -50,9 +50,7 @@ const BlogsEvent = ({ blog, events }) => {
 
                             <div className="major-link">
                                 <Link href="/events">
-                                   
-                                        <StyledButton>View all</StyledButton>
-                                    
+                                    <StyledButton>View all</StyledButton>
                                 </Link>
                             </div>
                         </div>

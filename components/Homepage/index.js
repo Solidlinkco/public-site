@@ -14,7 +14,6 @@ import Testimonials from './Testimonial';
 import { MOCK_YOUTUBE } from './constant';
 import ReferAndEarn from './ReferAndEarn/ReferAndEarn';
 
-
 const Homepage = ({ contacts, homepage, reviews, servicesCards, schools, blog, events, youtube, testimonials }) => {
     return (
         <Layout contacts={contacts}>

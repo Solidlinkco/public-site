@@ -1,3 +1,3 @@
-import graphcms from "./GraphCms";
+import graphcms from './GraphCms';
 
 export { graphcms };
