@@ -22,6 +22,7 @@ const ThriveComponent = () => {
                 </p>
 
                 <br />
+                <br />
                 <StyledButton as="a" href="/consultation-form">
                     Get Started
                 </StyledButton>

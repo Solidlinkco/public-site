@@ -46,7 +46,7 @@ const REVS = [
 export const BloomReviews = () => {
     return (
         <div className={classes.BloomReviews_BG}>
-            <div className="col-9 centered collpase-mobile">
+            <div className="col-9 centered collapse-mobile">
                 <div className={classes.BloomReviews}>
                     {REVS.map((rev, i) => {
                         return (

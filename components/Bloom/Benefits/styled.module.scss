@@ -1,3 +1,7 @@
+@import "../../../scss/layout-mixins.scss";
+
+
+
 .Benefits_BG {
     background-color: #FBD8AA;
 
@@ -19,6 +23,11 @@
         border-radius: 22px;
         align-items: center;
 
+        @include mobile {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
         &:not(:last-child) {
             margin-bottom: 40px;
         }
@@ -32,6 +41,15 @@
             & .Benefit__img { 
                 margin:0 0 0 40px;
             }
+
+            @include mobile {
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                & .Benefit__img { 
+                    margin:0 0 40px 0;
+                }
+            }
              
         }
 
@@ -42,6 +60,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
+
+            @include mobile {
+                margin:0 0 40px 0;
+            }
+
                         img { 
                 width: 100%;
                 border-radius: 10px;
@@ -59,6 +82,8 @@
             font-weight: 700;
             margin-bottom: 4px; 
             line-height: 1;
+
+            
         } 
 
         &__list {
