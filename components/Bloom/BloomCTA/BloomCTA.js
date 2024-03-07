@@ -8,7 +8,6 @@ export const BloomCTA = () => {
             <div className="col-10 collapse-mobile centered">
                 <div className={classes.BloomCTA}>
                     <h3>BECOME OUR NEXT SUCCESS STORY</h3>
-
                     <StyledButton height="55px" padding="16px 42px" bgcolor="#400436" as="a" href="/consultation-form">
                         GET IN TOUCH
                     </StyledButton>
