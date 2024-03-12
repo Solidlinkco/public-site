@@ -338,3 +338,16 @@
         }
     }
 }
+
+
+
+
+
+.green {
+     > a {
+        color: #73d97a !important;
+       &::after {
+        background-color: #73d97a !important;
+        }
+     };
+}

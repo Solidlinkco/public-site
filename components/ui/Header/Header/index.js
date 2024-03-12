@@ -24,7 +24,7 @@ const Header = () => {
                     </div>
 
                     <nav className={[classes.SolidLink__nav, classes.SolidLink__nav__Desktop].join(' ')}>
-                        {LINK.map(({ label, to, dropdown, nav }) => {
+                        {LINK.map(({ label, to, dropdown, nav, consultation }) => {
                             if (dropdown) {
                                 return (
                                     <div key={label}>
@@ -66,7 +66,7 @@ const Header = () => {
                             }
 
                             return (
-                                <div className={classes.Navlinks} key={label}>
+                                <div className={`${classes.Navlinks} ${consultation ? classes.green : ""} `} key={label}>
                                     <Link href={to}>
                                         <>{label}</>
                                     </Link>
