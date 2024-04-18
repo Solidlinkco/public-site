@@ -33,7 +33,7 @@ const Testimonials = ({ data, videoId, reverse }) => {
                         <p>&nbsp;</p>
                     </StyledBlob>
                     <a href={LINKS.getFreeConsultationUrl} target="_blank" rel="noreferrer noopener">
-                        <Button as="span">Get a free consultation</Button>
+                        <Button as="span">Book a 1-1 Consultation</Button>
                     </a>
                 </div>
             </StyledWrapper>
