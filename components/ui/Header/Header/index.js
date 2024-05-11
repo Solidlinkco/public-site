@@ -66,7 +66,10 @@ const Header = () => {
                             }
 
                             return (
-                                <div className={`${classes.Navlinks} ${consultation ? classes.green : ""} `} key={label}>
+                                <div
+                                    className={`${classes.Navlinks} ${consultation ? classes.green : ''} `}
+                                    key={label}
+                                >
                                     <Link href={to}>
                                         <>{label}</>
                                     </Link>

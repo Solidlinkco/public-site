@@ -87,7 +87,7 @@ const LINK = [
     {
         label: 'Book Consultation',
         to: '/consultation-form',
-        consultation: true
+        consultation: true,
     },
 ];
 

@@ -14,10 +14,10 @@ import { PaymentWrapper } from './PaymentWrapper';
 const JobApplicationForm = ({ role }) => {
     const [files, setFiles] = React.useState([]);
     const [fileErrorMessage, setFileErrorMessage] = React.useState(null);
-    const { handleSubmitAction } = useSubmitForm();
+    const { handleSubmitAction } = useSubmitForm({ setFiles });
     const handleSubmit = async (values, actions) => {
         actions.setSubmitting(true);
-        await handleSubmitAction({ values, files });
+        await handleSubmitAction({ values, files }, actions);
     };
 
     return (
