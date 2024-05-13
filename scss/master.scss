@@ -149,3 +149,16 @@ img {
     animation: rotate-spinner 1s linear;
     animation-iteration-count: infinite;
 }
+
+
+#iasBadge {
+    img {
+        transform: scale(1.4);
+    }
+}
+
+
+#footer_numbers {
+    display: flex;
+    flex-flow: row wrap;
+}

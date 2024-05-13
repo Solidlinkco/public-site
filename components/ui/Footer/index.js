@@ -153,7 +153,14 @@ const Footer = ({ contacts }) => {
                                 </span>
                             </li>
                         </ul>
-                        <ul>
+                        <ul style={{
+                            flexShrink: 0,
+                        }}>
+                            <li>
+                            <span id='iasBadge' data-account-id='4442'></span><script async defer crossOrigin="anonymous" src="https://www-cdn.icef.com/scripts/iasbadgeid.js"></script>
+                            </li>
+                        </ul>
+                        <ul  id="footer_numbers">
                             {leftMap?.map(({ type, value }) => {
                                 const href = type === 'phone' ? `tel:${value}` : `mailto:${value}`;
                                 const Icon = type === 'phone' ? PhoneIcon : MailIcon;
@@ -171,7 +178,7 @@ const Footer = ({ contacts }) => {
                             })}
                         </ul>
                     </StyledFooterContent>
-
+                   
                     <StyledFooter>
                         <div className="right">&copy; {year} Solidlink|Edu Consulting. All Rights Reserved.</div>
                         <div className="left">
