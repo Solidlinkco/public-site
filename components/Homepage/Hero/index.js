@@ -13,8 +13,8 @@ const Hero = ({ heroImage }) => {
                     <h1>Want to study abroad?</h1>
                     <p>Secure admission to study in the UK, USA, Canada, Ireland & other top countries</p>
                     <StyledButtons>
-                        <a href={LINKS.getStartedUrl} target="_blank" rel="noreferrer noopener">
-                            <span>Get started</span>
+                        <a href={LINKS.getStartedUrl}  rel="noreferrer noopener">
+                            <span>Book Your Consultation</span>
                         </a>
 
                         <button onClick={toggleBrochure}>

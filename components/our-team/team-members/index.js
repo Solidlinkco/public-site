@@ -1,8 +1,16 @@
-import React from 'react';
-import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+import React from 'react'; 
+import Masonry from "react-masonry-css";
 
 import { StyledWrapper, StyleTeamMember } from './styled';
 import { H2 } from '../../atoms/H2';
+
+
+const breakpointColumnsObj = {
+    default: 4,
+    1310: 3,
+    975: 2,
+    619: 1
+  }
 
 const TeamMembers = ({ teamMembers }) => {
     return (
@@ -13,9 +21,11 @@ const TeamMembers = ({ teamMembers }) => {
                 </H2>
             </div>
             <div className="col-12">
-                <StyledWrapper>
-                    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 550: 1, 850: 2, 900: 3, 1200: 4 }}>
-                        <Masonry gutter="32px">
+                <StyledWrapper> 
+                        <Masonry  
+                        breakpointCols={breakpointColumnsObj}
+  className="my-masonry-grid"
+  columnClassName="my-masonry-grid_column">
                             {teamMembers.map(({ position, fullName, image, bio }) => (
                                 <StyleTeamMember key={`ff${fullName}`} img={image.url}>
                                     <div>
@@ -25,8 +35,7 @@ const TeamMembers = ({ teamMembers }) => {
                                     </div>
                                 </StyleTeamMember>
                             ))}
-                        </Masonry>
-                    </ResponsiveMasonry>
+                        </Masonry> 
                 </StyledWrapper>
             </div>
         </div>

@@ -1,60 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StyledWrapper } from './styled';
 import { P16B } from '../../atoms/P16B';
 import { Binoculars, Plane, Institutions, Grad } from '../../../assets/icons';
-import CountUp from 'react-countup';
-import Hammer from 'react-hammerjs';
-import TweenLite from 'gsap';
+import CountUp from 'react-countup';  
 
 const STATS = [
     {
-        label: 'PARTNER AGENTS',
-        total: 50,
+        label: 'YEARS IN BUSINESS',
+        total: 10,
         icon: Binoculars,
     },
     {
         label: 'STUDENTS SENT ABROAD',
-        total: 5000,
+        total: 500,
         icon: Plane,
     },
     {
-        label: 'PARTNER INSTITUTIONS',
+        label: 'PARTNER SCHOOLS',
         total: 150,
         icon: Institutions,
     },
     {
-        label: 'ALL GRADUATES',
-        total: 4800,
+        label: 'PARTNER AGENTS',
+        total: 50,
         icon: Grad,
     },
 ];
-const Stats = () => {
-    const [position, setPosition] = useState(0);
-
-    const handleSwipe = (swipeEvent) => {
-        // const elements = document.getElementsByClassName(CARDS_CLASS).length;
-
-        if (swipeEvent.direction == 2) {
-            // left
-            if (position < 2) {
-                setPosition(position + 1);
-            }
-        } else if (swipeEvent.direction == 4) {
-            // right
-            if (position > 0) {
-                setPosition(position - 1);
-            }
-        }
-    };
-
-    useEffect(() => {
-        const swipeElement = document.getElementsByClassName('stats-wrap')[0];
-        TweenLite.to(swipeElement, { duration: 0.3, ease: ' Power4.easeOut', x: -100 * position + '%' });
-    }, [position]);
-
+const Stats = () => { 
     return (
-        <div className="col-12">
-            <Hammer onSwipe={handleSwipe}>
+        <div className="col-12"> 
                 <StyledWrapper className="stats-wrap">
                     {STATS.map(({ label, total, icon }) => {
                         const Icon = icon;
@@ -69,8 +43,7 @@ const Stats = () => {
                             </div>
                         );
                     })}
-                </StyledWrapper>
-            </Hammer>
+                </StyledWrapper> 
         </div>
     );
 };

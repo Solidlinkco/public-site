@@ -31,10 +31,10 @@ const LINK = [
                 label: 'Institutions',
                 to: '/institutions',
             },
-            {
-                label: 'Secondary schools',
-                to: '/secondary-school',
-            },
+            // {
+            //     label: 'Secondary schools',
+            //     to: '/secondary-school',
+            // },
         ],
     },
     {

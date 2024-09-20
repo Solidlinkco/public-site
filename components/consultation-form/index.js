@@ -1,14 +1,21 @@
 import React from 'react';
-import Form from './Form';
+import dynamic from 'next/dynamic';
+// import Form from './Form';
 import Layout from '../ui/Layout';
 import { ToastContainer } from 'react-toastify';
 
+const DynamicForm =  dynamic(() => import('./Form'), {
+    ssr: false,
+});
+
 const ConsultationForm = ({ contacts }) => {
+
+     
     return (
         <>
             <Layout contacts={contacts}>
                 <div className="col-12 centered collapse-mobile">
-                    <Form />
+                    <DynamicForm />
                     <br />
                     <br />
                     <br />

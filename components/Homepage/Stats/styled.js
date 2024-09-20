@@ -3,16 +3,20 @@ import styled from 'styled-components';
 export const StyledWrapper = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     margin: 40px 0 80px 0;
     color: #f49d2a;
+    flex-flow: row wrap;
+    gap: 60px;
 
     & div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        min-width: 250px;
+        width: 200px; 
+        text-align: center;
+
         svg {
             height: 50px;
             margin-bottom: 30px;
