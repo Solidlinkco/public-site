@@ -4,16 +4,17 @@ import { P16B } from '../../atoms/P16B';
 import { Binoculars, Plane, Institutions, Grad } from '../../../assets/icons';
 import CountUp from 'react-countup';  
 
+
 const STATS = [
-    {
-        label: 'YEARS IN BUSINESS',
-        total: 10,
-        icon: Binoculars,
-    },
     {
         label: 'STUDENTS SENT ABROAD',
         total: 500,
         icon: Plane,
+    },
+    {
+        label: 'YEARS IN BUSINESS',
+        total: 10,
+        icon: Grad,
     },
     {
         label: 'PARTNER SCHOOLS',
@@ -21,11 +22,12 @@ const STATS = [
         icon: Institutions,
     },
     {
-        label: 'PARTNER AGENTS',
+        label: 'PARTNER COUNTRIES',
         total: 50,
-        icon: Grad,
+        icon: Binoculars,
     },
 ];
+ 
 const Stats = () => { 
     return (
         <div className="col-12"> 
