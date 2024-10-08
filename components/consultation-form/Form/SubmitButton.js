@@ -11,7 +11,7 @@ export const SubmitButton = () => {
 
     const { isSubmitting, handleSubmit } = useFormikContext();
 
-    const showLoadingSpinner = isSubmitting || !isEmpty(searchParams.reference);
+    const showLoadingSpinner = true ||  isSubmitting || !isEmpty(searchParams.reference);
 
     const label = showLoadingSpinner ? 'Submitting..' : 'Submit';
 
