@@ -5,16 +5,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import classes from '../Header/styled.module.scss';
 import PhoneIcon from '@material-ui/icons/PhoneRounded';
-import MailIcon from '@material-ui/icons/MailRounded';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import InstagramIcon from '@material-ui/icons/Instagram';
+import MailIcon from '@material-ui/icons/MailRounded'; 
 import RoomIcon from '@material-ui/icons/Room';
 import MainCTA from './MainCTA';
 import { v4 } from 'uuid';
-import { SOCIAL_ICON_MAP, LEFT_MAP, RIGHT_MAP } from '../Header';
-import { LINKS } from '../../../constants/links';
+import { SOCIAL_ICON_MAP, LEFT_MAP, RIGHT_MAP } from '../Header'; 
 import { useBrochureContext } from '../Layout/BrochureModal/brochure-context';
+import {NewsletterCTA} from "./NewsletterCTA/NewsletterCTA";
 
 const FOOTER_CONTENT = [
     {
@@ -83,7 +80,10 @@ const Footer = ({ contacts }) => {
         <>
             <MainCTA />
             <StyledWrapper>
+                
                 <div className="col-12">
+                <NewsletterCTA />
+                
                     <StyledHeader>
                         <Link href="/">
                             <>

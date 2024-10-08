@@ -1,0 +1,80 @@
+.Wrapper {
+    display:   flex;
+    justify-content: center;
+    align-items: center;
+    gap: 48px;
+    padding: 40px 0;
+
+    @media screen and (max-width: 900px) {
+        flex-direction: column;
+        gap: 20px;
+       
+        & > * {
+            text-align: center;
+        }
+    }
+
+    & > div {
+        flex:1;
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width: 900px) {
+            justify-content: center;
+        }
+
+        @media screen and (max-width: 450px) {
+           flex-direction: column;
+           width: 100%;
+           gap: 10px;
+        }
+
+        & div {
+            margin: 0 0 0 10px !important;
+            padding: 0 !important;
+            min-width: unset !important; 
+            @media screen and (max-width: 450px) { 
+                width: 100% !important; 
+                margin-left: 0 !important;
+             }
+            & button {
+                width: 120px;
+                background-color: #73d97a;
+                padding: 14px 24px;
+                border-radius: 6px;
+                font-size: 16px;
+                font-weight: 800 !important;
+                border: 1px solid rgba(0,0,0,0);
+
+                @media screen and (max-width: 450px) { 
+                    width: 100% !important; 
+                 }
+
+                &:hover {
+                    background-color: #56b55b;
+                }
+            }
+        }
+    }
+}
+
+.InputField {
+
+    @media screen and (max-width: 450px) {
+ width: 100% !important;
+        
+     }
+    input {
+        height: 48px !important; 
+        border-color: #f49d2a !important;
+        color: #f49d2a !important;
+
+        &::placeholder {
+            color: #f49d2a !important;
+        }
+    }
+
+    label {
+        color: #f49d2a !important;
+    }
+}

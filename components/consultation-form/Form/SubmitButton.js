@@ -6,7 +6,7 @@ import classes from './styled.module.scss';
 import useSearch from '../../../hooks/useSearch';
 
 import StyledButton from '../../atoms/StyledButton';
-const SubmitButton = () => {
+export const SubmitButton = () => {
     const [searchParams] = useSearch();
 
     const { isSubmitting, handleSubmit } = useFormikContext();

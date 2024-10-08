@@ -4,7 +4,7 @@ const StyledButton = styled.button`
     background-color: ${({ bgcolor }) => bgcolor || '#73d97a'};
     border: none;
     outline: none;
-    border-radius: 10px;
+    border-radius: 6px;
     color: #fff;
     opacity: 1;
     cursor: pointer;

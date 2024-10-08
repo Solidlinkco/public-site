@@ -4,10 +4,10 @@ import classes from './styled.module.scss';
 import { SelectInput } from './select';
 import { DatePicker } from './date-picker';
 
-const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth, helperText }) => {
+export const InputField = ({ name, type, label, placeholder, required, options = [], pattern, fullWidth, helperText, customClassName }) => {
     const [field, { error, touched }, { setValue, setTouched }] = useField(name);
 
-    const isTextInput = type === 'text';
+    const isTextInput = type === 'text' || type === 'email';
     const isTextArea = type === 'textarea';
     const isDateInput = type === 'date';
     const isSelectInput = type === 'select';
@@ -19,7 +19,7 @@ const InputField = ({ name, type, label, placeholder, required, options = [], pa
         <div
             className={`${classes.InputWrapper} ${isTextArea ? classes.isTextArea : ''} ${
                 fullWidth ? classes.fullWidth : ''
-            }`}
+            } ${customClassName || ""}`}
         >
             <label htmlFor={name} className={classes.Label}>
                 {label} {required && <span>*</span>}

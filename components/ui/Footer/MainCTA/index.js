@@ -23,7 +23,7 @@ const MainCTA = () => {
                             </StyledButton>
                         </a>
 
-                        <StyledButton as="span" bgcolor="#400436" onClick={toggleBrochure}>
+                        <StyledButton padding="12px 24px" as="span" bgcolor="#400436" onClick={toggleBrochure}>
                             Download Brochure
                         </StyledButton>
                     </StyledButtons>

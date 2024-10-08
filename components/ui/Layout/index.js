@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { arrayOf, shape, string } from 'prop-types';
+import { ToastContainer } from 'react-toastify';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -7,6 +8,7 @@ import styled from 'styled-components';
 import FloatingComponent from './FloatingComponent';
 import BrochureModal from './BrochureModal/BrochureModal';
 import { BrochureProvider } from './BrochureModal/brochure-context';
+import 'react-toastify/dist/ReactToastify.css';
 
 const StyledMain = styled.main`
     padding-top: 120px;
@@ -27,6 +29,7 @@ const Layout = ({ children, contacts }) => {
     };
 
     return (
+        <>
         <BrochureProvider
             value={{
                 brochureOpen,
@@ -40,6 +43,17 @@ const Layout = ({ children, contacts }) => {
             <FloatingComponent />
             <Footer contacts={contacts} />
         </BrochureProvider>
+        <ToastContainer
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+    />
+    </>
     );
 };
 

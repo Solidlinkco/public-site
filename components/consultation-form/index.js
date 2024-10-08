@@ -2,7 +2,6 @@ import React from 'react';
 import dynamic from 'next/dynamic';
 // import Form from './Form';
 import Layout from '../ui/Layout';
-import { ToastContainer } from 'react-toastify';
 
 const DynamicForm =  dynamic(() => import('./Form'), {
     ssr: false,
@@ -22,16 +21,7 @@ const ConsultationForm = ({ contacts }) => {
                     <br />
                 </div>
             </Layout>
-            <ToastContainer
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-            />
+            
         </>
     );
 };
