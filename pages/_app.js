@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Router from 'next/router';
-
+import { GoogleTagManager } from '@next/third-parties/google'
 import PageLoader from '../components/ui/PageLoader';
 import '../scss/master.scss';
 import '../scss/slider.css';
@@ -60,6 +60,7 @@ function MyApp({ Component, pageProps }) {
 
             {loading && <PageLoader />}
             <Component {...pageProps} />
+            <GoogleTagManager gtmId="GTM-M69QSKVD" />
         </React.Fragment>
     );
 }
