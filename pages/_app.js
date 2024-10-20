@@ -60,7 +60,7 @@ function MyApp({ Component, pageProps }) {
 
             {loading && <PageLoader />}
             <Component {...pageProps} />
-            <GoogleTagManager gtmId="GTM-M69QSKVD" />
+            <GoogleTagManager gtmId="G-DFSTWJX2XK" />
         </React.Fragment>
     );
 }
