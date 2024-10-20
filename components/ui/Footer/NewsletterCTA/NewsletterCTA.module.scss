@@ -14,7 +14,7 @@
         }
     }
 
-    & > div {
+    & .Inputs {
         flex:1;
         display: flex;
         align-items: center;
@@ -77,4 +77,29 @@
     label {
         color: #f49d2a !important;
     }
+}
+
+
+.NewsletterTitle {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 520px;
+
+    
+
+    .captchaWrapper { 
+        transform: translateX(-48px)  !important;
+    }
+
+    @media screen and (max-width: 900px) {
+        align-items: center;
+        text-align: center;
+
+        .captchaWrapper { 
+            transform: translateX(0)  !important;
+        }
+    }
+    
+    
 }

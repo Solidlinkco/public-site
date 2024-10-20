@@ -1,5 +1,8 @@
 import * as React from 'react';
 import * as Yup from 'yup';
+import { 
+    useGoogleReCaptcha
+  } from 'react-google-recaptcha-v3';
 import { toast, ToastContainer } from 'react-toastify';
 import {P24} from "../../../atoms/P24";
 import {Formik, Form} from 'formik';
@@ -15,9 +18,37 @@ const INITIAL_VALUES = {
 };
  
 export const NewsletterCTA   = () => {
+    const { executeRecaptcha } = useGoogleReCaptcha();
 
+    // Create an event handler so you can call the verification on button click event or form submit
+    const handleReCaptchaVerify = React.useCallback(async () => {
+      if (!executeRecaptcha) { 
+        return;
+      }
+  
+      const token = await executeRecaptcha();
+      const res = await fetch('/api/captcha', {
+        method: "POST",
+        body: token,
+        });
+        const body = await res.json();
+      
+
+        if(body.ok) {
+            return true;
+        }
+        return false;
+    }, [executeRecaptcha]);
+  
 
     const handleSubmit = async(values) => {
+        const isVerified = await handleReCaptchaVerify();
+        if(!isVerified) {
+            toast("Captcha failed", {
+                type: 'error', 
+            });
+            return;
+        }
          
       try {
         const res =  await fetch('/api/newsletter', {
@@ -49,13 +80,14 @@ return (
     <Form>
     <div className={classes.Wrapper}>
          
-      <div>
+      <div className={classes.NewsletterTitle}>
       <P24 color="#f49d2a;">
             Sign up for Newsletter to win a chance of a free consultation.
         </P24>
+        <div id="captcha-container" className={classes.captchaWrapper}></div>
       </div>
     
-      <div>
+      <div className={classes.Inputs}>
       <InputField 
         name="email"
         type="email"
@@ -64,8 +96,10 @@ return (
         customClassName={classes.InputField}
 
 />
-<SubmitButton />
+<SubmitButton /> 
       </div>
+
+      
     </div>
     </Form>
     </Formik>

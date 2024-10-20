@@ -1,5 +1,6 @@
 import { arrayOf, shape, string } from 'prop-types';
 import React, { useMemo } from 'react';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import { StyledWrapper, StyledHeader, StyledSocial, StyledFooter, StyledFooterContent } from './styled';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -77,7 +78,16 @@ const Footer = ({ contacts }) => {
     const address = useMemo(() => contacts?.find((el) => el?.type === 'address'), [contacts]);
 
     return (
-        <>
+        <GoogleReCaptchaProvider  reCaptchaKey ={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+        
+        
+        container={{ // optional to render inside custom element
+            element: "captcha-container", 
+            parameters: {
+              badge: 'inline',   
+            }
+          }}
+        >
             <MainCTA />
             <StyledWrapper>
                 
@@ -192,7 +202,7 @@ const Footer = ({ contacts }) => {
                     </StyledFooter>
                 </div>
             </StyledWrapper>
-        </>
+        </GoogleReCaptchaProvider>
     );
 };
 
